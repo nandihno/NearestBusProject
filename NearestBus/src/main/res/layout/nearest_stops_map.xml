@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:background="#ff469b66"
+                tools:context=".NearestStopsMapActivity">
+    <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switch to list"
+            android:id="@+id/switchToBusStop"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:checked="false"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nearest stop"
+            android:id="@+id/nearestStopMapBtn"
+            android:layout_toRightOf="@+id/switchToBusStop"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/green_button"
+            style="@style/button_text"
+            />
+
+    <fragment
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/mapStop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/nearestStopMapBtn"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_marginTop="20dp"/>
+</RelativeLayout>

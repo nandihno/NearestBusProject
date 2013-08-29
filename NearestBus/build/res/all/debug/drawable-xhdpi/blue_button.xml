@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" >
+        <shape>
+            <solid
+                    android:color="#ff2aefe1" />
+            <stroke
+                    android:width="1dp"
+                    android:color="#ff599699" />
+            <corners
+                    android:radius="6dp" />
+            <padding
+                    android:left="10dp"
+                    android:top="10dp"
+                    android:right="10dp"
+                    android:bottom="10dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient
+                    android:startColor="#ff48fff7"
+                    android:endColor="#ff599699"
+                    android:angle="270" />
+            <stroke
+                    android:width="1dp"
+                    android:color="#ff599699" />
+            <corners
+                    android:radius="6dp" />
+            <padding
+                    android:left="10dp"
+                    android:top="10dp"
+                    android:right="10dp"
+                    android:bottom="10dp" />
+        </shape>
+    </item>
+</selector><!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/drawable-xhdpi/blue_button.xml -->
