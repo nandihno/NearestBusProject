@@ -206,6 +206,7 @@ public class NearestStopsActivity extends BaseActivityFragment implements Google
             else {
                 AlertDialog dialog = dialogHelper.createAlertDialog("Warning","You dont have google services app install download from playstore",true);
                 dialog.show();
+                CheckConnectivityUtils.downloadGooglePlayServices(getActivity());
 
 
             }

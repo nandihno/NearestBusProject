@@ -79,6 +79,10 @@ public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract imp
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b) {
+                    if(!CheckConnectivityUtils.weHaveGoogleServices(getActivity())) {
+                        CheckConnectivityUtils.downloadGooglePlayServices(getActivity());
+                    }
+
                     aSwitch.setChecked(false);
                     Intent intent = new Intent(getActivity(),NearestBusRouteMapActivity.class);
                     intent.putExtra("busRoute",editText.getText().toString());
@@ -215,6 +219,9 @@ public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract imp
             else {
                 AlertDialog dialog = dialogHelper.createAlertDialog("Warning","You dont have google play services, please download from playstore",true);
                 dialog.show();
+                CheckConnectivityUtils.downloadGooglePlayServices(getActivity());
+
+
             }
 
         }

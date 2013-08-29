@@ -2,6 +2,8 @@ package org.nando.nearestbus.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -28,6 +30,11 @@ public  class CheckConnectivityUtils {
             return false;
 
         }
+    }
+
+    public static void downloadGooglePlayServices(Activity activity) {
+        Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.google.android.gms"));
+        activity.startActivity(marketIntent);
     }
 
 

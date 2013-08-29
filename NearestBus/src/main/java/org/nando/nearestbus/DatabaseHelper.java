@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static String DB_PATH = "/data/data/org.nando.nearestbus/databases/";
 
-    private static String DB_NAME = "BusDBForAug";
+    private static String DB_NAME = "BusDBForSept";
 
     private SQLiteDatabase myDataBase;
 
