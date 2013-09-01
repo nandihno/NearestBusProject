@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class BusRoute implements Serializable {
 
-    public List<LocationPojo> locations;
+    public List<BusStops> locations;
     public String busRoute;
     public String stopId;
     public String busRouteId;

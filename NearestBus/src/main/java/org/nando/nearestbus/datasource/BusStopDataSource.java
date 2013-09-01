@@ -147,9 +147,9 @@ public class BusStopDataSource {
         String table3 = "stop_times_thursday_3";
         String table4 = "stop_times_thursday_4";
         List<BusRoute> list = null;
-        String sqlp1 = "select distinct rts.route_short_name,rts.route_id from ";
-        String sqlp2 = " thurs, trips trp, routes rts where thurs.stop_id = ?" +
-                " and trp.trip_id = thurs.trip_id and rts.route_id = trp.route_id ";
+        String sqlp1 = "select distinct rts.route_short_name,rts.route_id,stp.stop_id from ";
+        String sqlp2 = " thurs, trips trp, routes rts, stops stp where thurs.stop_id = ?" +
+                " and trp.trip_id = thurs.trip_id and rts.route_id = trp.route_id  and thurs.stop_id = stp.stop_id";
         String [] arrParams = new String[] {stopId};
         Cursor cursor = database.rawQuery(sqlp1+table1+sqlp2,arrParams);
         list = performCursorFunctionOnStopTimesTables(cursor);
@@ -204,10 +204,10 @@ public class BusStopDataSource {
             }
         }
         cursor.close();
-        LocationPojo p1 = GeoUtils.calculateDerivedPosition(suburbLatLng,1600,0);
-        LocationPojo p2 = GeoUtils.calculateDerivedPosition(suburbLatLng,1600,90);
-        LocationPojo p3 = GeoUtils.calculateDerivedPosition(suburbLatLng,1600,180);
-        LocationPojo p4 = GeoUtils.calculateDerivedPosition(suburbLatLng,1600,270);
+        LocationPojo p1 = GeoUtils.calculateDerivedPosition(suburbLatLng,1800,0);
+        LocationPojo p2 = GeoUtils.calculateDerivedPosition(suburbLatLng,1800,90);
+        LocationPojo p3 = GeoUtils.calculateDerivedPosition(suburbLatLng,1800,180);
+        LocationPojo p4 = GeoUtils.calculateDerivedPosition(suburbLatLng,1800,270);
         List<BusStops> allbusesInThatSuburb = this.getNearestBusStop(p1,p2,p3,p4);
         List<BusRoute> allRoutesInThatSuburb = this.listOfAllBusRoutes(allbusesInThatSuburb);
 
@@ -241,12 +241,12 @@ public class BusStopDataSource {
     }
 
     public void setAllStopsForBusNumber(BusRoute busRoute) {
-        List<LocationPojo> list = new ArrayList<LocationPojo>();
+        List<BusStops> list = new ArrayList<BusStops>();
         String thurs1 = "stop_times_thursday_1 ";
         String thurs2 = "stop_times_thursday2 ";
         String thurs3 = "stop_times_thursday_3 ";
         String thurs4 = "stop_times_thursday_4 ";
-        String sql = "select stp.stop_id, stp.stop_lat, stp.stop_lon from trips trp, Stops stp, ";
+        String sql = "select stp.stop_id, stp.stop_lat, stp.stop_lon,stp.stop_name,stp.stop_url,stp.zone_id from trips trp, Stops stp, ";
         String sql2 = " thurs where trp.trip_id = thurs.trip_id and thurs.stop_id = stp.stop_id and "+
                 "trp.route_id = ?";
         Cursor cursor = database.rawQuery(sql+thurs1+sql2,new String[]{busRoute.busRouteId});
@@ -262,12 +262,18 @@ public class BusStopDataSource {
 
     }
 
-    private void performCursorDisplayAllStopsFunction(Cursor cursor,List<LocationPojo>list) {
+    private void performCursorDisplayAllStopsFunction(Cursor cursor,List<BusStops>list) {
         cursor.moveToNext();
         if(cursor.getCount() != 0) {
             while(!cursor.isAfterLast()) {
-                LocationPojo location = new LocationPojo(cursor.getDouble(2),cursor.getDouble(1));
-                list.add(location);
+                BusStops stops = new BusStops();
+                stops.setLatitude(cursor.getDouble(1));
+                stops.setLongtitude(cursor.getDouble(2));
+                stops.setId(cursor.getString(0));
+                stops.setName(cursor.getString(3));
+                stops.setUrl(cursor.getString(4));
+                stops.setZone(cursor.getString(5));
+                list.add(stops);
                 cursor.moveToNext();
             }
         }
@@ -295,6 +301,7 @@ public class BusStopDataSource {
                 BusRoute route = new BusRoute();
                 route.busRoute = cursor.getString(0);
                 route.busRouteId = cursor.getString(1);
+                route.stopId = cursor.getString(2);
                 list.add(route);
                 cursor.moveToNext();
             }

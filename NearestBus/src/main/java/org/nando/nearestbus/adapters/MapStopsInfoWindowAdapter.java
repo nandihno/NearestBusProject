@@ -45,7 +45,9 @@ public class MapStopsInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         BusStops stops = map.get(marker);
         name.setText(stops.getName());
         zone.setText("Zone: "+stops.getZone());
-        distance.setText("Distance: "+stops.getDistanceFromCurrentPoint());
+        if(stops.getDistanceFromCurrentPoint() != null) {
+          distance.setText("Distance: "+stops.getDistanceFromCurrentPoint());
+        }
         if(stops.getBusRoutes() != null) {
             List<BusRoute> routes = stops.getBusRoutes();
             StringBuffer buff = new StringBuffer();

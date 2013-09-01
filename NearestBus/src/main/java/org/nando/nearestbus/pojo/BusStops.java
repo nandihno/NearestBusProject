@@ -74,9 +74,14 @@ public class BusStops implements Comparable<BusStops> {
     }
 
     public Double getDistanceFromCurrentPoint() {
-        long dLong = Math.round(distanceFromCurrentPoint);
+        if(distanceFromCurrentPoint != null) {
+            long dLong = Math.round(distanceFromCurrentPoint);
 
-        return (double)dLong;
+            return (double)dLong;
+        }
+        else {
+            return null;
+        }
     }
 
     public void setDistanceFromCurrentPoint(Double distanceFromCurrentPoint) {

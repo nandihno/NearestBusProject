@@ -74,6 +74,7 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
         button.setOnClickListener(this);
         editText.setAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line,fetchAllSuburbsInQld()));
 
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

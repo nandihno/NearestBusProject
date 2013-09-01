@@ -3,6 +3,7 @@ package org.nando.nearestbus;
 import android.app.Activity;
 import android.content.Intent;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -21,25 +22,30 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.nando.nearestbus.adapters.MapStopsInfoWindowAdapter;
 import org.nando.nearestbus.datasource.BusStopDataSource;
 import org.nando.nearestbus.pojo.BusRoute;
+import org.nando.nearestbus.pojo.BusStops;
 import org.nando.nearestbus.pojo.LocationPojo;
 import org.nando.nearestbus.task.DisplayAllBusRouteTask;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by fernandoMac on 28/08/13.
  */
 public class AllBusRouteActivityMap extends Activity implements GooglePlayServicesClient.ConnectionCallbacks,
         GooglePlayServicesClient.OnConnectionFailedListener,
-        LocationListener, View.OnClickListener{
+        LocationListener,GoogleMap.OnInfoWindowClickListener{
 
     private Location location;
     private LocationClient locationClient;
     private Switch aSwitch;
     private GoogleMap map;
+    private Map<Marker,BusStops> markerPojoMap = new HashMap<Marker, BusStops>();
 
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(10000)         // 10 seconds
@@ -70,6 +76,7 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
         });
         BusRoute route = (BusRoute) getIntent().getSerializableExtra("busRoute");
         map.setMyLocationEnabled(true);
+        map.setOnInfoWindowClickListener(this);
         displayMapMarkers(route);
 
     }
@@ -94,15 +101,18 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
     public void displayBusStops(BusRoute route) {
         if(route != null ) {
             if(route.locations != null) {
-                List<LocationPojo> locations = route.locations;
-                for(LocationPojo location:locations) {
-                    LatLng latLng = new LatLng(location.latitude,location.longtitude);
+                List<BusStops> locations = route.locations;
+                for(BusStops location:locations) {
+                    LatLng latLng = new LatLng(location.getLatitude(),location.getLongtitude());
                     Marker marker = map.addMarker(createMarkerOptions(latLng,route.busRoute,"",BitmapDescriptorFactory.HUE_ORANGE));
+                    markerPojoMap.put(marker,location);
+
                 }
             }
         }
         location = locationClient.getLastLocation();
         LatLng current = new LatLng(location.getLatitude(),location.getLongitude());
+        map.setInfoWindowAdapter(new MapStopsInfoWindowAdapter(this,markerPojoMap));
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 16));
 
     }
@@ -144,13 +154,21 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
 
     }
 
+
+
     @Override
-    public void onClick(View view) {
+    public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
 
     @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
+    public void onInfoWindowClick(Marker marker) {
+        BusStops stops = markerPojoMap.get(marker);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        if(stops.getUrl() != null || stops.getUrl().isEmpty()) {
+            intent.setData(Uri.parse(stops.getUrl()));
+            startActivity(intent);
+        }
 
     }
 }
