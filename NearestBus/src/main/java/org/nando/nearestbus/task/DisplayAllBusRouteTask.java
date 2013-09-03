@@ -3,6 +3,7 @@ package org.nando.nearestbus.task;
 import android.os.AsyncTask;
 
 import org.nando.nearestbus.AllBusRouteActivityMap;
+import org.nando.nearestbus.AllBusRouteFragment;
 import org.nando.nearestbus.datasource.BusStopDataSource;
 import org.nando.nearestbus.pojo.BusRoute;
 import org.nando.nearestbus.pojo.BusStops;
@@ -14,10 +15,15 @@ import java.util.List;
  */
 public class DisplayAllBusRouteTask extends AsyncTask<Object,Void,BusRoute> {
 
-    AllBusRouteActivityMap activity;
+    AllBusRouteActivityMap activity = null;
+    AllBusRouteFragment fragment = null;
 
     public DisplayAllBusRouteTask(AllBusRouteActivityMap anActivity) {
         activity = anActivity;
+    }
+
+    public DisplayAllBusRouteTask(AllBusRouteFragment aFragment) {
+        fragment = aFragment;
     }
 
 
@@ -32,7 +38,13 @@ public class DisplayAllBusRouteTask extends AsyncTask<Object,Void,BusRoute> {
     }
 
     protected void onPostExecute(BusRoute route) {
-        activity.displayBusStops(route);
+        if(activity != null) {
+            activity.displayBusStops(route);
+        }
+        else {
+           fragment.displayBusStops(route);
+        }
+
 
     }
 

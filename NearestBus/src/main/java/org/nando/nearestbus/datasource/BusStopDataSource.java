@@ -249,6 +249,9 @@ public class BusStopDataSource {
         String sql = "select stp.stop_id, stp.stop_lat, stp.stop_lon,stp.stop_name,stp.stop_url,stp.zone_id from trips trp, Stops stp, ";
         String sql2 = " thurs where trp.trip_id = thurs.trip_id and thurs.stop_id = stp.stop_id and "+
                 "trp.route_id = ?";
+        if(busRoute.busRouteId == null || busRoute.busRouteId.isEmpty()) {
+            setBusRouteFromBusNo(busRoute);
+        }
         Cursor cursor = database.rawQuery(sql+thurs1+sql2,new String[]{busRoute.busRouteId});
         performCursorDisplayAllStopsFunction(cursor, list);
         Cursor cursor2 = database.rawQuery(sql+thurs2+sql2,new String[]{busRoute.busRouteId});
@@ -273,6 +276,8 @@ public class BusStopDataSource {
                 stops.setName(cursor.getString(3));
                 stops.setUrl(cursor.getString(4));
                 stops.setZone(cursor.getString(5));
+                //runs too slow
+                //stops.setBusRoutes(fetchBusRoutesForEachStop(cursor.getString(0)));
                 list.add(stops);
                 cursor.moveToNext();
             }
@@ -308,6 +313,25 @@ public class BusStopDataSource {
         }
         cursor.close();
         return  list;
+    }
+
+    public void setBusRouteFromBusNo(BusRoute busRoute) {
+
+        String busNoP = "P"+busRoute.busRoute;
+        String sql = "select route_id,route_short_name,route_long_name,route_type from routes where route_short_name = ? or route_short_name = ? LIMIT 1";
+        Cursor cursor = database.rawQuery(sql,new String[]{busRoute.busRoute,busNoP});
+        cursor.moveToNext();
+        if(cursor.getCount() !=0) {
+            while(!cursor.isAfterLast()) {
+                busRoute.busRoute = cursor.getString(1);
+                busRoute.busRouteId = cursor.getString(0);
+                busRoute.routeLongName = cursor.getString(2);
+                busRoute.routeType = cursor.getColumnName(3);
+
+                cursor.moveToNext();
+            }
+        }
+        cursor.close();
     }
 
 

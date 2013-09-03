@@ -11,15 +11,29 @@
     android:background="#ffebd186"
     tools:context=".AllBusRouteActivityMap">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stops bus no 200 makes "
+        android:id="@+id/busRouteNoText"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/switchToBusRouteList" />
+
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Switch to list"
         android:id="@+id/switchToBusRouteList"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:checked="false"/>
+        android:checked="false"
+        android:layout_below="@+id/busRouteNoText"
+        android:textSize="20dp"/>
+
+
+
 
     <fragment
         xmlns:android="http://schemas.android.com/apk/res/android"

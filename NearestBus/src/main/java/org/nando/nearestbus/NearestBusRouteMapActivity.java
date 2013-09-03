@@ -84,7 +84,7 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
         } catch(IOException ioe) {
             throw new Error("Unable to create db");
         }
-        dbHelper.openDataBase();
+
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
                 .getMap();
 

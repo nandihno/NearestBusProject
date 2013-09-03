@@ -68,7 +68,7 @@ public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract imp
         } catch(IOException ioe) {
             throw new Error("Unable to create db");
         }
-        dbHelper.openDataBase();
+        //dbHelper.openDataBase();
 
         listView = (ListView) rootView.findViewById(R.id.listViewStops);
         searchBtn = (Button) rootView.findViewById(R.id.findBusStop);

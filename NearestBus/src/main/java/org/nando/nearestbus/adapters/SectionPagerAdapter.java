@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import org.nando.nearestbus.AllBusRouteFragment;
 import org.nando.nearestbus.FromHereToThereFragment;
 import org.nando.nearestbus.NearestBusRouteActivity;
 import org.nando.nearestbus.NearestBusRouteMapActivity;
@@ -29,13 +30,15 @@ public class SectionPagerAdapter extends FragmentPagerAdapter {
                 return new NearestBusRouteActivity();
             case 2:
                 return new FromHereToThereFragment();
+            case 3:
+                return new AllBusRouteFragment();
         }
         return  null;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     public CharSequence getPageTitle(int position) {
@@ -46,6 +49,8 @@ public class SectionPagerAdapter extends FragmentPagerAdapter {
                 return "Find nearest bus routes";
             case 2:
                 return "Which bus goes there";
+            case 3:
+                return "Stops for any bus";
 
         }
         return null;

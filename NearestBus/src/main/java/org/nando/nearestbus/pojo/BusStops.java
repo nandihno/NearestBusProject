@@ -13,7 +13,7 @@ public class BusStops implements Comparable<BusStops> {
     private double latitude;
     private String url;
     private String zone;
-    private Double distanceFromCurrentPoint;
+    private Double distanceFromCurrentPoint = new Double(0);
 
     private List<BusRoute> busRoutes;
 
@@ -74,7 +74,7 @@ public class BusStops implements Comparable<BusStops> {
     }
 
     public Double getDistanceFromCurrentPoint() {
-        if(distanceFromCurrentPoint != null) {
+        if(distanceFromCurrentPoint != null || distanceFromCurrentPoint.equals(0.0)) {
             long dLong = Math.round(distanceFromCurrentPoint);
 
             return (double)dLong;

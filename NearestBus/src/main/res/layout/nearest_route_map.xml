@@ -54,7 +54,8 @@
             android:layout_below="@+id/editText"
             android:layout_alignRight="@+id/findBusStop"
             android:layout_marginTop="11dp"
-            android:checked="false"/>
+            android:checked="false"
+        android:textSize="20dp" />
 
 
 </RelativeLayout>

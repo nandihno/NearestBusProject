@@ -12,6 +12,8 @@ public class BusRoute implements Serializable {
     public String busRoute;
     public String stopId;
     public String busRouteId;
+    public String routeLongName;
+    public String routeType;
 
     @Override
     public boolean equals(Object o) {

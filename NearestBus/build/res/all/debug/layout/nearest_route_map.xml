@@ -54,7 +54,8 @@
             android:layout_below="@+id/editText"
             android:layout_alignRight="@+id/findBusStop"
             android:layout_marginTop="11dp"
-            android:checked="false"/>
+            android:checked="false"
+        android:textSize="20dp" />
 
 
 </RelativeLayout><!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/layout/nearest_route_map.xml -->

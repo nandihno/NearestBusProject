@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
@@ -46,6 +47,7 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
     private Switch aSwitch;
     private GoogleMap map;
     private Map<Marker,BusStops> markerPojoMap = new HashMap<Marker, BusStops>();
+    private TextView busRouteText;
 
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(10000)         // 10 seconds
@@ -64,6 +66,7 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.mapBusRoute))
                 .getMap();
         aSwitch = (Switch) findViewById(R.id.switchToBusRouteList);
+        busRouteText = (TextView) findViewById(R.id.busRouteNoText);
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -75,15 +78,28 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
             }
         });
         BusRoute route = (BusRoute) getIntent().getSerializableExtra("busRoute");
+
+
         map.setMyLocationEnabled(true);
         map.setOnInfoWindowClickListener(this);
         displayMapMarkers(route);
+        displayBusRouteText(route);
 
     }
 
+    private void displayBusRouteText(BusRoute route) {
+        if(route.busRoute == null || route.busRoute.isEmpty()) {
+            busRouteText.setText("Bus number unavailable");
+        }
+        else {
+            busRouteText.setText("Stops for bus "+route.busRoute+" ");
+        }
+    }
+
     private void displayMapMarkers(BusRoute route) {
+        map.clear();
         BusStopDataSource dataSource = new BusStopDataSource(this);
-        if(route != null && route.busRouteId != null) {
+        if(route != null ) {
             DisplayAllBusRouteTask task = new DisplayAllBusRouteTask(this);
             task.execute(dataSource,route);
         }
@@ -113,7 +129,7 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
         location = locationClient.getLastLocation();
         LatLng current = new LatLng(location.getLatitude(),location.getLongitude());
         map.setInfoWindowAdapter(new MapStopsInfoWindowAdapter(this,markerPojoMap));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 16));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 13));
 
     }
 

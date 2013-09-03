@@ -69,7 +69,7 @@ public class NearestStopsActivity extends BaseActivityFragment implements Google
             throw new Error("Unable to create db");
         }
         BugSenseHandler.setLogging("About to openDatabase");
-        dbHelper.openDataBase();
+        //dbHelper.openDataBase();
 
         listView = (ListView) rootView.findViewById(R.id.listView);
         nearestStopBtn = (Button) rootView.findViewById(R.id.busStopsBtn);

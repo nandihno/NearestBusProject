@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#ff9fd680"
+    tools:context=".AllBusRouteFragment">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/allBusRouteFindBtn"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/green_button"
+        android:gravity="center"
+        style="@style/button_text"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/allBusRouteText"
+        android:layout_alignBottom="@+id/allBusRouteFindBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/allBusRouteFindBtn" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/allBusRouteListView"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/allBusRouteFindBtn"
+        android:layout_alignRight="@+id/allBusRouteFindBtn"
+        android:divider="#ffb2bfc9"
+        android:dividerHeight="1dp"/>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map View"
+        android:id="@+id/allBusRouteSwitch"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/allBusRouteFindBtn"
+        android:layout_alignLeft="@+id/allBusRouteListView"
+        android:textSize="20dp"/>
+</RelativeLayout>

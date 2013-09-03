@@ -64,7 +64,7 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
         } catch(IOException ioe) {
             throw new Error("Unable to create db");
         }
-        dbHelper.openDataBase();
+        //dbHelper.openDataBase();
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.mapStop))
                 .getMap();
 
