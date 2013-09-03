@@ -31,34 +31,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6b083d9-c497-4c6f-8842-952a23b19131" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/GoogleAdMobAdsSdk_6_4_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/all_bus_routes.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/pojo/BusRoute.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/pojo/BusRoute.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/datasource/BusStopDataSource.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/datasource/BusStopDataSource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/pojo/BusStops.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/pojo/BusStops.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ComGoogleAndroidGmsPlayServices3136_aar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ComGoogleAndroidGmsPlayServices3136_aar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/DisplayAllBusRouteTask.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/DisplayAllBusRouteTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/NearestBus.iml" afterPath="$PROJECT_DIR$/NearestBus/NearestBus.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/source/r/debug/org/nando/nearestbus/R.java" afterPath="$PROJECT_DIR$/NearestBus/build/source/r/debug/org/nando/nearestbus/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/SectionPagerAdapter.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/SectionPagerAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/all_bus_routes_map.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/all_bus_routes_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/all_bus_routes_map.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/all_bus_routes_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build.gradle" afterPath="$PROJECT_DIR$/NearestBus/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_route.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_route.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_route_map.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_route_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route_map.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_stops.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_stops.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_stops_map.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_stops_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops_map.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops_map.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/libs/GoogleAdMobAdsSdk-6.4.1.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NearestBus.iws" />
@@ -1224,7 +1197,11 @@
       <created>1378048402118</created>
       <updated>1378048402118</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="you can search bus route on any bus now">
+      <created>1378221068203</created>
+      <updated>1378221068203</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1284,7 +1261,8 @@
     <MESSAGE value="refactor BusRoute to be an object for bus routes&#10;display map of location of bus stops for bus routes" />
     <MESSAGE value="sending to market if no play services!" />
     <MESSAGE value="dispalying more information on the allBusrouteActivityMap marker and making them clickable" />
-    <option name="LAST_COMMIT_MESSAGE" value="dispalying more information on the allBusrouteActivityMap marker and making them clickable" />
+    <MESSAGE value="you can search bus route on any bus now" />
+    <option name="LAST_COMMIT_MESSAGE" value="you can search bus route on any bus now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
