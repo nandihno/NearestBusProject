@@ -3,7 +3,8 @@
                                    android:id="@+id/pager"
                                    android:layout_width="match_parent"
                                    android:layout_height="match_parent"
-                                   tools:context=".MainActivity" >
+                                   tools:context=".MainActivity"
+                                   android:background="@drawable/blue_gradient">
 
     <!--
     This title strip will display the currently visible page title, as well as the page
@@ -15,8 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:background="#33b5e5"
-            android:paddingBottom="4dp"
+            android:background="@drawable/orange_gradient"
+            android:paddingBottom="12dp"
             android:paddingTop="4dp"
             android:textColor="#fff" />
 
