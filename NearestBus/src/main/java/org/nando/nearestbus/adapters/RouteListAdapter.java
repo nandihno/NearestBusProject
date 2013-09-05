@@ -57,7 +57,12 @@ public class RouteListAdapter extends ArrayAdapter<BusStops> {
         BusStops stops = data.get(position);
         name.setText(stops.getName());
         zone.setText("Zone: "+stops.getZone());
-        distance.setText("Distance: "+stops.getDistanceFromCurrentPoint());
+        if(stops.getDistanceFromCurrentPoint() > 0) {
+          distance.setText("Distance: "+stops.getDistanceFromCurrentPoint());
+        }
+        else {
+            distance.setText("");
+        }
         return vi;
     }
 }

@@ -252,17 +252,18 @@ public class BusStopDataSource {
         if(busRoute.busRouteId == null || busRoute.busRouteId.isEmpty()) {
             setBusRouteFromBusNo(busRoute);
         }
-        Cursor cursor = database.rawQuery(sql+thurs1+sql2,new String[]{busRoute.busRouteId});
-        performCursorDisplayAllStopsFunction(cursor, list);
-        Cursor cursor2 = database.rawQuery(sql+thurs2+sql2,new String[]{busRoute.busRouteId});
-        performCursorDisplayAllStopsFunction(cursor2,list);
-        Cursor cursor3 = database.rawQuery(sql+thurs3+sql2,new String[]{busRoute.busRouteId});
-        performCursorDisplayAllStopsFunction(cursor3,list);
-        Cursor cursor4 = database.rawQuery(sql+thurs4+sql2,new String[]{busRoute.busRouteId});
-        performCursorDisplayAllStopsFunction(cursor4,list);
+        if(busRoute.busRouteId != null && !(busRoute.busRouteId.isEmpty())) {
+            Cursor cursor = database.rawQuery(sql+thurs1+sql2,new String[]{busRoute.busRouteId});
+            performCursorDisplayAllStopsFunction(cursor, list);
+            Cursor cursor2 = database.rawQuery(sql+thurs2+sql2,new String[]{busRoute.busRouteId});
+            performCursorDisplayAllStopsFunction(cursor2,list);
+            Cursor cursor3 = database.rawQuery(sql+thurs3+sql2,new String[]{busRoute.busRouteId});
+            performCursorDisplayAllStopsFunction(cursor3,list);
+            Cursor cursor4 = database.rawQuery(sql+thurs4+sql2,new String[]{busRoute.busRouteId});
+            performCursorDisplayAllStopsFunction(cursor4,list);
+
+        }
         busRoute.locations = list;
-
-
     }
 
     private void performCursorDisplayAllStopsFunction(Cursor cursor,List<BusStops>list) {

@@ -99,6 +99,7 @@ public class AllBusRouteFragment extends Fragment implements View.OnClickListene
     }
 
     private void findBusStops() {
+        listView.setAdapter(null);
         BusStopDataSource dataSource = new BusStopDataSource(getActivity());
         if(editText.getText().toString() == null || editText.getText().toString().isEmpty()) {
             AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please put a bus number",true);

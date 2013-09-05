@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/NearestBus/GoogleAdMobAdsSdk-6.4.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/NearestBus/GoogleAdMobAdsSdk-6.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/NearestBus/libs/GoogleAdMobAdsSdk-6.4.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

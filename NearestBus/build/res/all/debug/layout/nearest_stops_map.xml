@@ -12,7 +12,7 @@
     <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Switch to list"
+            android:text="Back"
             android:id="@+id/switchToBusStop"
             android:layout_marginTop="20dp"
             android:layout_alignParentTop="true"
@@ -24,19 +24,19 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nearest stop"
+            android:text="Search"
             android:id="@+id/nearestStopMapBtn"
-            android:layout_toRightOf="@+id/switchToBusStop"
-            android:layout_marginLeft="20dp"
-            style="@style/ButtonAppTheme"
-            />
+        style="@style/ButtonAppTheme"
+        android:layout_alignTop="@+id/switchToBusStop"
+        android:layout_alignRight="@+id/mapStop" />
 
     <fragment
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/mapStop"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/nearestStopMapBtn"
-            android:name="com.google.android.gms.maps.MapFragment"
-            android:layout_marginTop="20dp"/>
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_below="@+id/switchToBusStop"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="44dp" />
 </RelativeLayout><!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/layout/nearest_stops_map.xml -->

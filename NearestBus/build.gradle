@@ -18,7 +18,7 @@ dependencies {
     compile files('libs/jsoup-1.7.2.jar')
     compile files('libs/bugsense-3.5.jar')
     compile 'com.google.android.gms:play-services:3.1.36'
-    compile files('GoogleAdMobAdsSdk-6.4.1.jar')
+    compile files('libs/GoogleAdMobAdsSdk-6.4.1.jar')
 }
 
 android {
