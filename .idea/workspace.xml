@@ -31,63 +31,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6b083d9-c497-4c6f-8842-952a23b19131" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/btn_default_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/btn_default_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/btn_default_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/btn_default_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/btn_default_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/btn_default_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/btn_default_normal_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/btn_default_normal_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/btn_default_pressed_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/btn_default_pressed_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/switch_bg_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/switch_bg_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/switch_bg_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/switch_bg_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/switch_bg_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/switch_bg_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/switch_thumb_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/switch_thumb_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/switch_thumb_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/switch_thumb_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/switch_thumb_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/switch_thumb_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/switch_thumb_pressed_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/switch_thumb_pressed_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/textfield_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/textfield_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/textfield_default_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/textfield_default_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/textfield_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/textfield_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/textfield_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/textfield_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-hdpi/textfield_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-mdpi/textfield_focused_holo_light.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteFragment.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/datasource/BusStopDataSource.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/datasource/BusStopDataSource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ComGoogleAndroidGmsPlayServices3136_aar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ComGoogleAndroidGmsPlayServices3136_aar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/GoogleAdMobAdsSdk_6_4_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/GoogleAdMobAdsSdk_6_4_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/MapStopsInfoWindowAdapter.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/MapStopsInfoWindowAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/NearestBus/build/source/r/debug/com/google/android/gms/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/source/r/debug/org/nando/nearestbus/R.java" afterPath="$PROJECT_DIR$/NearestBus/build/source/r/debug/org/nando/nearestbus/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/RouteListAdapter.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/RouteListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/all_bus_routes.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/all_bus_routes.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/all_bus_routes_map.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/all_bus_routes_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/all_bus_routes_map.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/all_bus_routes_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build.gradle" afterPath="$PROJECT_DIR$/NearestBus/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/here_to_there.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/here_to_there.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/here_to_there.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/here_to_there.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_route.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_route.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_route_map.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_route_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route_map.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_stops.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_stops.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_stops_map.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/layout/nearest_stops_map.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops_map.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops_map.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/NearestBus.iml" afterPath="$PROJECT_DIR$/NearestBus/NearestBus.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NearestBus.iws" />
@@ -106,6 +54,42 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/MainActivity.java" line="0" class="MainActivity.java" package="">
         <option name="ENABLED" value="true" />
@@ -167,7 +151,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" line="117" class="org.nando.nearestbus.AllBusRouteActivityMap" package="org.nando.nearestbus">
+      <breakpoint url="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" line="118" class="org.nando.nearestbus.AllBusRouteActivityMap" package="org.nando.nearestbus">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -182,7 +166,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" line="181" class="org.nando.nearestbus.AllBusRouteActivityMap" package="org.nando.nearestbus">
+      <breakpoint url="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" line="188" class="org.nando.nearestbus.AllBusRouteActivityMap" package="org.nando.nearestbus">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -258,42 +242,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
@@ -307,7 +255,7 @@
       <file leaf-file-name="BusStopDataSource.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/datasource/BusStopDataSource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="41" selection-start="10987" selection-end="10987" vertical-scroll-proportion="0.0" vertical-offset="3392" max-vertical-offset="4935">
+            <state line="254" column="41" selection-start="10987" selection-end="10987" vertical-scroll-proportion="0.0" vertical-offset="3810" max-vertical-offset="5175">
               <folding />
             </state>
           </provider>
@@ -316,34 +264,38 @@
       <file leaf-file-name="DisplayAllBusRouteTask.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/DisplayAllBusRouteTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="50" selection-start="1031" selection-end="1031" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="750">
+            <state line="34" column="50" selection-start="1031" selection-end="1031" vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapStopsInfoWindowAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/MapStopsInfoWindowAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="32" selection-start="1730" selection-end="1730" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NearestStopsMapActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="NearestStopsMapActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="0" selection-start="6068" selection-end="6068" vertical-scroll-proportion="0.0" vertical-offset="1656" max-vertical-offset="2355">
-              <folding />
+            <state line="134" column="26" selection-start="5070" selection-end="5122" vertical-scroll-proportion="0.5081967" vertical-offset="1191" max-vertical-offset="2490">
+              <folding>
+                <element signature="e#1896#1914#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="NearestBusRouteMapActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="180" column="26" selection-start="6158" selection-end="6158" vertical-scroll-proportion="0.0" vertical-offset="1686" max-vertical-offset="3075">
+              <folding>
+                <element signature="e#2408#2424#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="26" selection-start="169" selection-end="169" vertical-scroll-proportion="0.08196721" vertical-offset="0" max-vertical-offset="1095">
+            <state line="27" column="0" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
               <folding />
             </state>
           </provider>
@@ -352,8 +304,10 @@
       <file leaf-file-name="AllBusRouteActivityMap.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="0" selection-start="4062" selection-end="4062" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="2400">
-              <folding />
+            <state line="151" column="26" selection-start="5652" selection-end="5652" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="2535">
+              <folding>
+                <element signature="e#1842#1860#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -361,7 +315,7 @@
       <file leaf-file-name="BusStopInfoTask.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/BusStopInfoTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="5" selection-start="2156" selection-end="2156" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1065">
+            <state line="61" column="5" selection-start="2156" selection-end="2156" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="1245">
               <folding />
             </state>
           </provider>
@@ -370,7 +324,7 @@
       <file leaf-file-name="AllBusRouteFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="0" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1965">
+            <state line="45" column="0" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="2475">
               <folding />
             </state>
           </provider>
@@ -379,16 +333,7 @@
       <file leaf-file-name="RouteListAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/RouteListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="33" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="930">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BusStops.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/pojo/BusStops.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="18" selection-start="1437" selection-end="1437" vertical-scroll-proportion="0.0" vertical-offset="1047" max-vertical-offset="1980">
+            <state line="63" column="33" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1110">
               <folding />
             </state>
           </provider>
@@ -447,6 +392,269 @@
         </entry>
       </map>
     </option>
+    <option name="availableTasks">
+      <map>
+        <entry key="$PROJECT_DIR$/NearestBus">
+          <value>
+            <list>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the Android dependencies of the project" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="androidDependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles all variants of all applications and secondary packages." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="assemble" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles all Debug builds" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="assembleDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles all Release builds" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="assembleRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the Test build for the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="assembleTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="build" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="buildDependents" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects it depends on." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="buildNeeded" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs all checks." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="check" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Deletes the build directory." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="clean" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="compileDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="compileDebugAidl" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="compileDebugRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="compileRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="compileReleaseAidl" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="compileReleaseRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="compileTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="compileTestAidl" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="compileTestRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs all device checks on currently connected devices." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="connectedCheck" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs and runs the tests for Build 'Debug' on connected devices." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="connectedInstrumentTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs all device checks using Device Providers and Test Servers." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="deviceCheck" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="dexDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="dexRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="dexTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="generateDebugBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="generateReleaseBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="generateTestBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="installDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs the Test build for the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="installTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="mergeDebugAssets" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="mergeDebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="mergeReleaseAssets" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="mergeReleaseResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="mergeTestAssets" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="mergeTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="packageDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="packageRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="packageTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services:3.1.36" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServices3136Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="prepareDebugDependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="prepareReleaseDependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="prepareTestDependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="processDebugJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="processDebugManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="processDebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="processReleaseJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="processReleaseManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="processReleaseResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="processTestJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="processTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="processTestTestManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the signing info for each variant" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="signingReport" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uninstall all applications." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="uninstallAll" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uninstalls the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="uninstallDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uninstalls the Release build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="uninstallRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uninstalls the Test build for the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="uninstallTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NearestBus" />
+                <option name="name" value="validateDebugSigning" />
+              </ExternalTaskPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="1375538970000" />
@@ -456,8 +664,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/NearestBus/src/main/res/layout/stops_list_row.xml" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops_map.xml" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route_map.xml" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/res/layout/all_bus_routes_map.xml" />
         <option value="$PROJECT_DIR$/NearestBus/build.gradle" />
@@ -468,10 +674,12 @@
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/RouteListAdapter.java" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/DisplayAllBusRouteTask.java" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/MapStopsInfoWindowAdapter.java" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/datasource/BusStopDataSource.java" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteFragment.java" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" />
       </list>
     </option>
   </component>
@@ -479,8 +687,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="33" />
-    <option name="y" value="31" />
+    <option name="x" value="74" />
+    <option name="y" value="30" />
     <option name="width" value="1699" />
     <option name="height" value="1010" />
   </component>
@@ -510,6 +718,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -608,108 +817,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nearestbus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="task" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBusProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nearestbus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datasource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBusProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nearestbus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBusProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -717,7 +824,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1027,17 +1133,20 @@
       <created>1378302440664</created>
       <updated>1378302440664</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="UI should hopefully now cater for low res devices&#10;using adMob now&#10;and few bug fixes">
+      <created>1378389787518</created>
+      <updated>1378389787518</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="33" y="31" width="1699" height="1010" extended-state="6" />
-    <editor active="true" />
+    <frame x="74" y="30" width="1699" height="1010" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1246219" sideWeight="0.6483146" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847533" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3988764" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1046,7 +1155,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921347" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3516854" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3516854" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1057,6 +1166,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1246219" sideWeight="0.6483146" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921347" sideWeight="0.49955398" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1089,70 +1199,61 @@
     <MESSAGE value="dispalying more information on the allBusrouteActivityMap marker and making them clickable" />
     <MESSAGE value="you can search bus route on any bus now" />
     <MESSAGE value="fix UI style &#10;change name of the app&#10;using proper maps certificate" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix UI style &#10;change name of the app&#10;using proper maps certificate" />
+    <MESSAGE value="UI should hopefully now cater for low res devices&#10;using adMob now&#10;and few bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI should hopefully now cater for low res devices&#10;using adMob now&#10;and few bug fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route.xml">
-      <provider editor-type-id="text-editor">
-        <state line="48" column="44" selection-start="2120" selection-end="2120" vertical-scroll-proportion="0.0" vertical-offset="318" max-vertical-offset="1185">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops.xml">
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_stops.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="45" column="44" selection-start="1527" selection-end="1969" vertical-scroll-proportion="-10.444445" vertical-offset="393" max-vertical-offset="1005">
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/here_to_there.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/here_to_there.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="69" column="44" selection-start="2502" selection-end="2944" vertical-scroll-proportion="-15.444445" vertical-offset="618" max-vertical-offset="1140">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/all_bus_routes.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state line="56" column="44" selection-start="2249" selection-end="2249" vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="1110">
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/here_there_row.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="30" selection-start="855" selection-end="855" vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="465">
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route_map.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route_map.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="0" selection-start="1970" selection-end="1970" vertical-scroll-proportion="-26.666666" vertical-offset="0" max-vertical-offset="1020">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/pojo/BusStops.java">
@@ -1176,34 +1277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/DisplayAllBusRouteTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="50" selection-start="1031" selection-end="1031" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/MapStopsInfoWindowAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="32" selection-start="1730" selection-end="1730" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="0" selection-start="4062" selection-end="4062" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="2400">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="0" selection-start="6068" selection-end="6068" vertical-scroll-proportion="0.0" vertical-offset="1656" max-vertical-offset="2355">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/datasource/BusStopDataSource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="254" column="41" selection-start="10987" selection-end="10987" vertical-scroll-proportion="0.0" vertical-offset="3392" max-vertical-offset="4935">
@@ -1218,10 +1291,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/adapters/MapStopsInfoWindowAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="32" selection-start="1730" selection-end="1730" vertical-scroll-proportion="0.3715847" vertical-offset="351" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/DisplayAllBusRouteTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="50" selection-start="1031" selection-end="1031" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="26" selection-start="169" selection-end="169" vertical-scroll-proportion="0.08196721" vertical-offset="0" max-vertical-offset="1095">
+        <state line="27" column="0" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="26" selection-start="5652" selection-end="5652" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="2535">
+          <folding>
+            <element signature="e#1842#1860#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="180" column="26" selection-start="6158" selection-end="6158" vertical-scroll-proportion="0.0" vertical-offset="1686" max-vertical-offset="3075">
+          <folding>
+            <element signature="e#2408#2424#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="26" selection-start="5070" selection-end="5122" vertical-scroll-proportion="0.5081967" vertical-offset="1191" max-vertical-offset="2490">
+          <folding>
+            <element signature="e#1896#1914#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

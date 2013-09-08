@@ -60,7 +60,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/dependency-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/build/exploded-bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/libs" />
       <excludeFolder url="file://$MODULE_DIR$/build/manifests" />
@@ -69,11 +68,11 @@
     </content>
     <orderEntry type="jdk" jdkName="Android 4.2.2" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="jsoup-1.7.2" level="project" />
-    <orderEntry type="library" exported="" name="bugsense-3.5" level="project" />
     <orderEntry type="library" exported="" name="support-v4-13.0.0" level="project" />
     <orderEntry type="library" exported="" name="ComGoogleAndroidGmsPlayServices3136.aar" level="project" />
     <orderEntry type="library" exported="" name="GoogleAdMobAdsSdk-6.4.1" level="project" />
+    <orderEntry type="library" exported="" name="jsoup-1.7.2" level="project" />
+    <orderEntry type="library" exported="" name="bugsense-3.5" level="project" />
   </component>
 </module>
 

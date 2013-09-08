@@ -98,8 +98,9 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
 
     private void displayMapMarkers(BusRoute route) {
         map.clear();
-        BusStopDataSource dataSource = new BusStopDataSource(this);
+        markerPojoMap.clear();
         if(route != null ) {
+            BusStopDataSource dataSource = new BusStopDataSource(this);
             DisplayAllBusRouteTask task = new DisplayAllBusRouteTask(this);
             task.execute(dataSource,route);
         }
@@ -147,6 +148,12 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
         locationClient.disconnect();
     }
 
+    public void onDestroy() {
+        super.onDestroy();
+        markerPojoMap.clear();
+        map.clear();
+    }
+
 
     private void setupLocationClientIfNeeded() {
         if(locationClient == null) {
@@ -180,10 +187,12 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
     @Override
     public void onInfoWindowClick(Marker marker) {
         BusStops stops = markerPojoMap.get(marker);
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        if(stops.getUrl() != null || stops.getUrl().isEmpty()) {
-            intent.setData(Uri.parse(stops.getUrl()));
-            startActivity(intent);
+        if(stops != null) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            if(stops.getUrl() != null || stops.getUrl().isEmpty()) {
+                intent.setData(Uri.parse(stops.getUrl()));
+                startActivity(intent);
+            }
         }
 
     }

@@ -87,6 +87,7 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
 
     public void nearestStop() {
         markerPojoMap.clear();
+        map.clear();
         location = locationClient.getLastLocation();
         LocationPojo pojo = new LocationPojo();
         pojo.latitude = location.getLatitude();
@@ -130,6 +131,12 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
         locationClient.disconnect();
     }
 
+    public void onDestroy() {
+        super.onDestroy();
+        markerPojoMap.clear();
+        map.clear();
+    }
+
     private void setupLocationClientIfNeeded() {
         if(locationClient == null) {
             locationClient = new LocationClient(this,this,this);
@@ -169,10 +176,12 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
     @Override
     public void onInfoWindowClick(Marker marker) {
         BusStops stops = markerPojoMap.get(marker);
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        if(stops.getUrl() != null || stops.getUrl().isEmpty()) {
-            intent.setData(Uri.parse(stops.getUrl()));
-            startActivity(intent);
+        if(stops != null) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            if(stops.getUrl() != null || stops.getUrl().isEmpty()) {
+                intent.setData(Uri.parse(stops.getUrl()));
+                startActivity(intent);
+            }
         }
     }
 

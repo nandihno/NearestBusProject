@@ -110,7 +110,6 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
         if(extras != null) {
             busRouteFromPreviousActivity = extras.getString("busRoute");
             editText.setText(busRouteFromPreviousActivity);
-
         }
     }
 
@@ -178,6 +177,12 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
         locationClient.disconnect();
     }
 
+    public void onDestroy() {
+        super.onDestroy();
+        markerUrlMap.clear();
+        map.clear();
+    }
+
 
 
     private void setupLocationClientIfNeeded() {
@@ -220,11 +225,11 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
     @Override
     public void onInfoWindowClick(Marker marker) {
         String url = markerUrlMap.get(marker);
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
-
-
+        if(url != null) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
+        }
     }
 
     private MarkerOptions createMarkerOptions(LatLng position,String title,String snippet,float hueValue) {
