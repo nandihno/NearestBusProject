@@ -1,27 +1,26 @@
 package org.nando.nearestbus.task;
 
-import android.location.Address;
-import android.location.Geocoder;
+import android.app.Fragment;
+
 import android.location.Location;
 import android.os.AsyncTask;
 
 import com.bugsense.trace.BugSenseHandler;
 
-import org.nando.nearestbus.BaseActivityFragment;
-import org.nando.nearestbus.MainActivity;
+
+import org.nando.nearestbus.NearestBusRouteFragment;
+import org.nando.nearestbus.NearestStopsFragment;
 import org.nando.nearestbus.pojo.LocationPojo;
 
-import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by fernandoMac on 4/08/13.
  */
 public class LocationTask extends AsyncTask<Location,Void,LocationPojo> {
 
-    private BaseActivityFragment myActivity;
+    private Fragment myActivity;
 
-    public LocationTask(BaseActivityFragment activity) {
+    public LocationTask(Fragment activity) {
         this.myActivity = activity;
     }
 
@@ -35,7 +34,13 @@ public class LocationTask extends AsyncTask<Location,Void,LocationPojo> {
     }
 
     protected void onPostExecute(LocationPojo pojo) {
-        myActivity.findNearestInDB(pojo);
+        //myActivity.findNearestInDB(pojo);
+        if(myActivity instanceof NearestStopsFragment) {
+          ((NearestStopsFragment)myActivity).findNearestInDB(pojo);
+        }
+        if(myActivity instanceof NearestBusRouteFragment) {
+            ((NearestBusRouteFragment)myActivity).findNearestInDB(pojo);
+        }
 
     }
 

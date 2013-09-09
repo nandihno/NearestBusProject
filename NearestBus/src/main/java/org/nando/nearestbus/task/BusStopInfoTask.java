@@ -3,8 +3,7 @@ package org.nando.nearestbus.task;
 import android.location.Location;
 import android.os.AsyncTask;
 
-import org.nando.nearestbus.MainActivity;
-import org.nando.nearestbus.NearestStopsActivity;
+import org.nando.nearestbus.NearestStopsFragment;
 import org.nando.nearestbus.NearestStopsMapActivity;
 import org.nando.nearestbus.datasource.BusStopDataSource;
 import org.nando.nearestbus.pojo.BusStops;
@@ -20,15 +19,15 @@ import java.util.List;
 public class BusStopInfoTask extends AsyncTask<BusStopDataSource,Void,List<BusStops>> {
 
     private Location location;
-    private NearestStopsActivity mainActivity = null;
+    private NearestStopsFragment mainActivity = null;
     private NearestStopsMapActivity mapActivity = null;
     private LocationPojo locationPojo;
 
     public BusStopInfoTask(Object anActivity, Location aLocation, LocationPojo locPojo) {
-        if(anActivity instanceof NearestStopsActivity) {
-            mainActivity = (NearestStopsActivity) anActivity;
+        if(anActivity instanceof NearestStopsFragment) {
+            mainActivity = (NearestStopsFragment) anActivity;
         }
-        else {
+        else if(anActivity instanceof NearestStopsMapActivity) {
             mapActivity = (NearestStopsMapActivity) anActivity;
         }
 

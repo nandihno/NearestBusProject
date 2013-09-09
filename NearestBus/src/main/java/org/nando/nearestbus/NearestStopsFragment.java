@@ -1,33 +1,36 @@
 package org.nando.nearestbus;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.Fragment;
 import android.content.Intent;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.bugsense.trace.BugSenseHandler;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 
 import org.nando.nearestbus.adapters.BusListAdapter;
-import org.nando.nearestbus.adapters.RouteListAdapter;
 import org.nando.nearestbus.datasource.BusStopDataSource;
 import org.nando.nearestbus.pojo.BusStops;
 import org.nando.nearestbus.pojo.LocationPojo;
-import org.nando.nearestbus.task.BusRouteInfoTask;
 import org.nando.nearestbus.task.BusStopInfoTask;
 import org.nando.nearestbus.task.LocationTask;
 import org.nando.nearestbus.utils.AlertDialogHelper;
@@ -39,7 +42,7 @@ import java.util.List;
 /**
  * Created by fernandoMac on 20/08/13.
  */
-public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract implements GooglePlayServicesClient.ConnectionCallbacks,
+public class NearestStopsFragment extends Fragment implements GooglePlayServicesClient.ConnectionCallbacks,
         GooglePlayServicesClient.OnConnectionFailedListener,
         LocationListener, View.OnClickListener {
 
@@ -47,12 +50,9 @@ public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract imp
     private LocationClient locationClient;
     private ListView listView;
     private BusStops busStopPojo;
-    private Button searchBtn;
-    private EditText editText;
-    private Switch aSwitch;
+    private Button nearestStopBtn;
     private AlertDialogHelper dialogHelper;
-
-
+    private Switch aSwitch;
 
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(10000)         // 10 seconds
@@ -61,37 +61,31 @@ public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract imp
 
     public  View  onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View rootView = inflater.inflate(R.layout.nearest_route,container,false);
+        View rootView = inflater.inflate(R.layout.nearest_stops,container,false);
         DatabaseHelper dbHelper = new DatabaseHelper(getActivity());
         try {
             dbHelper.createDataBase();
         } catch(IOException ioe) {
+            BugSenseHandler.sendException(ioe);
             throw new Error("Unable to create db");
         }
+        BugSenseHandler.setLogging("About to openDatabase");
         //dbHelper.openDataBase();
 
-        listView = (ListView) rootView.findViewById(R.id.listViewStops);
-        searchBtn = (Button) rootView.findViewById(R.id.findBusStop);
-        editText = (EditText) rootView.findViewById(R.id.editText);
-        aSwitch = (Switch) rootView.findViewById(R.id.switchToMap);
+        listView = (ListView) rootView.findViewById(R.id.listView);
+        nearestStopBtn = (Button) rootView.findViewById(R.id.busStopsBtn);
+        aSwitch = (Switch) rootView.findViewById(R.id.switchToMapsStopsActivity);
         aSwitch.setChecked(false);
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b) {
-                    if(!CheckConnectivityUtils.weHaveGoogleServices(getActivity())) {
-                        CheckConnectivityUtils.downloadGooglePlayServices(getActivity());
-                    }
-
                     aSwitch.setChecked(false);
-                    Intent intent = new Intent(getActivity(),NearestBusRouteMapActivity.class);
-                    intent.putExtra("busRoute",editText.getText().toString());
+                    Intent intent = new Intent(getActivity(),NearestStopsMapActivity.class);
                     startActivity(intent);
                 }
             }
         });
-
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -116,10 +110,10 @@ public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract imp
                 return true;
             }
         });
-
         dialogHelper = new AlertDialogHelper(getActivity());
 
-        searchBtn.setOnClickListener(this);
+
+        nearestStopBtn.setOnClickListener(this);
         return rootView;
     }
 
@@ -131,27 +125,21 @@ public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract imp
         listView.setAdapter(null);
         location = locationClient.getLastLocation();
         if(location == null) {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure your device has gps, google location available",true);
+            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure you can run google maps before trying this app",true);
             dialog.show();
         }
+        BugSenseHandler.setLogging("nearestStop button pressed location is:"+location);
         LocationTask task = new LocationTask(this);
         task.execute(location);
-
     }
     /*
      returns from LocationTask.java
      */
     public void findNearestInDB(LocationPojo locationPojo) {
         BusStopDataSource dsource = new BusStopDataSource(getActivity());
-        String busroute = editText.getText().toString();
-        if(busroute == null || busroute.isEmpty()) {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please add a bus number",false);
-            dialog.show();
-        }
-        else {
-            BusRouteInfoTask task = new BusRouteInfoTask(this,location,locationPojo,busroute);
-            task.execute(dsource);
-        }
+        BugSenseHandler.setLogging("in findNearestInDB: the datasource has been set:"+dsource);
+        BusStopInfoTask task = new BusStopInfoTask(this,location,locationPojo);
+        task.execute(dsource);
 
     }
 
@@ -160,11 +148,11 @@ public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract imp
      */
     public void displayBusStops(List<BusStops> list) {
         if(list != null || list.size() > 0) {
-            RouteListAdapter adapter = new RouteListAdapter(getActivity(),android.R.layout.simple_list_item_1,list);
+            BusListAdapter adapter = new BusListAdapter(getActivity(),android.R.layout.simple_list_item_1,list);
             listView.setAdapter(adapter);
         }
         else {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Sorry no bus "+editText.getText().toString()+" in around 500 meters",false);
+            AlertDialog dialog =  dialogHelper.createAlertDialog("Sorry","There are no bus stops within 500 meters of your location",false);
             dialog.show();
         }
     }
@@ -180,11 +168,11 @@ public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract imp
         locationClient.disconnect();
     }
 
-
-
     private void setupLocationClientIfNeeded() {
+        BugSenseHandler.setLogging("locationClient is it null?:"+locationClient);
         if(locationClient == null) {
             locationClient = new LocationClient(getActivity(),this,this);
+            BugSenseHandler.setLogging("locationClient is not null:"+locationClient);
         }
     }
 
@@ -212,19 +200,23 @@ public class NearestBusRouteActivity extends NearestBusRouteFragmentAbstract imp
 
     @Override
     public void onClick(View view) {
-        if(R.id.findBusStop == view.getId()) {
+        if(R.id.busStopsBtn == view.getId()) {
             if(CheckConnectivityUtils.weHaveGoogleServices(getActivity())) {
-                this.nearestStop(view);
+              this.nearestStop(view);
             }
             else {
-                AlertDialog dialog = dialogHelper.createAlertDialog("Warning","You dont have google play services, please download from playstore",true);
+                AlertDialog dialog = dialogHelper.createAlertDialog("Warning","You dont have google services app install download from playstore",true);
                 dialog.show();
                 CheckConnectivityUtils.downloadGooglePlayServices(getActivity());
 
 
             }
-
         }
 
     }
+
+
+
+
+
 }

@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -140,7 +140,7 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
             FromHereThereTask task = new FromHereThereTask(this);
             String suburbName = editText.getText().toString();
             if(suburbName == null || suburbName.isEmpty()) {
-                AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Make sure to input a suburb name",false);
+                AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Make sure to input a suburb name",true);
                 dialog.show();
             }
             else {
@@ -156,7 +156,7 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
             listView.setAdapter(adapter);
         }
         else {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Sorry no bus "+editText.getText().toString()+" in around 500 meters",false);
+            AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Sorry no bus "+editText.getText().toString()+" in around 500 meters",true);
             dialog.show();
         }
     }

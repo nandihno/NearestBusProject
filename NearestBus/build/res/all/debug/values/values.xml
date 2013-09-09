@@ -66,6 +66,16 @@
     <string name="location_client_ulr_inactive_age_under_13" translatable="false">        AgeUnder13</string>
     <string name="location_client_ulr_inactive_age_unknown" translatable="false">AgeUnknown</string>
     <string name="location_client_ulr_inactive_unknown_restriction" translatable="false">        UnknownRestriction</string>
+    <!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/values/strings.xml -->
+    <string name="tab_anyBus">Stops for any bus</string>
+    <string name="tab_nearestBusRoutes">Find nearest bus routes</string>
+    <string name="tab_nearestBusStops">Find nearest bus stops</string>
+    <string name="tab_whichBus">Which bus goes there</string>
+    <string name="title_activity_alternate">Bus Link</string>
+    <string name="title_activity_main_activity2">Bus Link</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
     <!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/values/styles.xml -->
     <style name="AboutDialogInfo" parent="@android:style/Theme.Dialog">
         <item name="android:textColor">#ff63cae5</item>

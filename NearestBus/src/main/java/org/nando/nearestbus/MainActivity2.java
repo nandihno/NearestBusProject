@@ -2,12 +2,11 @@ package org.nando.nearestbus;
 
 import android.app.ActionBar;
 
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
 import android.app.Activity;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
 
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.Menu;
 import android.widget.SimpleAdapter;
 
@@ -16,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity2 extends FragmentActivity {
+public class MainActivity2 extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,7 @@ public class MainActivity2 extends FragmentActivity {
         data.add( map );
         map = new HashMap<String, Object>();
         map.put( "title", "Test2" );
-        map.put( "fragment", Fragment.instantiate( this, NearestStopsActivity.class.getName() ));
+        map.put( "fragment", Fragment.instantiate( this, NearestStopsFragment.class.getName() ));
         data.add( map );
         SimpleAdapter adapter = new SimpleAdapter( this, data,
                 android.R.layout.simple_spinner_dropdown_item,
@@ -65,7 +64,7 @@ public class MainActivity2 extends FragmentActivity {
                         Object o = map.get( "fragment" );
                         if( o instanceof Fragment )
                         {
-                            FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+                            FragmentTransaction tx = getFragmentManager().beginTransaction();
 
                             tx.replace( android.R.id.content, (Fragment)o );
                             tx.commit();
