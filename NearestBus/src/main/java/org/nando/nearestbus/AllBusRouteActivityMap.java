@@ -1,10 +1,13 @@
 package org.nando.nearestbus;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -44,7 +47,7 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
 
     private Location location;
     private LocationClient locationClient;
-    private Switch aSwitch;
+
     private GoogleMap map;
     private Map<Marker,BusStops> markerPojoMap = new HashMap<Marker, BusStops>();
     private TextView busRouteText;
@@ -57,6 +60,8 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.all_bus_routes_map);
+        ActionBar ab = getActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
         DatabaseHelper dbHelper = new DatabaseHelper(this);
         try {
             dbHelper.createDataBase();
@@ -65,18 +70,9 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
         }
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.mapBusRoute))
                 .getMap();
-        aSwitch = (Switch) findViewById(R.id.switchToBusRouteList);
+
         busRouteText = (TextView) findViewById(R.id.busRouteNoText);
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b) {
-                    Intent intent = new Intent(AllBusRouteActivityMap.this,MainActivity.class);
-                    startActivity(intent);
-                    aSwitch.setChecked(false);
-                }
-            }
-        });
+
         BusRoute route = (BusRoute) getIntent().getSerializableExtra("busRoute");
 
 
@@ -85,6 +81,17 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
         displayMapMarkers(route);
         displayBusRouteText(route);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void displayBusRouteText(BusRoute route) {

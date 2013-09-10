@@ -29,10 +29,10 @@
         android:divider="#ffb2bfc9"
             android:dividerHeight="1dp"
             android:drawSelectorOnTop="false"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/adView"
         android:layout_marginBottom="65dp"
-        android:layout_marginTop="80dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/busStopsBtn"
+        android:layout_marginTop="60dp" />
 
     <com.google.ads.AdView android:id="@+id/adView"
         android:layout_width="fill_parent"

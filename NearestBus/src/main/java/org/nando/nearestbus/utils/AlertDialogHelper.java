@@ -22,9 +22,9 @@ public class AlertDialogHelper {
 
 
 
-    public AlertDialog createAlertDialog(String title,String message, boolean isWarningMessage) {
+    public AlertDialog createAlertDialog(String title,String message, boolean isClosableMessage) {
         AlertDialog.Builder alertDialogBuilder = null;
-        if(isWarningMessage) {
+        if(isClosableMessage) {
             alertDialogBuilder = new AlertDialog.Builder(activity, R.style.AboutDialogWarning);
         }
         else {
@@ -32,7 +32,7 @@ public class AlertDialogHelper {
         }
         alertDialogBuilder.setTitle(title);
         alertDialogBuilder.setMessage(message);
-        if(isWarningMessage) {
+        if(isClosableMessage) {
             alertDialogBuilder.setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {

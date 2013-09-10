@@ -69,7 +69,7 @@ public class AllBusRouteFragment extends Fragment implements View.OnClickListene
                         CheckConnectivityUtils.downloadGooglePlayServices(getActivity());
                     }
                     if(editText.getText().toString() == null || editText.getText().toString().isEmpty()) {
-                        AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please put a bus number",true);
+                        AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please put a bus number",false);
                         dialog.show();
                         aSwitch.setChecked(false);
                     }
@@ -102,7 +102,7 @@ public class AllBusRouteFragment extends Fragment implements View.OnClickListene
         listView.setAdapter(null);
         BusStopDataSource dataSource = new BusStopDataSource(getActivity());
         if(editText.getText().toString() == null || editText.getText().toString().isEmpty()) {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please put a bus number",true);
+            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please put a bus number",false);
             dialog.show();
         }
         else {
@@ -123,7 +123,7 @@ public class AllBusRouteFragment extends Fragment implements View.OnClickListene
                 listView.setAdapter(adapter);
             }
             else {
-                AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Sorry no bus "+editText.getText().toString()+"",false);
+                AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Bus "+editText.getText().toString()+" does not exists",false);
                 dialog.show();
             }
         }

@@ -45,19 +45,9 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/findBusStop"
             android:name="com.google.android.gms.maps.MapFragment"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="25dp"/>
 
-    <Switch
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:id="@+id/switchToList"
-            android:layout_below="@+id/editText"
-            android:layout_alignRight="@+id/findBusStop"
-            android:layout_marginTop="11dp"
-            android:checked="false"
-        android:textSize="20dp"
-        android:textColor="#ffffff"/>
+
 
 
 </RelativeLayout><!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/layout/nearest_route_map.xml -->

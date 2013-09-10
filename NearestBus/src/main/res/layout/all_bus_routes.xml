@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/allBusRouteListView"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:layout_below="@+id/allBusRouteFindBtn"
         android:layout_alignRight="@+id/allBusRouteFindBtn"
         android:divider="#ffb2bfc9"

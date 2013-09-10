@@ -54,7 +54,7 @@
         android:dividerHeight="1dp"
         android:id="@+id/hereTothereList"
         android:layout_below="@+id/searchToThereButton"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="25dp"
         android:layout_alignRight="@+id/searchToThereButton"
         android:layout_marginBottom="70dp" />
 

@@ -125,19 +125,21 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
         listView.setAdapter(null);
         location = locationClient.getLastLocation();
         if(location == null) {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure you can run google maps before trying this app",true);
+            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure you can run google maps before trying this app",false);
             dialog.show();
         }
-        BugSenseHandler.setLogging("nearestStop button pressed location is:"+location);
-        LocationTask task = new LocationTask(this);
-        task.execute(location);
+        else {
+
+            LocationTask task = new LocationTask(this);
+            task.execute(location);
+        }
     }
     /*
      returns from LocationTask.java
      */
     public void findNearestInDB(LocationPojo locationPojo) {
         BusStopDataSource dsource = new BusStopDataSource(getActivity());
-        BugSenseHandler.setLogging("in findNearestInDB: the datasource has been set:"+dsource);
+
         BusStopInfoTask task = new BusStopInfoTask(this,location,locationPojo);
         task.execute(dsource);
 
@@ -147,12 +149,12 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
     returns from BusStopInfoTask and displays to UI
      */
     public void displayBusStops(List<BusStops> list) {
-        if(list != null || list.size() > 0) {
+        if(list != null && list.size() > 0) {
             BusListAdapter adapter = new BusListAdapter(getActivity(),android.R.layout.simple_list_item_1,list);
             listView.setAdapter(adapter);
         }
         else {
-            AlertDialog dialog =  dialogHelper.createAlertDialog("Sorry","There are no bus stops within 500 meters of your location",false);
+            AlertDialog dialog =  dialogHelper.createAlertDialog("Sorry","There are no bus stops within 500m radius ",false);
             dialog.show();
         }
     }
@@ -169,10 +171,8 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
     }
 
     private void setupLocationClientIfNeeded() {
-        BugSenseHandler.setLogging("locationClient is it null?:"+locationClient);
         if(locationClient == null) {
             locationClient = new LocationClient(getActivity(),this,this);
-            BugSenseHandler.setLogging("locationClient is not null:"+locationClient);
         }
     }
 

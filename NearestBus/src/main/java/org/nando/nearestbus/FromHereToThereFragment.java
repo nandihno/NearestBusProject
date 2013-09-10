@@ -130,17 +130,18 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
     }
 
     private void searchForBusToThere() {
+        listView.setAdapter(null);
         BusStopDataSource dsource = new BusStopDataSource(getActivity());
         location = locationClient.getLastLocation();
         if(location == null) {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure you can run google maps before trying this app",true);
+            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure you can run google maps before trying this app",false);
             dialog.show();
         }
         else {
             FromHereThereTask task = new FromHereThereTask(this);
             String suburbName = editText.getText().toString();
             if(suburbName == null || suburbName.isEmpty()) {
-                AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Make sure to input a suburb name",true);
+                AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","No suburb name found",false);
                 dialog.show();
             }
             else {
@@ -156,7 +157,7 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
             listView.setAdapter(adapter);
         }
         else {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Sorry no bus "+editText.getText().toString()+" in around 500 meters",true);
+            AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","No nearby bus travelling to  "+editText.getText().toString()+" found",false);
             dialog.show();
         }
     }
@@ -172,10 +173,10 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
     }
 
     private void setupLocationClientIfNeeded() {
-        BugSenseHandler.setLogging("locationClient is it null?:" + locationClient);
+
         if(locationClient == null) {
             locationClient = new LocationClient(getActivity(),this,this);
-            BugSenseHandler.setLogging("locationClient is not null:"+locationClient);
+
         }
     }
 }

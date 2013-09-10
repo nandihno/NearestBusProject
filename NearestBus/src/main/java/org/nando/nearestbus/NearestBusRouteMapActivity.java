@@ -1,11 +1,14 @@
 package org.nando.nearestbus;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -59,7 +62,7 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
     private BusStops busStopPojo;
     private Button searchBtn;
     private EditText editText;
-    private Switch aSwitch;
+
 
     private GoogleMap map;
 
@@ -78,6 +81,8 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nearest_route_map);
+        ActionBar ab = getActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
         DatabaseHelper dbHelper = new DatabaseHelper(this);
         try {
             dbHelper.createDataBase();
@@ -93,23 +98,23 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
 
         searchBtn = (Button) findViewById(R.id.findBusStop);
         editText = (EditText) findViewById(R.id.editText);
-        aSwitch = (Switch) findViewById(R.id.switchToList);
-        aSwitch.setChecked(false);
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b) {
-                    Intent intent = new Intent(NearestBusRouteMapActivity.this,MainActivity.class);
-                    startActivity(intent);
-                    aSwitch.setChecked(false);
-                }
-            }
-        });
+
         searchBtn.setOnClickListener(this);
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
             busRouteFromPreviousActivity = extras.getString("busRoute");
             editText.setText(busRouteFromPreviousActivity);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 

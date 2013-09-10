@@ -83,11 +83,12 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
                     if(!CheckConnectivityUtils.weHaveGoogleServices(getActivity())) {
                         CheckConnectivityUtils.downloadGooglePlayServices(getActivity());
                     }
-
-                    aSwitch.setChecked(false);
-                    Intent intent = new Intent(getActivity(),NearestBusRouteMapActivity.class);
-                    intent.putExtra("busRoute",editText.getText().toString());
-                    startActivity(intent);
+                    else {
+                        aSwitch.setChecked(false);
+                        Intent intent = new Intent(getActivity(),NearestBusRouteMapActivity.class);
+                        intent.putExtra("busRoute",editText.getText().toString());
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -132,7 +133,7 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
         listView.setAdapter(null);
         location = locationClient.getLastLocation();
         if(location == null) {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure your device has gps and google location available",true);
+            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure your device has gps and google location available",false);
             dialog.show();
         }
         else {
@@ -148,7 +149,7 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
         BusStopDataSource dsource = new BusStopDataSource(getActivity());
         String busroute = editText.getText().toString();
         if(busroute == null || busroute.isEmpty()) {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please add a bus number",true);
+            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please add a bus number",false);
             dialog.show();
         }
         else {
@@ -162,12 +163,12 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
     returns from BusStopInfoTask and displays to UI
      */
     public void displayBusStops(List<BusStops> list) {
-        if(list != null || list.size() > 0) {
+        if(list != null && list.size() > 0) {
             RouteListAdapter adapter = new RouteListAdapter(getActivity(),android.R.layout.simple_list_item_1,list);
             listView.setAdapter(adapter);
         }
         else {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Sorry no bus "+editText.getText().toString()+" in around 500 meters",false);
+            AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Bus "+editText.getText().toString()+" not found within 500m radius vicinity",false);
             dialog.show();
         }
     }
