@@ -28,6 +28,7 @@ import org.nando.nearestbus.pojo.BusRoute;
 import org.nando.nearestbus.pojo.LocationPojo;
 import org.nando.nearestbus.task.FromHereThereTask;
 import org.nando.nearestbus.utils.AlertDialogHelper;
+import org.nando.nearestbus.utils.CheckConnectivityUtils;
 
 import java.io.IOException;
 import java.util.List;
@@ -134,8 +135,7 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
         BusStopDataSource dsource = new BusStopDataSource(getActivity());
         location = locationClient.getLastLocation();
         if(location == null) {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure you can run google maps before trying this app",false);
-            dialog.show();
+            CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
         }
         else {
             FromHereThereTask task = new FromHereThereTask(this);

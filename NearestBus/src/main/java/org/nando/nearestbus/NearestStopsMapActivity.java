@@ -32,6 +32,7 @@ import org.nando.nearestbus.datasource.BusStopDataSource;
 import org.nando.nearestbus.pojo.BusStops;
 import org.nando.nearestbus.pojo.LocationPojo;
 import org.nando.nearestbus.task.BusStopInfoTask;
+import org.nando.nearestbus.utils.CheckConnectivityUtils;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -121,6 +122,9 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
             }
             map.setInfoWindowAdapter(new MapStopsInfoWindowAdapter(this,markerPojoMap));
             location = locationClient.getLastLocation();
+            if(location == null) {
+                CheckConnectivityUtils.showGPSSettingsAlert(this);
+            }
             LatLng current = new LatLng(location.getLatitude(),location.getLongitude());
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 14));
         }

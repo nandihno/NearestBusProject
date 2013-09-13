@@ -125,8 +125,7 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
         listView.setAdapter(null);
         location = locationClient.getLastLocation();
         if(location == null) {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure you can run google maps before trying this app",false);
-            dialog.show();
+            CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
         }
         else {
 

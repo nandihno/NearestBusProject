@@ -19,6 +19,7 @@ import org.nando.nearestbus.utils.CheckConnectivityUtils;
 public class MainActivity extends FragmentActivity {
 
     ViewPager mViewPager;
+    SectionPagerAdapter sectionsPagerAdapter;
 
 
 
@@ -34,12 +35,28 @@ public class MainActivity extends FragmentActivity {
             CheckConnectivityUtils.downloadGooglePlayServices(this);
         }
         else {
-            SectionPagerAdapter sectionsPagerAdapter = new SectionPagerAdapter(getFragmentManager());
+            sectionsPagerAdapter = new SectionPagerAdapter(getFragmentManager());
             mViewPager = (ViewPager) findViewById(R.id.pager);
+            setAdapterOnViewPagerIfNeeded();
+        }
+    }
+
+    protected void onStart() {
+        super.onStart();
+        setAdapterOnViewPagerIfNeeded();
+
+    }
+
+    private void setAdapterOnViewPagerIfNeeded() {
+        if(mViewPager.getAdapter() == null) {
             mViewPager.setAdapter(sectionsPagerAdapter);
         }
+    }
 
-
+    protected void onStop() {
+        super.onStop();
+        System.out.println("stopping!");
+        mViewPager.setAdapter(null);
     }
 
 

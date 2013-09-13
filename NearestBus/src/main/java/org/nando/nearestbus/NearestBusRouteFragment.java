@@ -133,8 +133,7 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
         listView.setAdapter(null);
         location = locationClient.getLastLocation();
         if(location == null) {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Make sure your device has gps and google location available",false);
-            dialog.show();
+            CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
         }
         else {
           LocationTask task = new LocationTask(this);

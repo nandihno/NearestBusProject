@@ -41,6 +41,7 @@ import org.nando.nearestbus.pojo.BusStops;
 import org.nando.nearestbus.pojo.LocationPojo;
 import org.nando.nearestbus.task.BusRouteInfoTask;
 import org.nando.nearestbus.task.LocationTask;
+import org.nando.nearestbus.utils.CheckConnectivityUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -125,6 +126,9 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
     public void nearestStop() {
 
         location = locationClient.getLastLocation();
+        if(location == null) {
+            CheckConnectivityUtils.showGPSSettingsAlert(this);
+        }
         map.clear();
         markerUrlMap.clear();
         LocationPojo pojo = new LocationPojo();
