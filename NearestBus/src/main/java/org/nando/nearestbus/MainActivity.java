@@ -48,6 +48,9 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void setAdapterOnViewPagerIfNeeded() {
+        if(mViewPager == null) {
+            mViewPager = (ViewPager) findViewById(R.id.pager);
+        }
         if(mViewPager.getAdapter() == null) {
             mViewPager.setAdapter(sectionsPagerAdapter);
         }
