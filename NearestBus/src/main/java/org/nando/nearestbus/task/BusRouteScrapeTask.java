@@ -1,87 +1,150 @@
 package org.nando.nearestbus.task;
 
+import android.location.Location;
 import android.os.AsyncTask;
+import android.app.Fragment;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.nando.nearestbus.JourneyPlannerFragment;
 import org.nando.nearestbus.MainActivity;
 import org.nando.nearestbus.pojo.BusStops;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by fernandoMac on 14/08/13.
  */
-public class BusRouteScrapeTask extends AsyncTask<List<BusStops>,Void,List<BusStops>> {
+public class BusRouteScrapeTask extends AsyncTask<Object ,Void,String> {
 
-    private MainActivity mainActivity;
+    private Fragment mainFragment;
 
     private static final  int LIMIT_BUS_SCRAPING = 5;
 
-    public BusRouteScrapeTask(MainActivity activity) {
-        mainActivity = activity;
+    public BusRouteScrapeTask(Fragment fragment) {
+        mainFragment = fragment;
     }
 
 
     @Override
-    protected List<BusStops> doInBackground(List<BusStops>... lists) {
-        List<BusStops> list = new ArrayList<BusStops>();
-        HttpClient client = new DefaultHttpClient();
-        int sizeOfBusStops = lists[0].size();
-        if (sizeOfBusStops < LIMIT_BUS_SCRAPING) {
+    protected String doInBackground(Object... objects) {
+        String results = "N/A";
+        String html = "";
+        StringBuffer htmlBuff = new StringBuffer();
+        try {
+            HttpClient client = new DefaultHttpClient();
+            String url = (String) objects[0];
+            Location location = (Location) objects[1];
+            String hour = String.valueOf(objects[2]);
+            String minute = String.valueOf(objects[3]);
+            String am_pm = (String) objects[4];
+            String longLat = location.getLatitude()+","+location.getLongitude();
+            Calendar todayCal = Calendar.getInstance();
+            String date = todayCal.get(Calendar.DATE)+"";
+            String month  = todayCal.get(Calendar.MONTH)+1+"";
+            String year = todayCal.get(Calendar.YEAR)+"";
 
-            for (BusStops stop : lists[0]) {
-                try {
-                    HttpGet get = new HttpGet(stop.getUrl());
-                    HttpResponse response = client.execute(get);
-                    if (response.getStatusLine().getStatusCode() == 200) {
-                        HttpEntity entity = response.getEntity();
-                        String html = EntityUtils.toString(entity);
-                        Document doc = Jsoup.parse(html);
-                        Elements links = doc.select("table.content-table th:contains(Routes departing) + td");
-                        String routes = links.get(0).text();
-                        //stop.setBusRoutes(routes);
-                        list.add(stop);
+
+
+            HttpPost post = new HttpPost(url);
+            List<BasicNameValuePair> data = new ArrayList<BasicNameValuePair>();
+            data.add(new BasicNameValuePair("Start",longLat));
+            data.add(new BasicNameValuePair("End","Myer Centre"));
+            data.add(new BasicNameValuePair("SearchDate",date+"-"+month+"-"+year+" 12:00 AM"));
+            data.add(new BasicNameValuePair("TimeSearchMode","ArriveBefore"));
+            data.add(new BasicNameValuePair("SearchHour",hour));
+            data.add(new BasicNameValuePair("SearchMinute",minute));
+            data.add(new BasicNameValuePair("TimeMeridiem",am_pm));
+            data.add(new BasicNameValuePair("TransportModes","BUS"));
+            data.add(new BasicNameValuePair("ServiceTypes","Regular"));
+            data.add(new BasicNameValuePair("ServiceTypes","Express"));
+
+            data.add(new BasicNameValuePair("FareTypes","Prepaid"));
+            data.add(new BasicNameValuePair("FareTypes","Standard"));
+            data.add(new BasicNameValuePair("MaximumWalkingDistance","1500"));
+            UrlEncodedFormEntity entity = new UrlEncodedFormEntity(data,"UTF-8");
+            post.setEntity(entity);
+
+
+
+
+
+            HttpResponse response = client.execute(post);
+
+
+            if(response.getStatusLine().getStatusCode() == 200) {
+                HttpEntity entityResponse = response.getEntity();
+                html = EntityUtils.toString(entityResponse);
+                Document doc = Jsoup.parse(html);
+                Elements busClass = doc.select("ul.itinerary li:eq(1)");
+                Elements walkClass = doc.select("ul.itinerary li:eq(0)");
+                Elements walkFinalDestination = doc.select("ul.itinerary li:eq(2)");
+
+                for(int k = 0; k < busClass.size(); k++) {
+                    Element busElem = busClass.get(k);
+                    Element walkElem = walkClass.get(k);
+                    Element walkFinalDestinationElem = walkFinalDestination.get(k);
+                    results += busElem.html();
+                    Elements legDurations = busElem.select(".leg-duration");
+                    Elements routeCodes = busElem.select(".translink-route-code");
+                    //this is not part of li.bus!
+                    //Elements fairInfos = elem.select("div.fare-information p:eq(0)");
+                    for(int i =0; i < legDurations.size(); i++) {
+                        Element legDuration = legDurations.get(i);
+                        Element routeCode = routeCodes.get(i);
+
+                        //Element fairInfo = fairInfos.get(i);
+                        htmlBuff.append("<ul><li>From current destination leave and walk:"+walkElem.text()+"</li>");
+                        htmlBuff.append("<li> Bus : "+routeCode.text()+ " leaves and arrives  "+legDuration.text()+"</li>");
+
+                        htmlBuff.append("<li>Then Walk :"+walkFinalDestinationElem.text()+"</li></ul><hr/>");
+
+
                     }
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        else {
-            for(int i =0; i < LIMIT_BUS_SCRAPING; i++) {
-                BusStops stop = lists[0].get(i);
-                try {
-                    HttpGet get = new HttpGet(stop.getUrl());
-                    HttpResponse response = client.execute(get);
-                    if (response.getStatusLine().getStatusCode() == 200) {
-                        HttpEntity entity = response.getEntity();
-                        String html = EntityUtils.toString(entity);
-                        Document doc = Jsoup.parse(html);
-                        Elements links = doc.select("table.content-table th:contains(Routes departing) + td");
-                        String routes = links.get(0).text();
-                        //stop.setBusRoutes(routes);
-                        list.add(stop);
-                    }
 
-                } catch(Exception e) {
 
                 }
+
+
+                /*Elements elements = element.getElementsByClass("content").;
+                for(Element elem:elements) {
+                    results += elem.text();
+                }
+                */
+                //Elements elements = doc.getElementsByClass("temps temp-now");
+                /*for(Element element:elements) {
+                   results += element.text();
+                }
+                */
             }
+
+        } catch(Exception e) {
+            results = e.getMessage();
         }
-        return list;
+        return htmlBuff.toString();
     }
 
-    protected void onPostExecute(List<BusStops> list) {
+
+    protected void onPostExecute(String res) {
+        if(this.mainFragment instanceof JourneyPlannerFragment) {
+            ((JourneyPlannerFragment)mainFragment).loadWebView(res);
+        }
        // mainActivity.fetchBusRoutes(list);
 
     }

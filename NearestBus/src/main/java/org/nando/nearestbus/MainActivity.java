@@ -3,11 +3,14 @@ package org.nando.nearestbus;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.widget.SimpleAdapter;
 
 import com.bugsense.trace.BugSenseHandler;
 
@@ -15,6 +18,11 @@ import com.bugsense.trace.BugSenseHandler;
 import org.nando.nearestbus.adapters.SectionPagerAdapter;
 import org.nando.nearestbus.utils.AlertDialogHelper;
 import org.nando.nearestbus.utils.CheckConnectivityUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends FragmentActivity {
 
@@ -38,6 +46,8 @@ public class MainActivity extends FragmentActivity {
             sectionsPagerAdapter = new SectionPagerAdapter(getFragmentManager());
             mViewPager = (ViewPager) findViewById(R.id.pager);
             setAdapterOnViewPagerIfNeeded();
+           // ActionBar ab = getActionBar();
+            //setListNavigation(ab);
         }
     }
 
@@ -60,6 +70,43 @@ public class MainActivity extends FragmentActivity {
         super.onStop();
         System.out.println("stopping!");
         mViewPager.setAdapter(null);
+    }
+
+    private void setListNavigation( ActionBar actionBar )
+    {
+        actionBar.setNavigationMode( ActionBar.NAVIGATION_MODE_LIST );
+        actionBar.setTitle( "" );
+        final List<Map<String, Object>> data =
+                new ArrayList<Map<String, Object>>();
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put( "title", "Test1" );
+        map.put( "fragment", Fragment.instantiate(this, JourneyPlannerFragment.class.getName()));
+        data.add( map );
+
+        SimpleAdapter adapter = new SimpleAdapter( this, data,
+                android.R.layout.simple_spinner_dropdown_item,
+                new String[] { "title" }, new int[] { android.R.id.text1 } );
+        actionBar.setListNavigationCallbacks( adapter,
+                new ActionBar.OnNavigationListener()
+                {
+
+                    @Override
+                    public boolean onNavigationItemSelected( int itemPosition,
+                                                             long itemId )
+                    {
+                        Map<String, Object> map = data.get( itemPosition );
+                        Object o = map.get( "fragment" );
+                        if( o instanceof Fragment )
+                        {
+                            FragmentTransaction tx = getFragmentManager().beginTransaction();
+
+                            tx.replace( android.R.id.content, (Fragment)o );
+                            tx.commit();
+                        }
+                        return true;
+                    }
+                }
+        );
     }
 
 
