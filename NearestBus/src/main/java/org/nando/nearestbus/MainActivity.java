@@ -5,11 +5,13 @@ import android.app.AlertDialog;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.SimpleAdapter;
 
 import com.bugsense.trace.BugSenseHandler;
@@ -109,11 +111,17 @@ public class MainActivity extends FragmentActivity {
         );
     }
 
+    public void startJPActivity(MenuItem mi) {
+        Intent intent = new Intent(MainActivity.this,JourneyPlannerActivity.class);
+        startActivity(intent);
+
+    }
 
 
 
 
-/*
+
+
   //Not needed yet
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -121,7 +129,7 @@ public class MainActivity extends FragmentActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    */
+
 
 
 

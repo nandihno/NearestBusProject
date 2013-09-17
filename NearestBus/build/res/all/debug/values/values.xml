@@ -62,6 +62,7 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/values/strings.xml -->
     <string name="hello_world">Hello world!</string>
+    <string name="journey_planner">Journey Planner</string>
     <!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/build/exploded-bundles/ComGoogleAndroidGmsPlayServices3136.aar/res/values/strings.xml -->
     <string name="location_client_ulr_inactive_age_under_13" translatable="false">        AgeUnder13</string>
     <string name="location_client_ulr_inactive_age_unknown" translatable="false">AgeUnknown</string>

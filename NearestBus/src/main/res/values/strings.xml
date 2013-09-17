@@ -15,4 +15,6 @@
     <string name="tab_whichBus">Which bus goes there</string>
     <string name="tab_anyBus">Stops for any bus</string>
 
+    <string name="journey_planner">Journey Planner</string>
+
 </resources>

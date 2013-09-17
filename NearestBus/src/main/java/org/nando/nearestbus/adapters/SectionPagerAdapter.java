@@ -32,15 +32,14 @@ public class SectionPagerAdapter extends FragmentPagerAdapter {
                 return new FromHereToThereFragment();
             case 3:
                 return new AllBusRouteFragment();
-            case 4:
-                return new JourneyPlannerFragment();
+
         }
         return null;
     }
 
     @Override
     public int getCount() {
-        return 5;
+        return 4;
     }
 
     public CharSequence getPageTitle(int position) {
@@ -53,8 +52,7 @@ public class SectionPagerAdapter extends FragmentPagerAdapter {
                 return "Which bus goes there";
             case 3:
                 return "Stops for any bus";
-            case 4:
-                return "Journey planner";
+
 
         }
         return null;

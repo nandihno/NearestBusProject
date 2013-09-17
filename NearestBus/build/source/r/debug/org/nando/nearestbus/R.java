@@ -223,33 +223,37 @@ containing a value of this type.
         public static final int textfield_focused_holo_light=0x7f020044;
     }
     public static final class id {
-        public static final int action_settings=0x7f05002a;
+        public static final int action_settings=0x7f050030;
         public static final int adView=0x7f05000b;
         public static final int allBusRouteFindBtn=0x7f050008;
         public static final int allBusRouteListView=0x7f05000a;
         public static final int allBusRouteSwitch=0x7f05000c;
         public static final int allBusRouteText=0x7f050009;
         public static final int blurToThereText=0x7f050010;
-        public static final int busRoute=0x7f05001a;
+        public static final int busRoute=0x7f050020;
         public static final int busRouteNoText=0x7f05000d;
         public static final int busRouteText=0x7f05000f;
-        public static final int busStopsBtn=0x7f050022;
-        public static final int distance=0x7f05001c;
-        public static final int distanceStop=0x7f050029;
-        public static final int editText=0x7f05001f;
-        public static final int findBusStop=0x7f05001d;
+        public static final int busStopsBtn=0x7f050028;
+        public static final int distance=0x7f050022;
+        public static final int distanceStop=0x7f05002f;
+        public static final int editText=0x7f050025;
+        public static final int findBusStop=0x7f050023;
         public static final int hereTothereList=0x7f050013;
         public static final int hybrid=0x7f050004;
+        public static final int journey_planner_activity=0x7f050031;
+        public static final int jp=0x7f05001a;
+        public static final int jpMap=0x7f050019;
         public static final int jpTextView=0x7f050015;
         public static final int jpTimePicker=0x7f050016;
-        public static final int listView=0x7f050024;
-        public static final int listViewStops=0x7f05001e;
-        public static final int map=0x7f050021;
+        public static final int listView=0x7f05002a;
+        public static final int listViewStops=0x7f050024;
+        public static final int map=0x7f050027;
         public static final int mapBusRoute=0x7f05000e;
-        public static final int mapStop=0x7f050026;
-        public static final int name=0x7f050018;
-        public static final int nameStop=0x7f050027;
-        public static final int nearestStopMapBtn=0x7f050025;
+        public static final int mapStop=0x7f05002c;
+        public static final int mapViewJp=0x7f05001c;
+        public static final int name=0x7f05001e;
+        public static final int nameStop=0x7f05002d;
+        public static final int nearestStopMapBtn=0x7f05002b;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int pager=0x7f050005;
@@ -257,15 +261,18 @@ containing a value of this type.
         public static final int pager_title_strip=0x7f050006;
         public static final int satellite=0x7f050002;
         public static final int scrapeButton=0x7f050014;
+        public static final int searchLocationTextJp=0x7f05001b;
         public static final int searchToThereButton=0x7f050012;
+        public static final int setLocationButtonJp=0x7f05001d;
+        public static final int sliding_pane_layout=0x7f050018;
         public static final int suburbNameText=0x7f050011;
-        public static final int switchToMap=0x7f050020;
-        public static final int switchToMapsStopsActivity=0x7f050023;
+        public static final int switchToMap=0x7f050026;
+        public static final int switchToMapsStopsActivity=0x7f050029;
         public static final int terrain=0x7f050003;
-        public static final int thumbnail=0x7f05001b;
+        public static final int thumbnail=0x7f050021;
         public static final int webView=0x7f050017;
-        public static final int zone=0x7f050019;
-        public static final int zoneStop=0x7f050028;
+        public static final int zone=0x7f05001f;
+        public static final int zoneStop=0x7f05002e;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -276,12 +283,14 @@ containing a value of this type.
         public static final int here_there_row=0x7f030005;
         public static final int here_to_there=0x7f030006;
         public static final int journey_planner=0x7f030007;
-        public static final int list_row=0x7f030008;
-        public static final int nearest_route=0x7f030009;
-        public static final int nearest_route_map=0x7f03000a;
-        public static final int nearest_stops=0x7f03000b;
-        public static final int nearest_stops_map=0x7f03000c;
-        public static final int stops_list_row=0x7f03000d;
+        public static final int journey_planner_activity=0x7f030008;
+        public static final int journey_planner_map=0x7f030009;
+        public static final int list_row=0x7f03000a;
+        public static final int nearest_route=0x7f03000b;
+        public static final int nearest_route_map=0x7f03000c;
+        public static final int nearest_stops=0x7f03000d;
+        public static final int nearest_stops_map=0x7f03000e;
+        public static final int stops_list_row=0x7f03000f;
     }
     public static final class menu {
         public static final int alternate=0x7f090000;
@@ -366,22 +375,23 @@ containing a value of this type.
         /**  From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/values/strings.xml 
          */
         public static final int hello_world=0x7f070014;
+        public static final int journey_planner=0x7f070015;
         /**  From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/build/exploded-bundles/ComGoogleAndroidGmsPlayServices3136.aar/res/values/strings.xml 
          */
-        public static final int location_client_ulr_inactive_age_under_13=0x7f070015;
-        public static final int location_client_ulr_inactive_age_unknown=0x7f070016;
-        public static final int location_client_ulr_inactive_unknown_restriction=0x7f070017;
+        public static final int location_client_ulr_inactive_age_under_13=0x7f070016;
+        public static final int location_client_ulr_inactive_age_unknown=0x7f070017;
+        public static final int location_client_ulr_inactive_unknown_restriction=0x7f070018;
         /**  From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/values/strings.xml 
          */
-        public static final int tab_anyBus=0x7f070018;
-        public static final int tab_nearestBusRoutes=0x7f070019;
-        public static final int tab_nearestBusStops=0x7f07001a;
-        public static final int tab_whichBus=0x7f07001b;
-        public static final int title_activity_alternate=0x7f07001c;
-        public static final int title_activity_main_activity2=0x7f07001d;
-        public static final int title_section1=0x7f07001e;
-        public static final int title_section2=0x7f07001f;
-        public static final int title_section3=0x7f070020;
+        public static final int tab_anyBus=0x7f070019;
+        public static final int tab_nearestBusRoutes=0x7f07001a;
+        public static final int tab_nearestBusStops=0x7f07001b;
+        public static final int tab_whichBus=0x7f07001c;
+        public static final int title_activity_alternate=0x7f07001d;
+        public static final int title_activity_main_activity2=0x7f07001e;
+        public static final int title_section1=0x7f07001f;
+        public static final int title_section2=0x7f070020;
+        public static final int title_section3=0x7f070021;
     }
     public static final class style {
         /**  From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/values/styles.xml 

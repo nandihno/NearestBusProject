@@ -59,6 +59,10 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nando.nearestbus.MainActivity"/>
         </activity>
+
+        <activity android:name=".JourneyPlannerActivity" android:label="@string/journey_planner">
+
+        </activity>
         <activity android:name="com.google.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 

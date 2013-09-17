@@ -8,6 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/blue_gradient">
     >
 
 
@@ -16,6 +17,7 @@
         android:layout_height="wrap_content"
         android:text="Press to fetch"
         android:id="@+id/scrapeButton"
+        style="@style/ButtonAppTheme"
 
         android:layout_marginTop="14dp"
         android:layout_alignParentTop="true"
@@ -36,15 +38,18 @@
         android:id="@+id/jpTimePicker"
         android:layout_below="@+id/jpTextView"
         android:layout_alignLeft="@+id/jpTextView"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="12dp"
+        style="@style/ButtonAppTheme"/>
 
     <WebView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:id="@+id/webView"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/jpTimePicker"/>
+        android:layout_below="@+id/jpTimePicker"
+        android:layout_alignLeft="@+id/jpTimePicker"
+        android:layout_marginTop="12dp" />
+
+
 
 
 
