@@ -114,6 +114,11 @@
         <item name="android:background">@drawable/btn_default_holo_dark</item>
     </style>
 
+    <style name="TextFieldAppTheme" parent="android:Widget.TextView">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
     <style name="button_text">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>

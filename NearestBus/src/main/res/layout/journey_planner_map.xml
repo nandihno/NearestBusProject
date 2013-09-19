@@ -16,7 +16,18 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:focusable="true" />
+        android:focusable="true"
+        style="@style/EditTextAppTheme"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Destination:"
+        android:id="@+id/destinationTextJP"
+        android:layout_below="@+id/searchLocationTextJp"
+        android:layout_alignLeft="@+id/mapViewJp"
+        android:layout_alignRight="@+id/searchLocationTextJp"
+        style="@style/TextFieldAppTheme"/>
 
     <com.google.android.gms.maps.MapView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -24,10 +35,10 @@
         android:layout_height="match_parent"
         android:id="@+id/mapViewJp"
 
-        android:layout_below="@+id/searchLocationTextJp"
+        android:layout_below="@+id/destinationTextJP"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginTop="45dp"
+        android:layout_above="@+id/setLocationButtonJp" />
 
     <Button
         android:layout_width="match_parent"
@@ -36,7 +47,10 @@
         android:id="@+id/setLocationButtonJp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        style="@style/ButtonAppTheme"/>
+
+
 
 
 </RelativeLayout>

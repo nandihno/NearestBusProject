@@ -3,6 +3,6 @@
         android:title="@string/journey_planner"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:onClick="startJPActivity"
+        android:onClick=""
         />
 </menu>

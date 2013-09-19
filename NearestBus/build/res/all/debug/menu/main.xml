@@ -3,7 +3,7 @@
         android:title="@string/journey_planner"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:onClick="startJPActivity"
+        android:onClick=""
         />
 </menu>
 <!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/menu/main.xml -->

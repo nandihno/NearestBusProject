@@ -13,47 +13,71 @@
 
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Press to fetch"
+        android:text="Search"
         android:id="@+id/scrapeButton"
         style="@style/ButtonAppTheme"
 
-        android:layout_marginTop="14dp"
-        android:layout_alignParentTop="true"
-         />
+        android:layout_below="@+id/jpTimePicker"
+        android:layout_alignLeft="@+id/jpTimePicker"
+        android:layout_marginTop="17dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Need to be there by"
-        android:id="@+id/jpTextView"
-        android:layout_below="@+id/scrapeButton"
-        android:layout_alignLeft="@+id/scrapeButton" />
+        android:id="@+id/beThereTxt"
+        android:layout_below="@+id/fromToJPTxt"
+        android:layout_alignLeft="@+id/fromToJPTxt"
+        android:layout_marginTop="11dp"
+        style="@style/TextFieldAppTheme" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Arrive destination before"
+        android:text="Be there by"
         android:id="@+id/jpTimePicker"
-        android:layout_below="@+id/jpTextView"
-        android:layout_alignLeft="@+id/jpTextView"
-        android:layout_marginTop="12dp"
-        style="@style/ButtonAppTheme"/>
+        style="@style/ButtonAppTheme"
+        android:layout_below="@+id/beThereTxt"
+        android:layout_alignLeft="@+id/beThereTxt"
+        android:layout_marginTop="10dp" />
 
-    <WebView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:id="@+id/webView"
-        android:layout_below="@+id/jpTimePicker"
-        android:layout_alignLeft="@+id/jpTimePicker"
-        android:layout_marginTop="12dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From current location to 16 Reynolds St Carindale"
+        android:id="@+id/fromToJPTxt"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        style="@style/TextFieldAppTheme" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5:20pm"
+        android:id="@+id/jpTextView"
+        style="@style/TextFieldAppTheme"
+        android:layout_above="@+id/jpTimePicker"
+        android:layout_toRightOf="@+id/beThereTxt"
+        android:layout_marginLeft="19dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose destination"
+        android:id="@+id/chooseDestinationJp"
+        style="@style/ButtonAppTheme"
+        android:layout_alignTop="@+id/jpTimePicker"
+        android:layout_toRightOf="@+id/beThereTxt" />
 
-
-
-
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listViewJp"
+        android:layout_below="@+id/scrapeButton"
+        android:layout_alignLeft="@+id/scrapeButton"
+        android:layout_marginTop="15dp" />
 
 
 </RelativeLayout>

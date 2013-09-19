@@ -100,12 +100,7 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                busStopPojo = (BusStops) adapterView.getItemAtPosition(i);
-                String sUri = "geo:"+busStopPojo.getLatitude()+","+busStopPojo.getLongtitude()+
-                        "?q="+busStopPojo.getLatitude()+","+busStopPojo.getLongtitude();
-
-                Uri uri = Uri.parse(sUri);
-                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                Intent intent = new Intent(getActivity(),JourneyPlannerActivity.class);
                 startActivity(intent);
                 return true;
             }

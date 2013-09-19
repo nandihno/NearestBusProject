@@ -111,11 +111,7 @@ public class MainActivity extends FragmentActivity {
         );
     }
 
-    public void startJPActivity(MenuItem mi) {
-        Intent intent = new Intent(MainActivity.this,JourneyPlannerActivity.class);
-        startActivity(intent);
 
-    }
 
 
 
@@ -123,12 +119,14 @@ public class MainActivity extends FragmentActivity {
 
 
   //Not needed yet
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    */
 
 
 

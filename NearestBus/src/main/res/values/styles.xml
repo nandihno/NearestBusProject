@@ -43,6 +43,12 @@
         <item name="android:textColor">#ffffff</item>
     </style>
 
+    <style name="TextFieldAppTheme" parent="android:Widget.TextView">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">20dp</item>
+
+    </style>
+
     <style name="ButtonAppTheme" parent="android:Widget.Button">
         <item name="android:background">@drawable/btn_default_holo_dark</item>
         <item name="android:minHeight">48dip</item>

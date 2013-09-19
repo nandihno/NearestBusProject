@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip"
+    android:background="#fff5f5f5">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Option 1 Take bus 200"
+        android:id="@+id/headingElementTxt"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:paddingBottom="10dp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="20dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From 7.16am - 741 am Walk 819m to Old Cleaveland Rd At Belmont Primary School"
+        android:id="@+id/walkingElementTxt"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/headingElementTxt"
+        android:paddingBottom="10dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bus 200 departs / arrives 7.41am - 7.46 am"
+        android:id="@+id/busElement"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="false"
+        android:layout_below="@id/walkingElementTxt"
+        android:paddingBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finally from / to 7.25am - 7.39am Walk to Old Cleveland rd near bacto rd"
+        android:id="@+id/destinationElement"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="false"
+        android:layout_below="@id/busElement"
+        android:paddingBottom="10dp" />
+
+
+</RelativeLayout>
