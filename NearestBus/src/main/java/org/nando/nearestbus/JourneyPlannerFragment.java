@@ -3,6 +3,7 @@ package org.nando.nearestbus;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.location.Location;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,9 +26,12 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.model.LatLng;
 
+import org.apache.http.util.EncodingUtils;
 import org.nando.nearestbus.adapters.JourneyPlannerListAdapter;
-import org.nando.nearestbus.pojo.JourneyPlannerDisplayInfo;
+import org.nando.nearestbus.pojo.JourneyPlannerBusInfo;
+import org.nando.nearestbus.pojo.JourneyPlannerBusOption;
 import org.nando.nearestbus.task.BusRouteScrapeTask;
+import org.nando.nearestbus.task.JourneyPlannerWebScrapeTask;
 import org.nando.nearestbus.utils.AlertDialogHelper;
 import org.nando.nearestbus.utils.CheckConnectivityUtils;
 
@@ -44,7 +49,9 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
 
     private TextView jpTextView;
     private TextView fromToJpTxt;
-    private ListView listViewJp;
+    //private ListView listViewJp;
+
+    private WebView webView;
 
     private Location location;
     private LocationClient locationClient;
@@ -79,7 +86,8 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
         Button chooseDestinationJp = (Button) rootView.findViewById(R.id.chooseDestinationJp);
         chooseDestinationJp.setOnClickListener(this);
 
-        listViewJp = (ListView) rootView.findViewById(R.id.listViewJp);
+        //listViewJp = (ListView) rootView.findViewById(R.id.listViewJp);
+        webView = (WebView) rootView.findViewById(R.id.webViewJp);
 
         jpTextView = (TextView) rootView.findViewById(R.id.jpTextView);
         jpTextView.setText("");
@@ -110,20 +118,57 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.scrapeButton) {
-            listViewJp.setAdapter(null);
+            //listViewJp.setAdapter(null);
             location = locationClient.getLastLocation();
             if(location == null) {
                 CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
             }
             else {
                 String url = "http://mobile.jp.translink.com.au/travel-information/journey-planner";
-                BusRouteScrapeTask task = new BusRouteScrapeTask(this);
+                //JourneyPlannerWebScrapeTask task = new JourneyPlannerWebScrapeTask(this);
                 //check if destination is null here
                 if(destination == null) {
                     Toast.makeText(getActivity(),"Choose destination",Toast.LENGTH_LONG).show();
                 }
                 else {
-                  task.execute(url,location,hour,minute,am_pm,destination);
+                  //task.execute(url,location,hour,minute,am_pm,destination,webView);
+                    final ProgressDialog pd = new ProgressDialog(getActivity());
+
+                    pd.setTitle("Finding options...");
+                    pd.setMessage("Please wait.");
+                    pd.setCancelable(false);
+                    pd.setIndeterminate(true);
+                    pd.show();
+
+                    String longLat = location.getLatitude()+","+location.getLongitude();
+                    Calendar todayCal = Calendar.getInstance();
+                    String date = todayCal.get(Calendar.DATE)+"";
+                    String month  = todayCal.get(Calendar.MONTH)+1+"";
+                    String year = todayCal.get(Calendar.YEAR)+"";
+                    StringBuffer sbuff = new StringBuffer();
+                    sbuff.append("Start="+longLat+"&");
+                    sbuff.append("End="+destination.latitude+","+destination.longitude+"&");
+                    sbuff.append("SearchDate="+date+"-"+month+"-"+year+" 12:00 AM&");
+                    sbuff.append("TimeSearchMode=ArriveBefore&");
+                    sbuff.append("SearchHour="+hour+"&");
+                    sbuff.append("SearchMinute="+minute+"&");
+                    sbuff.append("TimeMeridiem="+am_pm+"&");
+                    sbuff.append("TransportModes=BUS&");
+                    sbuff.append("ServiceTypes=Regular&");
+                    sbuff.append("ServiceTypes=Express&");
+                    sbuff.append("FareTypes=Prepaid&");
+                    sbuff.append("FareTypes=Standard&");
+                    sbuff.append("MaximumWalkingDistance=1500");
+                    webView.getSettings().setJavaScriptEnabled(true);
+                    webView.setWebViewClient(new WebViewClient(){
+                        public void onPageFinished(WebView view, String url) {
+                            if(pd.isShowing()) {
+                                pd.dismiss();
+                            }
+                        }
+                    });
+                    webView.postUrl(url, EncodingUtils.getBytes(sbuff.toString(), "BASE64"));
+
                 }
             }
         }
@@ -140,17 +185,17 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
 
     }
 
-    public void displayOptionList(List<JourneyPlannerDisplayInfo> list) {
+    public void displayOptionList(List<JourneyPlannerBusInfo> list) {
         if(list != null && list.size() > 0) {
             JourneyPlannerListAdapter adapter = new JourneyPlannerListAdapter(getActivity(),android.R.layout.simple_list_item_1,list);
-            listViewJp.setAdapter(adapter);
+            //listViewJp.setAdapter(adapter);
         }
         else {
-
                 AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Cant find any options",false);
                 dialog.show();
         }
     }
+
 
     private TimePickerDialog.OnTimeSetListener timePickerListener = new TimePickerDialog.OnTimeSetListener() {
         public void onTimeSet(TimePicker view, int selectedHour, int selectedMinute) {

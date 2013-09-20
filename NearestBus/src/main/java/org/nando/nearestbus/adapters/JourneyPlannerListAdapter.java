@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import org.nando.nearestbus.R;
-import org.nando.nearestbus.pojo.JourneyPlannerDisplayInfo;
+import org.nando.nearestbus.pojo.JourneyPlannerBusInfo;
+import org.nando.nearestbus.pojo.JourneyPlannerBusOption;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,13 +19,13 @@ import java.util.List;
 /**
  * Created by fernandoMac on 19/09/13.
  */
-public class JourneyPlannerListAdapter extends ArrayAdapter<JourneyPlannerDisplayInfo> {
+public class JourneyPlannerListAdapter extends ArrayAdapter<JourneyPlannerBusInfo> {
 
-    HashMap<JourneyPlannerDisplayInfo,Integer> map = new HashMap();
+    HashMap<JourneyPlannerBusInfo,Integer> map = new HashMap();
     private static LayoutInflater inflater = null;
-    private List<JourneyPlannerDisplayInfo> data = new ArrayList();
+    private List<JourneyPlannerBusInfo> data = new ArrayList();
 
-    public JourneyPlannerListAdapter(Context ctx,int textViewResourceId, List<JourneyPlannerDisplayInfo> list) {
+    public JourneyPlannerListAdapter(Context ctx,int textViewResourceId, List<JourneyPlannerBusInfo> list) {
         super(ctx,textViewResourceId,list);
         data = list;
         inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -33,7 +35,7 @@ public class JourneyPlannerListAdapter extends ArrayAdapter<JourneyPlannerDispla
     }
 
     public long getItemId(int position) {
-        JourneyPlannerDisplayInfo pojo = getItem(position);
+        JourneyPlannerBusInfo pojo = getItem(position);
         return map.get(pojo);
     }
 
@@ -45,21 +47,43 @@ public class JourneyPlannerListAdapter extends ArrayAdapter<JourneyPlannerDispla
         return true;
     }
 
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getAView(int position, View view, ViewGroup viewGroup) {
         View vi = view;
         if(view == null) {
             vi = inflater.inflate(R.layout.journey_planner_options_row,null);
         }
         TextView heading = (TextView) vi.findViewById(R.id.headingElementTxt);
-        TextView walkingElement = (TextView) vi.findViewById(R.id.walkingElementTxt);
-        TextView busElement = (TextView) vi.findViewById(R.id.busElement);
-        TextView destinationElement = (TextView) vi.findViewById(R.id.destinationElement);
-        JourneyPlannerDisplayInfo pojo = data.get(position);
-        int optionNo = position + 1;
-        heading.setText(optionNo + " take bus no "+pojo.getBusRoute().busRoute);
-        walkingElement.setText("From / to "+pojo.getWalkingElement());
-        busElement.setText("Bus no "+pojo.getBusRoute().busRoute+" departs / arrives "+pojo.getBusRouteLegDuration());
-        destinationElement.setText("Finally from / to "+pojo.getDestinationElement());
+        TextView arriveTxt = (TextView) vi.findViewById(R.id.busArrive);
+        TextView departTxt = (TextView) vi.findViewById(R.id.busDepart);
+        TextView travelTime = (TextView) vi.findViewById(R.id.busTravelTime);
+        JourneyPlannerBusInfo pojo = data.get(position);
+        if(pojo.getIndex() == 0) {
+            heading.setPadding(0,20,0,10);
+            heading.setTextSize(20f);
+            heading.setText("Option "+(pojo.getIndex() +1) +" Bus:"+pojo.getBusRoute().busRoute);
+        }
+        else {
+            heading.setPadding(0,10,0,10);
+            heading.setTextSize(10f);
+            heading.setText("Then ");
+        }
+        arriveTxt.setText(pojo.getArrive());
+        departTxt.setText(pojo.getDepart());
+        travelTime.setText(pojo.getTravelTime());
+        return vi;
+    }
+
+    public View getView(int position, View view, ViewGroup viewGroup) {
+        View vi = view;
+        if(view == null) {
+            vi = inflater.inflate(R.layout.journey_planner_options_webview_row,null);
+        }
+        WebView webView = (WebView) vi.findViewById(R.id.webViewRowJP);
+        webView.getSettings().setJavaScriptEnabled(true);
+        JourneyPlannerBusInfo pojo = data.get(position);
+        System.out.println(pojo.getHtml());
+        webView.loadData(pojo.getHtml(),"text/html","UTF-8");
+
         return vi;
     }
 

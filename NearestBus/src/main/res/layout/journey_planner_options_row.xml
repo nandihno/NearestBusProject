@@ -19,33 +19,36 @@
         android:paddingBottom="10dp"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="20dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="From 7.16am - 741 am Walk 819m to Old Cleaveland Rd At Belmont Primary School"
-        android:id="@+id/walkingElementTxt"
-        android:layout_alignParentTop="false"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/headingElementTxt"
-        android:paddingBottom="10dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bus 200 departs / arrives 7.41am - 7.46 am"
-        android:id="@+id/busElement"
+        android:text="7.52pm Depart Bridgnorth St at Belmont School"
+        android:id="@+id/busDepart"
         android:layout_alignParentTop="false"
         android:layout_centerHorizontal="false"
-        android:layout_below="@id/walkingElementTxt"
+        android:layout_below="@id/headingElementTxt"
         android:paddingBottom="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Finally from / to 7.25am - 7.39am Walk to Old Cleveland rd near bacto rd"
-        android:id="@+id/destinationElement"
+        android:text="8.21pm Arrive Queen Street station"
+        android:id="@+id/busArrive"
         android:layout_alignParentTop="false"
         android:layout_centerHorizontal="false"
-        android:layout_below="@id/busElement"
+        android:layout_below="@id/busDepart"
+        android:paddingBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Travel time: about 29 minutes"
+        android:id="@+id/busTravelTime"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="false"
+        android:layout_below="@id/busArrive"
+
         android:paddingBottom="10dp" />
 
 

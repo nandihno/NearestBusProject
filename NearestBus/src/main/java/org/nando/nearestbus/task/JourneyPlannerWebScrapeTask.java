@@ -1,9 +1,10 @@
 package org.nando.nearestbus.task;
 
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.location.Location;
 import android.os.AsyncTask;
-import android.app.Fragment;
+import android.webkit.WebView;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -14,6 +15,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EncodingUtils;
 import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -22,23 +24,20 @@ import org.jsoup.select.Elements;
 import org.nando.nearestbus.JourneyPlannerFragment;
 import org.nando.nearestbus.pojo.BusRoute;
 import org.nando.nearestbus.pojo.JourneyPlannerBusInfo;
-import org.nando.nearestbus.pojo.JourneyPlannerBusOption;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 /**
- * Created by fernandoMac on 14/08/13.
+ * Created by fernandoMac on 20/09/13.
  */
-public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlannerBusInfo>> {
+public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,WebView> {
 
     private Fragment mainFragment;
     ProgressDialog pd = null;
 
-    private static final  int LIMIT_BUS_SCRAPING = 5;
-
-    public BusRouteScrapeTask(Fragment fragment) {
+    public JourneyPlannerWebScrapeTask(Fragment fragment) {
         mainFragment = fragment;
     }
 
@@ -52,12 +51,12 @@ public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlann
         pd.show();
     }
 
-
     @Override
-    protected List<JourneyPlannerBusInfo> doInBackground(Object... objects) {
-        List<JourneyPlannerBusInfo> list = new ArrayList<JourneyPlannerBusInfo>();
+    protected WebView doInBackground(Object... objects) {
 
-        String html = "";
+
+
+        WebView webView = (WebView) objects[6];
         StringBuffer htmlBuff = new StringBuffer();
         try {
             HttpClient client = new DefaultHttpClient();
@@ -67,14 +66,32 @@ public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlann
             String minute = String.valueOf(objects[3]);
             String am_pm = (String) objects[4];
             LatLng destination = (LatLng) objects[5];
+
+
             String longLat = location.getLatitude()+","+location.getLongitude();
             Calendar todayCal = Calendar.getInstance();
             String date = todayCal.get(Calendar.DATE)+"";
             String month  = todayCal.get(Calendar.MONTH)+1+"";
             String year = todayCal.get(Calendar.YEAR)+"";
 
+            StringBuffer sbuff = new StringBuffer();
+            sbuff.append("Start="+longLat+"&");
+            sbuff.append("End="+destination.latitude+","+destination.longitude+"&");
+            sbuff.append("SearchDate="+date+"-"+month+"-"+year+" 12:00 AM&");
+            sbuff.append("TimeSearchMode=ArriveBefore&");
+            sbuff.append("SearchHour="+hour+"&");
+            sbuff.append("SearchMinute="+minute+"&");
+            sbuff.append("TimeMeridiem="+am_pm+"&");
+            sbuff.append("TransportModes=BUS&");
+            sbuff.append("ServiceTypes=Regular&");
+            sbuff.append("ServiceTypes=Express&");
+            sbuff.append("FareTypes=Prepaid&");
+            sbuff.append("FareTypes=Standard&");
+            sbuff.append("MaximumWalkingDistance=1500");
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.postUrl(url, EncodingUtils.getBytes(sbuff.toString(),"BASE64"));
 
-
+            /*
             HttpPost post = new HttpPost(url);
             List<BasicNameValuePair> data = new ArrayList<BasicNameValuePair>();
             data.add(new BasicNameValuePair("Start",longLat));
@@ -104,6 +121,8 @@ public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlann
                 for(int a=0; a < busClass2.size(); a++) {
                     Element busClassElem = busClass2.get(a);
                     Elements itineryBusClass = busClassElem.select("li.bus");
+                    htmlBuff.append("<p style='color:green'>Option "+(a+1)+"</p>");
+
 
                     for(int b=0; b < itineryBusClass.size(); b++) {
                         Element busRouteCodesElem = itineryBusClass.get(b);
@@ -126,6 +145,9 @@ public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlann
                             pojo.setArrive(arrive.text());
                             pojo.setTravelTime(travelTime.text());
                             pojo.setIndex(k);
+                            htmlBuff.append( "<ul><ol>"+pojo.getBusRoute()+"</ol><ol>"+pojo.getDepart()+"</ol><ol>"+pojo.getArrive()+"</ol><ol>"+pojo.getTravelTime()+"</ol></ul>");
+                            pojo.setHtml(htmlBuff.toString());
+
                             list.add(pojo);
                         }
                     }
@@ -133,25 +155,22 @@ public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlann
                 }
 
             }
+            */
 
         } catch(Exception e) {
             e.printStackTrace();
         }
-        return list;
+        //return list;
+
+            return webView;
     }
 
-
-    protected void onPostExecute(List<JourneyPlannerBusInfo> res) {
+    protected void onPostExecute(WebView res) {
         pd.dismiss();
         pd = null;
-        if(this.mainFragment instanceof JourneyPlannerFragment) {
-            //((JourneyPlannerFragment)mainFragment).displayOptionList(res);
-        }
-       // mainActivity.fetchBusRoutes(list);
+
+
 
     }
-
-
-
 
 }

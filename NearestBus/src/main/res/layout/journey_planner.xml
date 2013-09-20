@@ -71,13 +71,22 @@
         android:layout_alignTop="@+id/jpTimePicker"
         android:layout_toRightOf="@+id/beThereTxt" />
 
-    <ListView
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/webViewJp"
+        android:layout_below="@+id/scrapeButton"
+        android:layout_alignLeft="@+id/resultsText"
+        android:layout_marginTop="10dp"
+        />
+
+   <!-- <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/listViewJp"
         android:layout_below="@+id/scrapeButton"
         android:layout_alignLeft="@+id/scrapeButton"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp" /> -->
 
 
 </RelativeLayout>
