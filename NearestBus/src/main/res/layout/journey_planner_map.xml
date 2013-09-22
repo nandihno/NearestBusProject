@@ -15,9 +15,11 @@
         android:id="@+id/searchLocationTextJp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:focusable="true"
-        style="@style/EditTextAppTheme"/>
+        style="@style/EditTextAppTheme"
+        android:paddingRight="50dp"
+        android:layout_toLeftOf="@+id/searchMapBtn"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,7 +52,15 @@
         android:layout_alignParentLeft="true"
         style="@style/ButtonAppTheme"/>
 
-
+    <Button
+        style="@style/ButtonAppTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/searchMapBtn"
+        android:layout_alignTop="@+id/searchLocationTextJp"
+        android:layout_alignParentRight="true"
+        />
 
 
 </RelativeLayout>

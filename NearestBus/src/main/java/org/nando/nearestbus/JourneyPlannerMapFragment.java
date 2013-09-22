@@ -1,6 +1,7 @@
 package org.nando.nearestbus;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.location.Location;
 import android.os.Bundle;
@@ -15,32 +16,47 @@ import android.widget.Toast;
 import com.google.ads.ac;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.nando.nearestbus.pojo.LocationPojo;
 import org.nando.nearestbus.task.GeoCodingTask;
+import org.nando.nearestbus.utils.AlertDialogHelper;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by fernandoMac on 17/09/13.
  */
 public class JourneyPlannerMapFragment extends Fragment implements GooglePlayServicesClient.ConnectionCallbacks,
         GooglePlayServicesClient.OnConnectionFailedListener,
-        LocationListener, View.OnClickListener, GoogleMap.OnMapClickListener {
+        LocationListener, View.OnClickListener, GoogleMap.OnMapClickListener,GoogleMap.OnInfoWindowClickListener {
 
     private MapView mapView;
     private GoogleMap map;
     private EditText editText;
     private TextView textView;
+    private TextView searchLocationTextView;
 
     private Location location;
     private LocationClient locationClient;
     private LatLng destinationLatLng;
+    private AlertDialogHelper dialogHelper;
+
+    private Map<Marker,String> locMap = new HashMap<Marker,String>();
 
     JourneyPlannerMapListener jpCallback;
 
@@ -53,17 +69,29 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try {
+            MapsInitializer.initialize(getActivity());
+        } catch (GooglePlayServicesNotAvailableException e) {
+            e.printStackTrace();
+        }
+
         View rootView = inflater.inflate(R.layout.journey_planner_map,container,false);
         Button button = (Button) rootView.findViewById(R.id.setLocationButtonJp);
+        Button searchBtn = (Button) rootView.findViewById(R.id.searchMapBtn);
         mapView = (MapView) rootView.findViewById(R.id.mapViewJp);
         mapView.onCreate(savedInstanceState);
         editText = (EditText) rootView.findViewById(R.id.searchLocationTextJp);
         textView = (TextView) rootView.findViewById(R.id.destinationTextJP);
+        searchLocationTextView = (TextView) rootView.findViewById(R.id.searchLocationTextJp);
+
+        dialogHelper = new AlertDialogHelper(getActivity());
 
         map = mapView.getMap();
         map.setMyLocationEnabled(true);
         map.setOnMapClickListener(this);
+        map.setOnInfoWindowClickListener(this);
         button.setOnClickListener(this);
+        searchBtn.setOnClickListener(this);
         return rootView;
     }
 
@@ -88,14 +116,54 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
 
     @Override
     public void onClick(View view) {
+        String searchVal = searchLocationTextView.getText().toString();
         if(view.getId() == R.id.setLocationButtonJp) {
-
             if(destinationLatLng != null) {
                jpCallback.clickSetLocation(destinationLatLng,textView.getText().toString());
-                Toast.makeText(getActivity(),"coords lat:"+destinationLatLng.latitude+" coords long:"+destinationLatLng.longitude+" ",Toast.LENGTH_LONG).show();
+                //Toast.makeText(getActivity(),"coords lat:"+destinationLatLng.latitude+" coords long:"+destinationLatLng.longitude+" ",Toast.LENGTH_LONG).show();
+            }
+            else {
+                if(searchVal == null || searchVal.isEmpty()) {
+                    AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please make sure to click on any location on the map to register your destination",false);
+                    dialog.show();
+                }
+                else {
+                    AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please click on any map marker to register your destination",false);
+                    dialog.show();
+                }
+            }
+        }
+        if(view.getId() == R.id.searchMapBtn) {
+            map.clear();
+            if(searchVal == null || searchVal.isEmpty()) {
+                AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please add a search value",false);
+                dialog.show();
+            }
+            else {
+                GeoCodingTask task = new GeoCodingTask(this,false);
+                task.execute(searchVal);
             }
         }
 
+    }
+
+    public void displaySearchedMarkers(List<LocationPojo> list) {
+        if(!list.isEmpty()) {
+            for(LocationPojo pojo:list) {
+
+                Marker marker = map.addMarker(createMarkerOptions(new LatLng(pojo.latitude,pojo.longtitude),pojo.addressName,""));
+                locMap.put(marker,pojo.addressName);
+            }
+            LatLng latLng = new LatLng(list.get(0).latitude,list.get(0).longtitude);
+            location = locationClient.getLastLocation();
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(latLng)
+                    .zoom(11)
+                    .bearing(0)
+                    .tilt(30)
+                    .build();
+            map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        }
     }
 
     @Override
@@ -139,9 +207,9 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
         destinationLatLng = null;
         textView.setText("");
         map.clear();
-        map.addMarker(createMarkerOptions(latLng,"Destination",""));
+        map.addMarker(createMarkerOptions(latLng,"",""));
         destinationLatLng = latLng;
-        GeoCodingTask task = new GeoCodingTask(this);
+        GeoCodingTask task = new GeoCodingTask(this,true);
         task.execute(latLng);
 
 
@@ -156,10 +224,18 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(position);
         markerOptions.title(title);
-        markerOptions.snippet(snippet);
-
-
+        //markerOptions.snippet("");
         return markerOptions;
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        destinationLatLng = null;
+        destinationLatLng = marker.getPosition();
+        textView.setText("");
+        String val = locMap.get(marker);
+        GeoCodingTask task = new GeoCodingTask(this,true);
+        task.execute(marker.getPosition());
     }
 
     public interface JourneyPlannerMapListener {

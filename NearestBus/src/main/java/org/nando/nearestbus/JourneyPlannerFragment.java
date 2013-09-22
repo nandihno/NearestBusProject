@@ -167,6 +167,8 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                             }
                         }
                     });
+                    webView.setBackgroundColor(0x00000000);
+                    webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
                     webView.postUrl(url, EncodingUtils.getBytes(sbuff.toString(), "BASE64"));
 
                 }
@@ -211,6 +213,9 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                 am_pm = "PM";
             }
             hour = dateTime.get(Calendar.HOUR);
+            if(hour == 0) {
+                hour = 12;
+            }
             jpTextView.setText(hour + ":" + minute + "" + am_pm);
 
 

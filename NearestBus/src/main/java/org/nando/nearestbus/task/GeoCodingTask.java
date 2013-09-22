@@ -16,17 +16,25 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nando.nearestbus.JourneyPlannerMapFragment;
+import org.nando.nearestbus.pojo.LocationPojo;
+
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by fernandoMac on 19/09/13.
  */
-public class GeoCodingTask extends AsyncTask<Object,Void,String> {
+public class GeoCodingTask extends AsyncTask<Object,Void,Object> {
 
     Fragment myFragment = null;
     ProgressDialog pd = null;
+    boolean passLatLng = false;
+    private String url = "http://maps.googleapis.com/maps/api/geocode/json?sensor=true";
 
-     public GeoCodingTask(Fragment fragment) {
+     public GeoCodingTask(Fragment fragment,boolean isPassLatLng) {
          myFragment = fragment;
+         passLatLng = isPassLatLng;
      }
 
 
@@ -40,11 +48,8 @@ public class GeoCodingTask extends AsyncTask<Object,Void,String> {
         pd.show();
     }
 
-    @Override
-    protected String doInBackground(Object... objects) {
-
+    private String  doLatLngSearch(Object... objects) {
         StringBuffer sbuff = new StringBuffer();
-        String url = "http://maps.googleapis.com/maps/api/geocode/json?sensor=true";
         LatLng latLng = (LatLng) objects[0];
         String latLngSt = latLng.latitude +","+latLng.longitude;
         System.out.println(latLngSt);
@@ -60,7 +65,7 @@ public class GeoCodingTask extends AsyncTask<Object,Void,String> {
                 for(int i=0; i < 1; i++) {
                     JSONObject obj = jArray.getJSONObject(i);
                     String s = obj.getString("formatted_address");
-                    sbuff.append(s +" \n ");
+                    sbuff.append(s +"");
                 }
             }
 
@@ -71,10 +76,62 @@ public class GeoCodingTask extends AsyncTask<Object,Void,String> {
         return sbuff.toString();
     }
 
-    protected void onPostExecute(String s) {
+    @Override
+    protected Object doInBackground(Object... objects) {
+        if(passLatLng) {
+            return doLatLngSearch(objects);
+        }
+        else {
+            return doAddressSearch(objects);
+        }
+
+
+    }
+
+    private List<LocationPojo> doAddressSearch(Object... objects) {
+        List<LocationPojo> list = new ArrayList<LocationPojo>();
+
+        try {
+            String encoded = URLEncoder.encode((String)objects[0],"UTF-8");
+            HttpClient client = new DefaultHttpClient();
+            HttpGet get = new HttpGet(url+"&address="+encoded+"&components=country:AU");
+            HttpResponse response = client.execute(get);
+            if(response.getStatusLine().getStatusCode() == 200) {
+                HttpEntity entity = response.getEntity();
+                String jsonResponse = EntityUtils.toString(entity);
+                JSONObject json = new JSONObject(jsonResponse);
+                JSONArray jArray = json.getJSONArray("results");
+                for(int i =0; i < jArray.length(); i++) {
+                    JSONObject jObject = jArray.getJSONObject(i);
+                    String address = jObject.getString("formatted_address");
+                    JSONObject jObject2 = jObject.getJSONObject("geometry").getJSONObject("location");
+                    double lat = jObject2.getDouble("lat");
+                    double lng = jObject2.getDouble("lng");
+                    LocationPojo latLng = new LocationPojo(lng,lat,address);
+                    list.add(latLng);
+                }
+            }
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+
+    }
+
+    protected void onPostExecute(Object s) {
         pd.dismiss();
         pd = null;
-        ((JourneyPlannerMapFragment)myFragment).setDestinationText(s);
+        if(passLatLng) {
+            String st = (String) s;
+            ((JourneyPlannerMapFragment)myFragment).setDestinationText(st);
+        }
+        else {
+            List<LocationPojo> list = (List<LocationPojo>) s;
+            ((JourneyPlannerMapFragment)myFragment).displaySearchedMarkers(list);
+
+        }
+
     }
 
 }

@@ -14,8 +14,15 @@ public class LocationPojo {
         this.latitude = alatitude;
     }
 
+    public LocationPojo(double alongtitude, double alatitude,String anAddressName) {
+        this.longtitude = alongtitude;
+        this.latitude = alatitude;
+        this.addressName = anAddressName;
+    }
+
     public double longtitude;
     public double latitude;
+    public String addressName = "";
 
     @Override
     public boolean equals(Object o) {
