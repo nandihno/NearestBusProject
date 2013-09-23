@@ -62,15 +62,7 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
     public  View  onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.nearest_stops,container,false);
-        DatabaseHelper dbHelper = new DatabaseHelper(getActivity());
-        try {
-            dbHelper.createDataBase();
-        } catch(IOException ioe) {
-            BugSenseHandler.sendException(ioe);
-            throw new Error("Unable to create db");
-        }
-        BugSenseHandler.setLogging("About to openDatabase");
-        //dbHelper.openDataBase();
+
 
         listView = (ListView) rootView.findViewById(R.id.listView);
         nearestStopBtn = (Button) rootView.findViewById(R.id.busStopsBtn);

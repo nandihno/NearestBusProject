@@ -84,12 +84,7 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
         setContentView(R.layout.nearest_route_map);
         ActionBar ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        DatabaseHelper dbHelper = new DatabaseHelper(this);
-        try {
-            dbHelper.createDataBase();
-        } catch(IOException ioe) {
-            throw new Error("Unable to create db");
-        }
+
 
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
                 .getMap();

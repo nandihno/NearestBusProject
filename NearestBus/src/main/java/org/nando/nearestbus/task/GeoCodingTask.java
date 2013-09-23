@@ -93,8 +93,12 @@ public class GeoCodingTask extends AsyncTask<Object,Void,Object> {
 
         try {
             String encoded = URLEncoder.encode((String)objects[0],"UTF-8");
+            String componentsEncoded = URLEncoder.encode("country:AU|administrative_area:QLD","UTF-8");
+
             HttpClient client = new DefaultHttpClient();
-            HttpGet get = new HttpGet(url+"&address="+encoded+"&components=country:AU");
+            String qldOnlyQryStr = "&region=au&components="+componentsEncoded;
+            System.out.println("url is:"+url+"&address="+encoded+qldOnlyQryStr);
+            HttpGet get = new HttpGet(url+"&address="+encoded+qldOnlyQryStr);
             HttpResponse response = client.execute(get);
             if(response.getStatusLine().getStatusCode() == 200) {
                 HttpEntity entity = response.getEntity();

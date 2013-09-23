@@ -48,13 +48,7 @@ public class AllBusRouteFragment extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.all_bus_routes,container,false);
-        DatabaseHelper dbHelper = new DatabaseHelper(getActivity());
-        try {
-            dbHelper.createDataBase();
-        } catch(IOException ioe) {
-            BugSenseHandler.sendException(ioe);
-            throw new Error("Unable to create db");
-        }
+
         dialogHelper = new AlertDialogHelper(getActivity());
         button = (Button) rootView.findViewById(R.id.allBusRouteFindBtn);
         editText = (EditText) rootView.findViewById(R.id.allBusRouteText);

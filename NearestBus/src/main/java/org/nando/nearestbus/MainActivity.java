@@ -36,7 +36,9 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BugSenseHandler.initAndStartSession(this,"433cb4d1");
+
+        ActionBar ab = getActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_main);
         if(!CheckConnectivityUtils.weHaveGoogleServices(this)) {
             AlertDialogHelper helper = new AlertDialogHelper(this);

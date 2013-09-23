@@ -63,13 +63,7 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
     public  View  onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.nearest_route,container,false);
-        DatabaseHelper dbHelper = new DatabaseHelper(getActivity());
-        try {
-            dbHelper.createDataBase();
-        } catch(IOException ioe) {
-            throw new Error("Unable to create db");
-        }
-        //dbHelper.openDataBase();
+
 
         listView = (ListView) rootView.findViewById(R.id.listViewStops);
         searchBtn = (Button) rootView.findViewById(R.id.findBusStop);

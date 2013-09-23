@@ -60,14 +60,7 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
     public  View  onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.here_to_there,container,false);
-        DatabaseHelper dbHelper = new DatabaseHelper(getActivity());
-        try {
-            dbHelper.createDataBase();
-        } catch(IOException ioe) {
-            BugSenseHandler.sendException(ioe);
-            throw new Error("Unable to create db");
-        }
-        //dbHelper.openDataBase();
+
         dialogHelper = new AlertDialogHelper(getActivity());
         button = (Button) rootView.findViewById(R.id.searchToThereButton);
         editText = (AutoCompleteTextView) rootView.findViewById(R.id.suburbNameText);

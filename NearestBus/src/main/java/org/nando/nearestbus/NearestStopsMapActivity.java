@@ -64,13 +64,7 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
         setContentView(R.layout.nearest_stops_map);
         ActionBar ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        DatabaseHelper dbHelper = new DatabaseHelper(this);
-        try {
-            dbHelper.createDataBase();
-        } catch(IOException ioe) {
-            throw new Error("Unable to create db");
-        }
-        //dbHelper.openDataBase();
+
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.mapStop))
                 .getMap();
 

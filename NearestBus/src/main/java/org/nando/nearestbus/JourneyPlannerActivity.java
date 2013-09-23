@@ -1,8 +1,11 @@
 package org.nando.nearestbus;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v4.widget.SlidingPaneLayout;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -18,8 +21,21 @@ public class JourneyPlannerActivity extends Activity implements JourneyPlannerMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.journey_planner_activity);
         setSlidingLayoutIfNeeded();
+        ActionBar ab = getActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     protected void onStop() {

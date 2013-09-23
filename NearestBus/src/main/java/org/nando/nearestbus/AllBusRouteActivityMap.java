@@ -63,12 +63,7 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
         setContentView(R.layout.all_bus_routes_map);
         ActionBar ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        DatabaseHelper dbHelper = new DatabaseHelper(this);
-        try {
-            dbHelper.createDataBase();
-        } catch(IOException ioe) {
-            throw new Error("Unable to create db");
-        }
+
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.mapBusRoute))
                 .getMap();
 
