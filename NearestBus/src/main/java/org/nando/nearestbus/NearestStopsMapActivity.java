@@ -23,6 +23,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -53,6 +54,8 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
     private GoogleMap map;
     private Map<Marker,BusStops> markerPojoMap = new HashMap<Marker, BusStops>();
 
+    static final LatLng BRISBANE_LT_LNG = new LatLng(-27.4710107,153.0234489);
+
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(10000)         // 10 seconds
             .setFastestInterval(5000)    // 5 sec
@@ -70,10 +73,23 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
 
         map.setMyLocationEnabled(true);
         map.setOnInfoWindowClickListener(this);
+        loadBrisbaneArea();
 
         nearestStopBtnMap = (Button) findViewById(R.id.nearestStopMapBtn);
 
         nearestStopBtnMap.setOnClickListener(this);
+    }
+
+    void loadBrisbaneArea() {
+
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(BRISBANE_LT_LNG)
+                .zoom(8)
+                .bearing(0)
+                .tilt(30)
+                .build();
+        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
     }
 
     @Override

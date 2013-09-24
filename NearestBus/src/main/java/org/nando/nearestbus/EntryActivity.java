@@ -77,7 +77,7 @@ public class EntryActivity extends Activity {
         return super.onKeyDown(keyCode, event);
     }
 
-   
+
 
 
     private void processCheckGoogleServices() {

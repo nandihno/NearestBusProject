@@ -61,6 +61,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/src/main/res/values/strings.xml -->
+    <string name="go_back">Bus Link - Press to go to main menu</string>
     <string name="hello_world">Hello world!</string>
     <string name="journey_planner">Journey Planner</string>
     <!-- From: file:/Users/fernandoMac/developer/java/workspace/NearestBusProject/NearestBus/build/exploded-bundles/ComGoogleAndroidGmsPlayServices3136.aar/res/values/strings.xml -->

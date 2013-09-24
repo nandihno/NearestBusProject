@@ -1,5 +1,6 @@
 package org.nando.nearestbus;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
@@ -8,8 +9,10 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -62,6 +65,9 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
     public  View  onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.nearest_stops,container,false);
+        ActionBar ab = getActivity().getActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+
 
 
         listView = (ListView) rootView.findViewById(R.id.listView);
@@ -102,6 +108,16 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
 
         nearestStopBtn.setOnClickListener(this);
         return rootView;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(getActivity());
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     /*

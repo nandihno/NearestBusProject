@@ -25,10 +25,10 @@ public class AlertDialogHelper {
     public AlertDialog createAlertDialog(String title,String message, boolean isClosableMessage) {
         AlertDialog.Builder alertDialogBuilder = null;
         if(isClosableMessage) {
-            alertDialogBuilder = new AlertDialog.Builder(activity, R.style.AboutDialogWarning);
+            alertDialogBuilder = new AlertDialog.Builder(activity);
         }
         else {
-            alertDialogBuilder = new AlertDialog.Builder(activity, R.style.AboutDialogInfo);
+            alertDialogBuilder = new AlertDialog.Builder(activity);
         }
         alertDialogBuilder.setTitle(title);
         alertDialogBuilder.setMessage(message);

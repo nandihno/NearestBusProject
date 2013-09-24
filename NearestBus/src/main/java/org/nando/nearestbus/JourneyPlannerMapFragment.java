@@ -47,7 +47,7 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
 
     private MapView mapView;
     private GoogleMap map;
-    private EditText editText;
+
     private TextView textView;
     private TextView searchLocationTextView;
 
@@ -59,6 +59,8 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
     private Map<Marker,String> locMap = new HashMap<Marker,String>();
 
     JourneyPlannerMapListener jpCallback;
+
+    static final LatLng BRISBANE_LT_LNG = new LatLng(-27.4710107,153.0234489);
 
 
 
@@ -80,7 +82,7 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
         Button searchBtn = (Button) rootView.findViewById(R.id.searchMapBtn);
         mapView = (MapView) rootView.findViewById(R.id.mapViewJp);
         mapView.onCreate(savedInstanceState);
-        editText = (EditText) rootView.findViewById(R.id.searchLocationTextJp);
+
         textView = (TextView) rootView.findViewById(R.id.destinationTextJP);
         searchLocationTextView = (TextView) rootView.findViewById(R.id.searchLocationTextJp);
 
@@ -90,9 +92,22 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
         map.setMyLocationEnabled(true);
         map.setOnMapClickListener(this);
         map.setOnInfoWindowClickListener(this);
+        loadBrisbaneArea();
         button.setOnClickListener(this);
         searchBtn.setOnClickListener(this);
         return rootView;
+    }
+
+    void loadBrisbaneArea() {
+
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(BRISBANE_LT_LNG)
+                .zoom(8)
+                .bearing(0)
+                .tilt(30)
+                .build();
+        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
     }
 
 
@@ -128,13 +143,14 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
                     dialog.show();
                 }
                 else {
-                    AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please click on any map marker to register your destination",false);
+                    AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please click on any map marker information tag to register your destination",false);
                     dialog.show();
                 }
             }
         }
         if(view.getId() == R.id.searchMapBtn) {
             map.clear();
+            searchLocationTextView.setText("");
             if(searchVal == null || searchVal.isEmpty()) {
                 AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please add a search value",false);
                 dialog.show();

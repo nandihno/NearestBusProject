@@ -2,6 +2,7 @@ package org.nando.nearestbus;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v4.widget.SlidingPaneLayout;
@@ -15,16 +16,24 @@ import com.google.android.gms.maps.model.LatLng;
  */
 public class JourneyPlannerActivity extends Activity implements JourneyPlannerMapFragment.JourneyPlannerMapListener, JourneyPlannerFragment.JourneyPlannerListener {
 
-    private SlidingPaneLayout mSlidingLayout;
+    static JourneyPlannerMapFragment jpMapFragment;
+    static JourneyPlannerFragment jpFragment;
+
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.journey_planner_activity);
-        setSlidingLayoutIfNeeded();
         ActionBar ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-
-
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(android.R.animator.fade_in,android.R.animator.fade_out);
+        jpFragment = (JourneyPlannerFragment) getFragmentManager().findFragmentById(R.id.jp);
+        jpMapFragment = (JourneyPlannerMapFragment) getFragmentManager().findFragmentById(R.id.jpMap);
+        ft.show(jpFragment);
+        //ft.hide(jpMapFragment);
+        ft.commit();
     }
 
     @Override
@@ -41,32 +50,40 @@ public class JourneyPlannerActivity extends Activity implements JourneyPlannerMa
     protected void onStop() {
         super.onStop();
         System.out.println("stopping!");
-        mSlidingLayout = null;
+
     }
 
     protected void onStart() {
         super.onStart();
-        setSlidingLayoutIfNeeded();
+
     }
 
 
-    private void setSlidingLayoutIfNeeded() {
-        if(mSlidingLayout == null) {
-            mSlidingLayout = (SlidingPaneLayout) findViewById(R.id.sliding_pane_layout);
 
-        }
-    }
 
     @Override
     public void clickSetLocation(LatLng destination,String locality) {
-        JourneyPlannerFragment jp = (JourneyPlannerFragment) getFragmentManager().findFragmentById(R.id.jp);
-        jp.setDestination(destination,locality);
-        mSlidingLayout.closePane();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(android.R.animator.fade_in,android.R.animator.fade_out);
+        jpFragment.setDestination(destination,locality);
+        ft.hide(jpMapFragment);
+        ft.show(jpFragment);
+        ft.commit();
 
+        //show jpfragment
     }
+
+
 
     @Override
     public void openJPMap() {
-        mSlidingLayout.openPane();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(android.R.animator.fade_in,android.R.animator.fade_out);
+        ft.hide(jpFragment);
+        ft.show(jpMapFragment);
+        ft.commit();
+
+
+
     }
 }

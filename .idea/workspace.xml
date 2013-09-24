@@ -30,25 +30,21 @@
     <option name="TOOL_WINDOW_CUSTOM_FILTER" value="org.nando.nearestbus" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6b083d9-c497-4c6f-8842-952a23b19131" name="Default" comment="Journey Planner impl v.0.5&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/EntryActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/InstallDatabaseTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/drawable-xhdpi/blue_orange_gradient.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/entry_activity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteFragment.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteFragment.java" />
+    <list default="true" id="f6b083d9-c497-4c6f-8842-952a23b19131" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerMapActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/journey_planner_map_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/utils/AlertDialogHelper.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/utils/AlertDialogHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/DatabaseHelper.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/DatabaseHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/FromHereToThereFragment.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/FromHereToThereFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/GeoCodingTask.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/GeoCodingTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/EntryActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/EntryActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/MainActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteFragment.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerMapFragment.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerMapFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsFragment.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java" afterPath="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/NearestBus/build/source/r/debug/com/google/android/gms/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/source/r/debug/org/nando/nearestbus/R.java" afterPath="$PROJECT_DIR$/NearestBus/build/source/r/debug/org/nando/nearestbus/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/layout/journey_planner_activity.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/layout/journey_planner_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/NearestBus/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NearestBus/build/res/all/debug/values/values.xml" afterPath="$PROJECT_DIR$/NearestBus/build/res/all/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NearestBus.iws" />
@@ -244,43 +240,6 @@
     <breakpoint_rules />
     <ui_properties />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/MainActivity.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="72" column="8" selection-start="2154" selection-end="2158" vertical-scroll-proportion="0.7428115" vertical-offset="255" max-vertical-offset="1695">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="NearestStopsMapActivity.java" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="66" column="0" selection-start="2534" selection-end="2534" vertical-scroll-proportion="0.0" vertical-offset="259" max-vertical-offset="2550">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="DatabaseHelper.java" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/DatabaseHelper.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="70" column="19" selection-start="1901" selection-end="1901" vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="2250">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="NearestBus" />
@@ -290,69 +249,7 @@
       <file leaf-file-name="JourneyPlannerFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="13" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3600">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FromHereToThereFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/FromHereToThereFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="0" selection-start="2212" selection-end="2212" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="2205">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AllBusRouteFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1875">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AllBusRouteActivityMap.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="0" selection-start="2782" selection-end="2782" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="2610">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntryActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/EntryActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="3" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.84415585" vertical-offset="615" max-vertical-offset="1275">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="20" selection-start="3147" selection-end="3147" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="1530">
-              <folding>
-                <element signature="e#1232#1250#0" expanded="true" />
-                <element signature="e#1400#1418#0" expanded="true" />
-                <element signature="e#1750#1768#0" expanded="true" />
-                <element signature="e#2005#2023#0" expanded="true" />
-                <element signature="e#2256#2274#0" expanded="true" />
-                <element signature="e#2506#2524#0" expanded="true" />
-                <element signature="e#2757#2782#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NearestStopsFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="0" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2520">
+            <state line="184" column="0" selection-start="7343" selection-end="7343" vertical-scroll-proportion="0.0" vertical-offset="2036" max-vertical-offset="3600">
               <folding />
             </state>
           </provider>
@@ -361,16 +258,83 @@
       <file leaf-file-name="JourneyPlannerMapFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerMapFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="13" selection-start="1545" selection-end="1545" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="3345">
+            <state line="64" column="0" selection-start="2307" selection-end="2307" vertical-scroll-proportion="0.0" vertical-offset="236" max-vertical-offset="3585">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NearestBusRouteMapActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java">
+      <file leaf-file-name="AlertDialogHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/utils/AlertDialogHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="0" selection-start="3046" selection-end="3046" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="3120">
+            <state line="25" column="40" selection-start="590" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JourneyPlannerActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="80" selection-start="2762" selection-end="2762" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+              <folding>
+                <element signature="e#1232#1250#0" expanded="true" />
+                <element signature="e#1400#1418#0" expanded="true" />
+                <element signature="e#1750#1767#0" expanded="true" />
+                <element signature="e#2004#2021#0" expanded="true" />
+                <element signature="e#2254#2271#0" expanded="true" />
+                <element signature="e#2503#2520#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="journey_planner_activity.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/journey_planner_activity.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="40" selection-start="208" selection-end="208" vertical-scroll-proportion="-2.7777777" vertical-offset="0" max-vertical-offset="525">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NearestStopsFragment.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="115" column="61" selection-start="4537" selection-end="4537" vertical-scroll-proportion="1.3961039" vertical-offset="345" max-vertical-offset="2715">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="18" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nearest_route_map.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route_map.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="60" selection-start="0" selection-end="650" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="870">
               <folding />
             </state>
           </provider>
@@ -770,22 +734,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/NearestBus/src/main/res/drawable-xhdpi/blue_orange_gradient.xml" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/DatabaseHelper.java" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/InstallDatabaseTask.java" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/GeoCodingTask.java" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/res/layout/entry_activity.xml" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerActivity.java" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/MainActivity.java" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsFragment.java" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteFragment.java" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/FromHereToThereFragment.java" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteFragment.java" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java" />
-        <option value="$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/EntryActivity.java" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerMapActivity.java" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/res/layout/journey_planner_map_activity.xml" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/res/layout/journey_planner_activity.xml" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerActivity.java" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/utils/AlertDialogHelper.java" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerMapFragment.java" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsFragment.java" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -793,9 +757,9 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="179" />
-    <option name="y" value="33" />
-    <option name="width" value="1444" />
+    <option name="x" value="17" />
+    <option name="y" value="22" />
+    <option name="width" value="1208" />
     <option name="height" value="1010" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -824,8 +788,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -932,7 +894,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
+              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -962,7 +924,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="drawable-xhdpi" />
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -993,40 +955,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="nearestbus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBusProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NearestBus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nearestbus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="task" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1050,6 +978,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1072,11 +1002,11 @@
     <property name="AndroidRunProguardForReleaseBuild" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus10" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1141,6 +1071,19 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1166,19 +1109,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1425,17 +1355,21 @@
       <created>1379859412611</created>
       <updated>1379859412611</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="entry activity created.&#10;running db task on sepearte thread&#10;proper url for geo location on jp maps">
+      <created>1379947168021</created>
+      <updated>1379947168021</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="179" y="33" width="1444" height="1010" extended-state="0" />
+    <frame x="17" y="22" width="1208" height="1010" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14806867" sideWeight="0.56516856" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17900172" sideWeight="0.56516856" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847533" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36067414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1444,13 +1378,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921347" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43483147" sideWeight="0.49965206" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43483147" sideWeight="0.49965206" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5988764" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2911302" sideWeight="0.56516856" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35025817" sideWeight="0.56516856" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36067414" sideWeight="0.49955398" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1464,13 +1398,13 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36292136" sideWeight="0.500348" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2113127" sideWeight="0.6384929" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36067414" sideWeight="0.49955398" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847533" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1495,7 +1429,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="decorating always before everything" />
     <MESSAGE value="extended the DB to be full for timetables incl bus routes, trips,stops&#10;removed scraping tasks&#10;refactored db calls to an async task" />
     <MESSAGE value="fixing nullPointerBug when bus route not found on the thursday timetable tables" />
     <MESSAGE value="preparing for searching for bus stop for a bus route" />
@@ -1520,133 +1453,144 @@
     <MESSAGE value="Journey Planner impl v.0.2" />
     <MESSAGE value="Journey Planner impl v.0.3" />
     <MESSAGE value="Journey Planner impl v.0.5&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Journey Planner impl v.0.5&#10;" />
+    <MESSAGE value="entry activity created.&#10;running db task on sepearte thread&#10;proper url for geo location on jp maps" />
+    <option name="LAST_COMMIT_MESSAGE" value="entry activity created.&#10;running db task on sepearte thread&#10;proper url for geo location on jp maps" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/BusStopInfoTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/task/GeoCodingTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="78" selection-start="3261" selection-end="3261" vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="1920">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/entry_activity.xml">
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/nearest_route_map.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="13" selection-start="1262" selection-end="1262" vertical-scroll-proportion="-3.2592592" vertical-offset="392" max-vertical-offset="1245">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="43" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2520">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="2534" selection-end="2534" vertical-scroll-proportion="0.0" vertical-offset="259" max-vertical-offset="2550">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteMapActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="0" selection-start="3046" selection-end="3046" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="3120">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestBusRouteFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="2405" selection-end="2405" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="2835">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerMapFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="13" selection-start="1545" selection-end="1545" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3345">
+        <state line="9" column="60" selection-start="0" selection-end="650" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="870">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="13" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3600">
+        <state line="184" column="0" selection-start="7343" selection-end="7343" vertical-scroll-proportion="0.0" vertical-offset="2036" max-vertical-offset="3600">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/FromHereToThereFragment.java">
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerMapActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="0" selection-start="2212" selection-end="2212" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="2205">
+        <state line="13" column="13" selection-start="297" selection-end="297" vertical-scroll-proportion="0.33333334" vertical-offset="6" max-vertical-offset="825">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/journey_planner_map_activity.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="4" selection-start="367" selection-end="367" vertical-scroll-proportion="0.3611111" vertical-offset="0" max-vertical-offset="540">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteFragment.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/app/AlertDialog.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1875">
+        <state line="6" column="13" selection-start="154" selection-end="154" vertical-scroll-proportion="0.16233766" vertical-offset="0" max-vertical-offset="2505">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/utils/AlertDialogHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="40" selection-start="590" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/journey_planner_map.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="31" selection-start="1323" selection-end="1323" vertical-scroll-proportion="1.137931" vertical-offset="0" max-vertical-offset="1065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="1290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/JourneyPlannerMapFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="0" selection-start="2307" selection-end="2307" vertical-scroll-proportion="0.0" vertical-offset="236" max-vertical-offset="3585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/layout/journey_planner_activity.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="40" selection-start="208" selection-end="208" vertical-scroll-proportion="-2.7777777" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="18" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsMapActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="0" selection-start="3369" selection-end="3369" vertical-scroll-proportion="0.46043167" vertical-offset="569" max-vertical-offset="2775">
+          <folding>
+            <element signature="e#2084#2102#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="8" selection-start="2154" selection-end="2158" vertical-scroll-proportion="0.7428115" vertical-offset="255" max-vertical-offset="1695">
+        <state line="116" column="0" selection-start="3869" selection-end="3869" vertical-scroll-proportion="2.2931654" vertical-offset="0" max-vertical-offset="1695">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/AllBusRouteActivityMap.java">
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/DatabaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="0" selection-start="2782" selection-end="2782" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="2610">
+        <state line="70" column="19" selection-start="1901" selection-end="1901" vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="2385">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NearestBus/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="20" selection-start="3147" selection-end="3147" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="1530">
+        <state line="69" column="80" selection-start="2762" selection-end="2762" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
           <folding>
             <element signature="e#1232#1250#0" expanded="true" />
             <element signature="e#1400#1418#0" expanded="true" />
-            <element signature="e#1750#1768#0" expanded="true" />
-            <element signature="e#2005#2023#0" expanded="true" />
-            <element signature="e#2256#2274#0" expanded="true" />
-            <element signature="e#2506#2524#0" expanded="true" />
-            <element signature="e#2757#2782#0" expanded="true" />
+            <element signature="e#1750#1767#0" expanded="true" />
+            <element signature="e#2004#2021#0" expanded="true" />
+            <element signature="e#2254#2271#0" expanded="true" />
+            <element signature="e#2503#2520#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/EntryActivity.java">
+    <entry file="file://$PROJECT_DIR$/NearestBus/src/main/java/org/nando/nearestbus/NearestStopsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="3" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.84415585" vertical-offset="615" max-vertical-offset="1275">
+        <state line="115" column="61" selection-start="4537" selection-end="4537" vertical-scroll-proportion="1.3961039" vertical-offset="345" max-vertical-offset="2715">
           <folding />
         </state>
       </provider>
