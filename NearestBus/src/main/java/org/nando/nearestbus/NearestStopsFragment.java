@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.location.Location;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NavUtils;
@@ -143,7 +144,7 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
         BusStopDataSource dsource = new BusStopDataSource(getActivity());
 
         BusStopInfoTask task = new BusStopInfoTask(this,location,locationPojo);
-        task.execute(dsource);
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,dsource);
 
     }
 

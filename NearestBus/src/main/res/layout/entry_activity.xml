@@ -30,37 +30,43 @@
         android:layout_below="@id/imageView"
         android:layout_marginTop="80dp"/>
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/ButtonAppTheme"
+
         android:text="BUS LINK"
         android:textSize="30dp"
         android:fontFamily="sans-serif-light"
         android:id="@+id/busLinkText"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:textStyle="bold|normal"
         android:textColor="#004B88"
         android:clickable="true"
-        android:onClick="clickOnLinkBus" />
+        android:onClick="clickOnLinkBus"
+        android:background="#f5f5f5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/ButtonAppTheme"
+
         android:text="JOURNEY PLANNER"
         android:id="@+id/journeyPlannerText"
         android:fontFamily="sans-serif-light"
         android:textSize="30dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/busLinkText"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:textStyle="bold|normal"
         android:textColor="#004B88"
         android:clickable="true"
-        android:onClick="clickOnJP" />
+        android:onClick="clickOnJP"
+        android:background="#f5f5f5"
+        android:layout_alignLeft="@+id/busLinkText"
+        android:layout_alignRight="@+id/busLinkText" />
 
     <TextView
         android:layout_width="wrap_content"

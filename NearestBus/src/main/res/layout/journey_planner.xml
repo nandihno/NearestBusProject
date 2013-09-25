@@ -34,7 +34,8 @@
         android:layout_marginTop="11dp"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        style="@style/TextFieldAppTheme" />
+        style="@style/TextFieldAppTheme"
+        android:textSize="15dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -57,7 +58,8 @@
         android:layout_alignParentLeft="true"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        style="@style/TextFieldAppTheme" />
+        style="@style/TextFieldAppTheme"
+        android:textSize="15dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,7 +71,8 @@
         android:layout_toRightOf="@+id/beThereTxt"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:layout_marginLeft="19dp" />
+        android:layout_marginLeft="19dp"
+        android:textSize="15dp"/>
 
     <Button
         android:layout_width="wrap_content"

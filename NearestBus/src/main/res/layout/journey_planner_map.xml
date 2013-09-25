@@ -19,7 +19,10 @@
         style="@style/EditTextAppTheme"
         android:paddingRight="50dp"
         android:layout_toLeftOf="@+id/searchMapBtn"
-        />
+        android:text="Search or click anywhere in the map"
+        android:textSize="12dp"
+        android:textStyle="italic"
+        android:typeface="sans" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,6 +32,7 @@
         android:layout_below="@+id/searchLocationTextJp"
         android:layout_alignLeft="@+id/mapViewJp"
         android:layout_alignRight="@+id/searchLocationTextJp"
+        android:textSize="15dp"
         style="@style/TextFieldAppTheme"/>
 
     <com.google.android.gms.maps.MapView
@@ -39,7 +43,7 @@
 
         android:layout_below="@+id/destinationTextJP"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="35dp"
         android:layout_above="@+id/setLocationButtonJp" />
 
     <Button

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,7 +50,7 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
     private GoogleMap map;
 
     private TextView textView;
-    private TextView searchLocationTextView;
+    private EditText searchLocationTextView;
 
     private Location location;
     private LocationClient locationClient;
@@ -84,7 +85,7 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
         mapView.onCreate(savedInstanceState);
 
         textView = (TextView) rootView.findViewById(R.id.destinationTextJP);
-        searchLocationTextView = (TextView) rootView.findViewById(R.id.searchLocationTextJp);
+        searchLocationTextView = (EditText) rootView.findViewById(R.id.searchLocationTextJp);
 
         dialogHelper = new AlertDialogHelper(getActivity());
 
@@ -95,6 +96,7 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
         loadBrisbaneArea();
         button.setOnClickListener(this);
         searchBtn.setOnClickListener(this);
+        searchLocationTextView.setOnClickListener(this);
         return rootView;
     }
 
@@ -150,15 +152,18 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
         }
         if(view.getId() == R.id.searchMapBtn) {
             map.clear();
-            searchLocationTextView.setText("");
+
             if(searchVal == null || searchVal.isEmpty()) {
                 AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please add a search value",false);
                 dialog.show();
             }
             else {
                 GeoCodingTask task = new GeoCodingTask(this,false);
-                task.execute(searchVal);
+                task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,searchVal);
             }
+        }
+        if(view.getId() == R.id.searchLocationTextJp) {
+           searchLocationTextView.setText("");
         }
 
     }

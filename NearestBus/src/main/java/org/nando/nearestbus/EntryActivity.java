@@ -3,6 +3,7 @@ package org.nando.nearestbus;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -20,7 +21,7 @@ import org.nando.nearestbus.utils.CheckConnectivityUtils;
 public class EntryActivity extends Activity {
 
     private boolean dbInstall = false;
-    private AlertDialogHelper dialogHelper;
+    private static AlertDialogHelper dialogHelper;
 
 
 
@@ -29,8 +30,9 @@ public class EntryActivity extends Activity {
         super.onCreate(savedInstanceState);
         BugSenseHandler.initAndStartSession(this, "433cb4d1");
         setContentView(R.layout.entry_activity);
+        dialogHelper = new AlertDialogHelper(this);
         InstallDatabaseTask task = new InstallDatabaseTask(this);
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
     }
 
@@ -68,13 +70,10 @@ public class EntryActivity extends Activity {
 
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
-            Toast.makeText(this,"Pleasure service you",Toast.LENGTH_LONG);
-            this.finish();
-        }
-        return super.onKeyDown(keyCode, event);
+
+
+    public void onBackPressed() {
+        this.finish();
     }
 
 
@@ -86,6 +85,12 @@ public class EntryActivity extends Activity {
             AlertDialog dialog = helper.createAlertDialog("Warning","You dont have Google play services please download",false);
             dialog.show();
             CheckConnectivityUtils.downloadGooglePlayServices(this);
+
+    }
+
+    protected void onStop() {
+        super.onStop();
+        System.out.println("stopping!");
 
     }
 }
