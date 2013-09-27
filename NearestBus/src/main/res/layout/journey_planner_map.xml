@@ -15,7 +15,6 @@
         android:id="@+id/searchLocationTextJp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:focusable="true"
         style="@style/EditTextAppTheme"
         android:paddingRight="50dp"
         android:layout_toLeftOf="@+id/searchMapBtn"

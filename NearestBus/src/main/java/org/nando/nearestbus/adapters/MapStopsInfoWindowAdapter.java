@@ -22,9 +22,9 @@ import java.util.Map;
 public class MapStopsInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
     private static LayoutInflater inflater = null;
-    private Map<Marker,BusStops> map = new HashMap();
+    private HashMap<Marker,BusStops> map = new HashMap();
 
-    public MapStopsInfoWindowAdapter(Context ctx, Map<Marker,BusStops> aMap) {
+    public MapStopsInfoWindowAdapter(Context ctx, HashMap<Marker,BusStops> aMap) {
         inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         map = aMap;
     }
@@ -43,16 +43,16 @@ public class MapStopsInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         TextView busRoute = (TextView) vi.findViewById(R.id.busRoute);
         TextView distance = (TextView) vi.findViewById(R.id.distance);
         BusStops stops = map.get(marker);
-        name.setText(stops.getName());
-        zone.setText("Zone: "+stops.getZone());
+        name.setText(stops.name);
+        zone.setText("Zone: "+stops.zone);
         if(stops.getDistanceFromCurrentPoint() != null && stops.getDistanceFromCurrentPoint() > 0) {
           distance.setText("Distance: "+stops.getDistanceFromCurrentPoint());
         }
         else {
             distance.setText("");
         }
-        if(stops.getBusRoutes() != null) {
-            List<BusRoute> routes = stops.getBusRoutes();
+        if(stops.busRoutes != null) {
+            List<BusRoute> routes = stops.busRoutes;
             StringBuffer buff = new StringBuffer();
             for(BusRoute route:routes) {
                 buff.append(route.busRoute+" ");

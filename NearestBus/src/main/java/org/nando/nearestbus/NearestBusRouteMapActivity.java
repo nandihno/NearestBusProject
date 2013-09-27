@@ -42,12 +42,13 @@ import org.nando.nearestbus.pojo.LocationPojo;
 import org.nando.nearestbus.task.BusRouteInfoTask;
 import org.nando.nearestbus.task.LocationTask;
 import org.nando.nearestbus.utils.CheckConnectivityUtils;
+import org.nando.nearestbus.utils.GeoUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+
 
 /**
  * Created by fernandoMac on 23/08/13.
@@ -60,7 +61,7 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
     private Location location;
     private LocationClient locationClient;
 
-    private BusStops busStopPojo;
+
     private Button searchBtn;
     private EditText editText;
 
@@ -69,7 +70,7 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
 
     private String busRouteFromPreviousActivity = "-1";
 
-    private Map<Marker,String> markerUrlMap = new HashMap<Marker, String>();
+    private HashMap<Marker,String> markerUrlMap = new HashMap<Marker, String>();
 
 
 
@@ -91,6 +92,7 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
 
         map.setMyLocationEnabled(true);
         map.setOnInfoWindowClickListener(this);
+        GeoUtils.loadBrisbaneArea(map);
 
         searchBtn = (Button) findViewById(R.id.findBusStop);
         editText = (EditText) findViewById(R.id.editText);
@@ -154,13 +156,13 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
     /*
     returns from BusStopInfoTask and displays to UI
      */
-    public void displayBusStops(List<BusStops> list) {
+    public void displayBusStops(ArrayList<BusStops> list) {
         if(list != null) {
             for(BusStops stops:list) {
-                LatLng latLng = new LatLng(stops.getLatitude(),stops.getLongtitude());
+                LatLng latLng = new LatLng(stops.latitude,stops.longtitude);
 
-                Marker marker = map.addMarker(createMarkerOptions(latLng,"Zone:"+stops.getZone()+" ",stops.getName(),BitmapDescriptorFactory.HUE_GREEN));
-                markerUrlMap.put(marker,stops.getUrl());
+                Marker marker = map.addMarker(createMarkerOptions(latLng,"Zone:"+stops.zone+" ",stops.name,BitmapDescriptorFactory.HUE_GREEN));
+                markerUrlMap.put(marker,stops.url);
 
 
             }
@@ -203,6 +205,7 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
 
     @Override
     public void onDisconnected() {
+        locationClient.disconnect();
 
     }
 

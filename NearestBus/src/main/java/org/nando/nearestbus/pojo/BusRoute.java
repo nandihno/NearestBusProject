@@ -1,6 +1,7 @@
 package org.nando.nearestbus.pojo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,7 +9,8 @@ import java.util.List;
  */
 public class BusRoute implements Serializable {
 
-    public List<BusStops> locations;
+    public ArrayList<BusStops> locations;
+
     public String busRoute;
     public String stopId;
     public String busRouteId;

@@ -16,7 +16,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
 
-import com.bugsense.trace.BugSenseHandler;
+
 
 
 import org.nando.nearestbus.adapters.RouteListAdapter;
@@ -28,7 +28,8 @@ import org.nando.nearestbus.utils.AlertDialogHelper;
 import org.nando.nearestbus.utils.CheckConnectivityUtils;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
+
 
 /**
  * Created by fernandoMac on 3/09/13.
@@ -84,7 +85,7 @@ public class AllBusRouteFragment extends Fragment implements View.OnClickListene
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 BusStops stop = (BusStops) adapterView.getItemAtPosition(i);
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(stop.getUrl()));
+                intent.setData(Uri.parse(stop.url));
                 startActivity(intent);
             }
         });
@@ -112,7 +113,7 @@ public class AllBusRouteFragment extends Fragment implements View.OnClickListene
         if(route != null) {
 
             if(route.locations != null && route.locations.size() > 0) {
-                List<BusStops> stops = route.locations;
+                ArrayList<BusStops> stops = route.locations;
                 RouteListAdapter adapter = new RouteListAdapter(getActivity(),android.R.layout.simple_list_item_1,stops);
                 listView.setAdapter(adapter);
             }

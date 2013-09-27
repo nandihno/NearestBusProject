@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by fernandoMac on 27/08/13.
  */
-public class FromHereThereTask extends AsyncTask<Object,Void,List<BusRoute>> {
+public class FromHereThereTask extends AsyncTask<Object,Void,ArrayList<BusRoute>> {
 
     FromHereToThereFragment myFragment;
 
@@ -24,18 +24,18 @@ public class FromHereThereTask extends AsyncTask<Object,Void,List<BusRoute>> {
 
 
     @Override
-    protected List<BusRoute> doInBackground(Object... objects) {
+    protected ArrayList<BusRoute> doInBackground(Object... objects) {
         BusStopDataSource dataSource = (BusStopDataSource) objects[0];
         String suburbName = (String) objects[1];
         LocationPojo myLocation = (LocationPojo) objects[2];
         dataSource.open();
-        List<BusRoute> list = new ArrayList<BusRoute>();
+        ArrayList<BusRoute> list = new ArrayList<BusRoute>();
         list = dataSource.findBusesThatGoTo(suburbName,myLocation);
         dataSource.close();
         return list;
     }
 
-    protected void onPostExecute(List<BusRoute> list) {
+    protected void onPostExecute(ArrayList<BusRoute> list) {
         myFragment.displayList(list);
 
     }

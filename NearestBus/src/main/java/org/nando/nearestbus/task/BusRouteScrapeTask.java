@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Created by fernandoMac on 14/08/13.
  */
-public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlannerBusInfo>> {
+public class BusRouteScrapeTask extends AsyncTask<Object ,Void,ArrayList<JourneyPlannerBusInfo>> {
 
     private Fragment mainFragment;
     ProgressDialog pd = null;
@@ -54,8 +54,8 @@ public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlann
 
 
     @Override
-    protected List<JourneyPlannerBusInfo> doInBackground(Object... objects) {
-        List<JourneyPlannerBusInfo> list = new ArrayList<JourneyPlannerBusInfo>();
+    protected ArrayList<JourneyPlannerBusInfo> doInBackground(Object... objects) {
+        ArrayList<JourneyPlannerBusInfo> list = new ArrayList<JourneyPlannerBusInfo>();
 
         String html = "";
         StringBuffer htmlBuff = new StringBuffer();
@@ -76,7 +76,7 @@ public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlann
 
 
             HttpPost post = new HttpPost(url);
-            List<BasicNameValuePair> data = new ArrayList<BasicNameValuePair>();
+            ArrayList<BasicNameValuePair> data = new ArrayList<BasicNameValuePair>();
             data.add(new BasicNameValuePair("Start",longLat));
             data.add(new BasicNameValuePair("End",destination.latitude+","+destination.longitude));
             data.add(new BasicNameValuePair("SearchDate",date+"-"+month+"-"+year+" 12:00 AM"));
@@ -121,11 +121,11 @@ public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlann
                             JourneyPlannerBusInfo pojo = new JourneyPlannerBusInfo();
                             BusRoute busRoute1 = new BusRoute();
                             busRoute1.busRoute = busRoute.text();
-                            pojo.setBusRoute(busRoute1);
-                            pojo.setDepart(depart.text());
-                            pojo.setArrive(arrive.text());
-                            pojo.setTravelTime(travelTime.text());
-                            pojo.setIndex(k);
+                            pojo.busRoute= busRoute1;
+                            pojo.depart = depart.text();
+                            pojo.arrive = arrive.text();
+                            pojo.travelTime =travelTime.text();
+                            pojo.index = k;
                             list.add(pojo);
                         }
                     }
@@ -141,7 +141,7 @@ public class BusRouteScrapeTask extends AsyncTask<Object ,Void,List<JourneyPlann
     }
 
 
-    protected void onPostExecute(List<JourneyPlannerBusInfo> res) {
+    protected void onPostExecute(ArrayList<JourneyPlannerBusInfo> res) {
         pd.dismiss();
         pd = null;
         if(this.mainFragment instanceof JourneyPlannerFragment) {

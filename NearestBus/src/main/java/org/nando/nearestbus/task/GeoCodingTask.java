@@ -88,15 +88,16 @@ public class GeoCodingTask extends AsyncTask<Object,Void,Object> {
 
     }
 
-    private List<LocationPojo> doAddressSearch(Object... objects) {
-        List<LocationPojo> list = new ArrayList<LocationPojo>();
+    private ArrayList<LocationPojo> doAddressSearch(Object... objects) {
+        ArrayList<LocationPojo> list = new ArrayList<LocationPojo>();
 
         try {
             String encoded = URLEncoder.encode((String)objects[0],"UTF-8");
             String componentsEncoded = URLEncoder.encode("country:AU|administrative_area:QLD","UTF-8");
+            String boundsEncoded = URLEncoder.encode("-28.1204,152.501220,-26.555,153.726196","UTF-8");
 
             HttpClient client = new DefaultHttpClient();
-            String qldOnlyQryStr = "&region=au&components="+componentsEncoded;
+            String qldOnlyQryStr = "&region=au&components="+componentsEncoded+"&bounds="+boundsEncoded;
             System.out.println("url is:"+url+"&address="+encoded+qldOnlyQryStr);
             HttpGet get = new HttpGet(url+"&address="+encoded+qldOnlyQryStr);
             HttpResponse response = client.execute(get);
@@ -131,7 +132,7 @@ public class GeoCodingTask extends AsyncTask<Object,Void,Object> {
             ((JourneyPlannerMapFragment)myFragment).setDestinationText(st);
         }
         else {
-            List<LocationPojo> list = (List<LocationPojo>) s;
+            ArrayList<LocationPojo> list = (ArrayList<LocationPojo>) s;
             ((JourneyPlannerMapFragment)myFragment).displaySearchedMarkers(list);
 
         }

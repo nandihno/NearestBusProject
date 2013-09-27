@@ -8,25 +8,11 @@ import java.util.List;
  */
 public class JourneyPlannerBusOption {
 
-    private List<JourneyPlannerBusInfo> busInfo = new ArrayList<JourneyPlannerBusInfo>();
-    private int totalTimeTravel;
+    public List<JourneyPlannerBusInfo> busInfo = new ArrayList<JourneyPlannerBusInfo>();
+    public int totalTimeTravel;
 
 
-    public List<JourneyPlannerBusInfo> getBusInfo() {
-        return busInfo;
-    }
 
-    public void setBusInfo(List<JourneyPlannerBusInfo> busInfo) {
-        this.busInfo = busInfo;
-    }
-
-    public int getTotalTimeTravel() {
-        return totalTimeTravel;
-    }
-
-    public void setTotalTimeTravel(int totalTimeTravel) {
-        this.totalTimeTravel = totalTimeTravel;
-    }
 
     public void addBusInfo(JourneyPlannerBusInfo busInfo) {
         this.busInfo.add(busInfo);

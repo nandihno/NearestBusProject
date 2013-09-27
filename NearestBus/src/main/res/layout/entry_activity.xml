@@ -33,7 +33,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/ButtonAppTheme"
+
 
         android:text="BUS LINK"
         android:textSize="30dp"
@@ -51,7 +51,7 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        style="@style/ButtonAppTheme"
+
 
         android:text="JOURNEY PLANNER"
         android:id="@+id/journeyPlannerText"

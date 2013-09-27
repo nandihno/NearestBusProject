@@ -23,10 +23,10 @@ import java.util.Map;
 public class HereThereListAdapter extends ArrayAdapter<BusRoute> {
 
     private static LayoutInflater inflater = null;
-    private List<BusRoute> data = new ArrayList<BusRoute>();
-    private Map<BusRoute,Integer> map = new HashMap<BusRoute, Integer>();
+    private ArrayList<BusRoute> data = new ArrayList<BusRoute>();
+    private HashMap<BusRoute,Integer> map = new HashMap<BusRoute, Integer>();
 
-    public HereThereListAdapter(Context context,int textViewResourceId, List<BusRoute> list) {
+    public HereThereListAdapter(Context context,int textViewResourceId, ArrayList<BusRoute> list) {
         super(context,textViewResourceId,list);
         data = list;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

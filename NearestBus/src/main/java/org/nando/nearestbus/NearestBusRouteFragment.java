@@ -34,8 +34,7 @@ import org.nando.nearestbus.task.LocationTask;
 import org.nando.nearestbus.utils.AlertDialogHelper;
 import org.nando.nearestbus.utils.CheckConnectivityUtils;
 
-import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by fernandoMac on 20/08/13.
@@ -94,7 +93,7 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 busStopPojo = (BusStops) adapterView.getItemAtPosition(i);
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(busStopPojo.getUrl()));
+                intent.setData(Uri.parse(busStopPojo.url));
                 startActivity(intent);
             }
         });
@@ -103,8 +102,8 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 busStopPojo = (BusStops) adapterView.getItemAtPosition(i);
-                String sUri = "geo:"+busStopPojo.getLatitude()+","+busStopPojo.getLongtitude()+
-                        "?q="+busStopPojo.getLatitude()+","+busStopPojo.getLongtitude();
+                String sUri = "geo:"+busStopPojo.latitude+","+busStopPojo.longtitude+
+                        "?q="+busStopPojo.latitude+","+busStopPojo.longtitude;
 
                 Uri uri = Uri.parse(sUri);
                 Intent intent = new Intent(Intent.ACTION_VIEW,uri);
@@ -155,7 +154,7 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
     /*
     returns from BusStopInfoTask and displays to UI
      */
-    public void displayBusStops(List<BusStops> list) {
+    public void displayBusStops(ArrayList<BusStops> list) {
         if(list != null && list.size() > 0) {
             RouteListAdapter adapter = new RouteListAdapter(getActivity(),android.R.layout.simple_list_item_1,list);
             listView.setAdapter(adapter);
@@ -193,6 +192,7 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
 
     @Override
     public void onDisconnected() {
+        locationClient.disconnect();
 
     }
 

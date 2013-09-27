@@ -22,10 +22,10 @@ public class BusListAdapter extends ArrayAdapter<BusStops> {
 
     HashMap<BusStops,Integer> map = new HashMap<BusStops, Integer>();
     private static LayoutInflater inflater = null;
-    private List<BusStops> data = new ArrayList<BusStops>();
+    private ArrayList<BusStops> data = new ArrayList<BusStops>();
 
 
-    public BusListAdapter(Context context,int textViewResourceId, List<BusStops> list) {
+    public BusListAdapter(Context context,int textViewResourceId, ArrayList<BusStops> list) {
         super(context,textViewResourceId,list);
         data = list;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -57,11 +57,11 @@ public class BusListAdapter extends ArrayAdapter<BusStops> {
         TextView busRoute = (TextView) vi.findViewById(R.id.busRoute);
         TextView distance = (TextView) vi.findViewById(R.id.distance);
         BusStops stops = data.get(position);
-        name.setText(stops.getName());
-        zone.setText("Zone: "+stops.getZone());
+        name.setText(stops.name);
+        zone.setText("Zone: "+stops.zone);
         distance.setText("Distance: "+stops.getDistanceFromCurrentPoint());
-        if(stops.getBusRoutes() != null) {
-            List<BusRoute> routes = stops.getBusRoutes();
+        if(stops.busRoutes != null) {
+            List<BusRoute> routes = stops.busRoutes;
             StringBuffer buff = new StringBuffer();
             for(BusRoute route:routes) {
                 buff.append(route.busRoute+" ");

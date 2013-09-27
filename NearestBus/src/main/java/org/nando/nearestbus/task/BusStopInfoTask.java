@@ -10,13 +10,14 @@ import org.nando.nearestbus.pojo.BusStops;
 import org.nando.nearestbus.pojo.LocationPojo;
 import org.nando.nearestbus.utils.GeoUtils;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by fernandoMac on 19/08/13.
  */
-public class BusStopInfoTask extends AsyncTask<BusStopDataSource,Void,List<BusStops>> {
+public class BusStopInfoTask extends AsyncTask<BusStopDataSource,Void,ArrayList<BusStops>> {
 
     private Location location;
     private NearestStopsFragment mainActivity = null;
@@ -38,19 +39,19 @@ public class BusStopInfoTask extends AsyncTask<BusStopDataSource,Void,List<BusSt
 
 
     @Override
-    protected List<BusStops> doInBackground(BusStopDataSource... busStopDataSources) {
+    protected ArrayList<BusStops> doInBackground(BusStopDataSource... busStopDataSources) {
         busStopDataSources[0].open();
         LocationPojo p1 = GeoUtils.calculateDerivedPosition(locationPojo, GeoUtils.RANGE_IN_METERS, 0);
         LocationPojo p2 = GeoUtils.calculateDerivedPosition(locationPojo, GeoUtils.RANGE_IN_METERS, 90);
         LocationPojo p3 = GeoUtils.calculateDerivedPosition(locationPojo, GeoUtils.RANGE_IN_METERS, 180);
         LocationPojo p4 = GeoUtils.calculateDerivedPosition(locationPojo, GeoUtils.RANGE_IN_METERS, 270);
-        List <BusStops> list = busStopDataSources[0].getNearestBusStop(p1,p2,p3,p4);
+        ArrayList <BusStops> list = busStopDataSources[0].getNearestBusStop(p1,p2,p3,p4);
         busStopDataSources[0].close();
         decorateList(list);
         return list;
     }
 
-    protected void onPostExecute(List<BusStops> list) {
+    protected void onPostExecute(ArrayList<BusStops> list) {
         if(mainActivity != null) {
             mainActivity.displayBusStops(list);
         }
@@ -60,14 +61,14 @@ public class BusStopInfoTask extends AsyncTask<BusStopDataSource,Void,List<BusSt
 
     }
 
-    private void decorateList(List<BusStops> list) {
+    private void decorateList(ArrayList<BusStops> list) {
         LocationPojo currentLocation = new LocationPojo();
         currentLocation.latitude = location.getLatitude();
         currentLocation.longtitude = location.getLongitude();
         for(BusStops stop:list) {
             LocationPojo stopLocation = new LocationPojo();
-            stopLocation.latitude = stop.getLatitude();
-            stopLocation.longtitude = stop.getLongtitude();
+            stopLocation.latitude = stop.latitude;
+            stopLocation.longtitude = stop.longtitude;
             double distance = GeoUtils.getDistanceBetweenTwoPoints(currentLocation, stopLocation);
             stop.setDistanceFromCurrentPoint(distance);
         }

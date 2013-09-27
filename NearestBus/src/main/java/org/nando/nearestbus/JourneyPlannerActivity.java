@@ -51,6 +51,7 @@ public class JourneyPlannerActivity extends Activity implements JourneyPlannerMa
         super.onStop();
         System.out.println("stopping!");
 
+
     }
 
     protected void onStart() {

@@ -35,8 +35,9 @@ import org.nando.nearestbus.task.JourneyPlannerWebScrapeTask;
 import org.nando.nearestbus.utils.AlertDialogHelper;
 import org.nando.nearestbus.utils.CheckConnectivityUtils;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+
 
 /**
  * Created by fernandoMac on 13/09/13.
@@ -153,12 +154,16 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                     sbuff.append("SearchHour="+hour+"&");
                     sbuff.append("SearchMinute="+minute+"&");
                     sbuff.append("TimeMeridiem="+am_pm+"&");
-                    sbuff.append("TransportModes=BUS&");
+                    sbuff.append("TransportModes=Bus&");
+                    sbuff.append("TransportModes=Train&");
+                    sbuff.append("TransportModes=Ferry&");
                     sbuff.append("ServiceTypes=Regular&");
                     sbuff.append("ServiceTypes=Express&");
+                    sbuff.append("ServiceTypes=NightLink&");
                     sbuff.append("FareTypes=Prepaid&");
                     sbuff.append("FareTypes=Standard&");
                     sbuff.append("MaximumWalkingDistance=1500");
+                    System.out.println(url+sbuff.toString());
                     webView.getSettings().setJavaScriptEnabled(true);
                     webView.setWebViewClient(new WebViewClient(){
                         public void onPageFinished(WebView view, String url) {
@@ -187,7 +192,7 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
 
     }
 
-    public void displayOptionList(List<JourneyPlannerBusInfo> list) {
+    public void displayOptionList(ArrayList<JourneyPlannerBusInfo> list) {
         if(list != null && list.size() > 0) {
             JourneyPlannerListAdapter adapter = new JourneyPlannerListAdapter(getActivity(),android.R.layout.simple_list_item_1,list);
             //listViewJp.setAdapter(adapter);
@@ -216,9 +221,12 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
             if(hour == 0) {
                 hour = 12;
             }
-            jpTextView.setText(hour + ":" + minute + "" + am_pm);
-
-
+            if(minute < 10) {
+                jpTextView.setText(hour + ":0" + minute + "" + am_pm);
+            }
+            else {
+                jpTextView.setText(hour + ":" + minute + "" + am_pm);
+            }
             System.out.println("hour:"+hour+" minute:"+minute+" "+am_pm);
 
         }
@@ -251,6 +259,7 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
 
     @Override
     public void onDisconnected() {
+        locationClient.disconnect();
 
     }
 

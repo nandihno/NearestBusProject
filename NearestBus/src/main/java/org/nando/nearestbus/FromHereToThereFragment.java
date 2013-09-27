@@ -31,7 +31,8 @@ import org.nando.nearestbus.utils.AlertDialogHelper;
 import org.nando.nearestbus.utils.CheckConnectivityUtils;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
+
 
 /**
  * Created by fernandoMac on 26/08/13.
@@ -86,10 +87,10 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
 
     }
 
-    private List<String> fetchAllSuburbsInQld() {
+    private ArrayList<String> fetchAllSuburbsInQld() {
         BusStopDataSource dsource = new BusStopDataSource(getActivity());
         dsource.open();
-        List<String> list =  dsource.fetchAllSuburbsInQld();
+        ArrayList<String> list =  dsource.fetchAllSuburbsInQld();
         dsource.close();
         return list;
     }
@@ -144,7 +145,7 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
         }
     }
 
-    public void displayList(List<BusRoute> busRoutes) {
+    public void displayList(ArrayList<BusRoute> busRoutes) {
         if(busRoutes != null && busRoutes.size() > 0) {
             HereThereListAdapter adapter = new HereThereListAdapter(getActivity(),android.R.layout.simple_list_item_1,busRoutes);
             listView.setAdapter(adapter);

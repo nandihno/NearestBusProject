@@ -34,10 +34,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import org.nando.nearestbus.pojo.LocationPojo;
 import org.nando.nearestbus.task.GeoCodingTask;
 import org.nando.nearestbus.utils.AlertDialogHelper;
+import org.nando.nearestbus.utils.GeoUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+
 
 /**
  * Created by fernandoMac on 17/09/13.
@@ -57,11 +59,11 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
     private LatLng destinationLatLng;
     private AlertDialogHelper dialogHelper;
 
-    private Map<Marker,String> locMap = new HashMap<Marker,String>();
+    private HashMap<Marker,String> locMap = new HashMap<Marker,String>();
 
     JourneyPlannerMapListener jpCallback;
 
-    static final LatLng BRISBANE_LT_LNG = new LatLng(-27.4710107,153.0234489);
+
 
 
 
@@ -93,25 +95,12 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
         map.setMyLocationEnabled(true);
         map.setOnMapClickListener(this);
         map.setOnInfoWindowClickListener(this);
-        loadBrisbaneArea();
+        GeoUtils.loadBrisbaneArea(map);
         button.setOnClickListener(this);
         searchBtn.setOnClickListener(this);
         searchLocationTextView.setOnClickListener(this);
         return rootView;
     }
-
-    void loadBrisbaneArea() {
-
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(BRISBANE_LT_LNG)
-                .zoom(8)
-                .bearing(0)
-                .tilt(30)
-                .build();
-        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-
-    }
-
 
 
 
@@ -123,6 +112,7 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
 
     @Override
     public void onDisconnected() {
+        locationClient.disconnect();
 
     }
 
@@ -164,11 +154,13 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
         }
         if(view.getId() == R.id.searchLocationTextJp) {
            searchLocationTextView.setText("");
+            destinationLatLng = null;
+            textView.setText("");
         }
 
     }
 
-    public void displaySearchedMarkers(List<LocationPojo> list) {
+    public void displaySearchedMarkers(ArrayList<LocationPojo> list) {
         if(!list.isEmpty()) {
             for(LocationPojo pojo:list) {
 
@@ -254,7 +246,7 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
         destinationLatLng = null;
         destinationLatLng = marker.getPosition();
         textView.setText("");
-        String val = locMap.get(marker);
+
         GeoCodingTask task = new GeoCodingTask(this,true);
         task.execute(marker.getPosition());
     }

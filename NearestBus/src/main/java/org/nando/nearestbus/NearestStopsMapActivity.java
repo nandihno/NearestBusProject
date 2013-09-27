@@ -34,11 +34,12 @@ import org.nando.nearestbus.pojo.BusStops;
 import org.nando.nearestbus.pojo.LocationPojo;
 import org.nando.nearestbus.task.BusStopInfoTask;
 import org.nando.nearestbus.utils.CheckConnectivityUtils;
+import org.nando.nearestbus.utils.GeoUtils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 
 /**
  * Created by fernandoMac on 24/08/13.
@@ -52,9 +53,9 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
 
     private Button nearestStopBtnMap;
     private GoogleMap map;
-    private Map<Marker,BusStops> markerPojoMap = new HashMap<Marker, BusStops>();
+    private HashMap<Marker,BusStops> markerPojoMap = new HashMap<Marker, BusStops>();
 
-    static final LatLng BRISBANE_LT_LNG = new LatLng(-27.4710107,153.0234489);
+
 
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(10000)         // 10 seconds
@@ -73,24 +74,14 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
 
         map.setMyLocationEnabled(true);
         map.setOnInfoWindowClickListener(this);
-        loadBrisbaneArea();
+        GeoUtils.loadBrisbaneArea(map);
 
         nearestStopBtnMap = (Button) findViewById(R.id.nearestStopMapBtn);
 
         nearestStopBtnMap.setOnClickListener(this);
     }
 
-    void loadBrisbaneArea() {
 
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(BRISBANE_LT_LNG)
-                .zoom(8)
-                .bearing(0)
-                .tilt(30)
-                .build();
-        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -120,13 +111,13 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
         task.execute(dsource);
     }
 
-    public void displayBusStops(List<BusStops> list) {
+    public void displayBusStops(ArrayList<BusStops> list) {
         if(list != null) {
 
 
             for(BusStops stops:list) {
-                LatLng latLng = new LatLng(stops.getLatitude(),stops.getLongtitude());
-                Marker marker = map.addMarker(createMarkerOptions(latLng,"Zone:"+stops.getZone()+" ",stops.getName(), BitmapDescriptorFactory.HUE_AZURE));
+                LatLng latLng = new LatLng(stops.latitude,stops.longtitude);
+                Marker marker = map.addMarker(createMarkerOptions(latLng,"Zone:"+stops.zone+" ",stops.name, BitmapDescriptorFactory.HUE_AZURE));
                 markerPojoMap.put(marker,stops);
 
             }
@@ -173,6 +164,7 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
 
     @Override
     public void onDisconnected() {
+        locationClient.disconnect();
 
     }
 
@@ -199,8 +191,8 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
         BusStops stops = markerPojoMap.get(marker);
         if(stops != null) {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            if(stops.getUrl() != null || stops.getUrl().isEmpty()) {
-                intent.setData(Uri.parse(stops.getUrl()));
+            if(stops.url != null || stops.url.isEmpty()) {
+                intent.setData(Uri.parse(stops.url));
                 startActivity(intent);
             }
         }

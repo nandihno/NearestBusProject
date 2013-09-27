@@ -15,7 +15,7 @@ import org.nando.nearestbus.utils.GeoUtils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
+
 import java.util.Set;
 
 /**
@@ -42,13 +42,13 @@ public class BusStopDataSource {
         }
     }
 
-    public List<BusStops> getAllBusStops() {
-        List<BusStops> stops = new ArrayList<BusStops>();
+    public ArrayList<BusStops> getAllBusStops() {
+        ArrayList<BusStops> stops = new ArrayList<BusStops>();
         Cursor cursor = database.query("STOPS",allColumns,null,null,null,null,null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()) {
             BusStops stop = new BusStops();
-            stop.setName(cursor.getString(2));
+            stop.name = cursor.getString(2);
             stops.add(stop);
             cursor.moveToNext();
         }
@@ -56,8 +56,8 @@ public class BusStopDataSource {
         return stops;
     }
 
-    public List<BusStops> getNearestBusStop(LocationPojo p1, LocationPojo p2, LocationPojo p3, LocationPojo p4) {
-        List<BusStops> list = new ArrayList<BusStops>();
+    public ArrayList<BusStops> getNearestBusStop(LocationPojo p1, LocationPojo p2, LocationPojo p3, LocationPojo p4) {
+        ArrayList<BusStops> list = new ArrayList<BusStops>();
         Cursor cursor = database.rawQuery("select DISTINCT * from STOPS where stop_lat > ? AND " +
                                           "stop_lat < ? AND " +
                                           "stop_lon < ? AND " +
@@ -65,13 +65,13 @@ public class BusStopDataSource {
         cursor.moveToFirst();
         while(!cursor.isAfterLast()) {
             BusStops stop = new BusStops();
-            stop.setId(cursor.getString(0));
-            stop.setName(cursor.getString(2));
-            stop.setLatitude(cursor.getDouble(4));
-            stop.setLongtitude(cursor.getDouble(5));
-            stop.setZone(cursor.getString(6));
-            stop.setUrl(cursor.getString(7));
-            stop.setBusRoutes(fetchBusRoutesForEachStop(cursor.getString(0)));
+            stop.id =cursor.getString(0);
+            stop.name = cursor.getString(2);
+            stop.latitude = cursor.getDouble(4);
+            stop.longtitude = cursor.getDouble(5);
+            stop.zone = cursor.getString(6);
+            stop.url = cursor.getString(7);
+            stop.busRoutes = fetchBusRoutesForEachStop(cursor.getString(0));
             list.add(stop);
             cursor.moveToNext();
         }
@@ -80,12 +80,12 @@ public class BusStopDataSource {
         return list;
     }
 
-    public List<BusStops> fetchBusStopsForABusRoute(String busRoute, LocationPojo p1, LocationPojo p2, LocationPojo p3, LocationPojo p4) {
+    public ArrayList<BusStops> fetchBusStopsForABusRoute(String busRoute, LocationPojo p1, LocationPojo p2, LocationPojo p3, LocationPojo p4) {
         String table1 = "stop_times_thursday_1";
         String table2 = "stop_times_thursday2";
         String table3 = "stop_times_thursday_3";
         String table4 = "stop_times_thursday_4";
-        List<BusStops> list  = new ArrayList();
+        ArrayList<BusStops> list  = new ArrayList();
         String sqlp1 = "select distinct stp.stop_id, stp.stop_name,stp.stop_lat,stp.stop_lon,stp.stop_url,stp.zone_id from ";
         String sqlp2 = " thurs, trips trp, routes rts, stops stp where thurs.trip_id = trp.trip_id "+
                 "and trp.route_id = rts.route_id "+
@@ -124,16 +124,16 @@ public class BusStopDataSource {
         return list;
     }
 
-    private List<BusStops> populateBusStopListFrom(Cursor cursor) {
-        List<BusStops> list = new ArrayList<BusStops>();
+    private ArrayList<BusStops> populateBusStopListFrom(Cursor cursor) {
+        ArrayList<BusStops> list = new ArrayList<BusStops>();
         while(!cursor.isAfterLast()) {
             BusStops stops = new BusStops();
-            stops.setId(cursor.getString(0));
-            stops.setName(cursor.getString(1));
-            stops.setLongtitude(cursor.getDouble(3));
-            stops.setLatitude(cursor.getDouble(2));
-            stops.setUrl(cursor.getString(4));
-            stops.setZone(cursor.getString(5));
+            stops.id = cursor.getString(0);
+            stops.name = cursor.getString(1);
+            stops.longtitude = cursor.getDouble(3);
+            stops.latitude = cursor.getDouble(2);
+            stops.url = cursor.getString(4);
+            stops.zone = cursor.getString(5);
             list.add(stops);
             cursor.moveToNext();
         }
@@ -141,12 +141,12 @@ public class BusStopDataSource {
         return list;
     }
 
-    public List<BusRoute> fetchBusRoutesForEachStop(String stopId) {
+    public ArrayList<BusRoute> fetchBusRoutesForEachStop(String stopId) {
         String table1 = "stop_times_thursday_1";
         String table2 = "stop_times_thursday2";
         String table3 = "stop_times_thursday_3";
         String table4 = "stop_times_thursday_4";
-        List<BusRoute> list = null;
+        ArrayList<BusRoute> list = null;
         String sqlp1 = "select distinct rts.route_short_name,rts.route_id,stp.stop_id from ";
         String sqlp2 = " thurs, trips trp, routes rts, stops stp where thurs.stop_id = ?" +
                 " and trp.trip_id = thurs.trip_id and rts.route_id = trp.route_id  and thurs.stop_id = stp.stop_id";
@@ -174,9 +174,9 @@ public class BusStopDataSource {
 
     }
 
-    public List<String> fetchAllSuburbsInQld() {
+    public ArrayList<String> fetchAllSuburbsInQld() {
         String sql = "select locality from suburbs where state = 'QLD' ";
-        List<String> suburbs = new ArrayList<String>();
+        ArrayList<String> suburbs = new ArrayList<String>();
         Cursor cursor = database.rawQuery(sql,null);
         cursor.moveToNext();
         if(cursor.getCount() !=0) {
@@ -188,8 +188,8 @@ public class BusStopDataSource {
         return suburbs;
     }
 
-    public List<BusRoute> findBusesThatGoTo(String suburbName, LocationPojo currentLocation) {
-        List<BusRoute> list = new ArrayList<BusRoute>();
+    public ArrayList<BusRoute> findBusesThatGoTo(String suburbName, LocationPojo currentLocation) {
+        ArrayList<BusRoute> list = new ArrayList<BusRoute>();
         suburbName = suburbName.toUpperCase();
         suburbName = suburbName.trim();
         LocationPojo suburbLatLng = new LocationPojo();
@@ -208,15 +208,15 @@ public class BusStopDataSource {
         LocationPojo p2 = GeoUtils.calculateDerivedPosition(suburbLatLng,1800,90);
         LocationPojo p3 = GeoUtils.calculateDerivedPosition(suburbLatLng,1800,180);
         LocationPojo p4 = GeoUtils.calculateDerivedPosition(suburbLatLng,1800,270);
-        List<BusStops> allbusesInThatSuburb = this.getNearestBusStop(p1,p2,p3,p4);
-        List<BusRoute> allRoutesInThatSuburb = this.listOfAllBusRoutes(allbusesInThatSuburb);
+        ArrayList<BusStops> allbusesInThatSuburb = this.getNearestBusStop(p1,p2,p3,p4);
+        ArrayList<BusRoute> allRoutesInThatSuburb = this.listOfAllBusRoutes(allbusesInThatSuburb);
 
         p1 = GeoUtils.calculateDerivedPosition(currentLocation,GeoUtils.RANGE_IN_METERS,0);
         p2 = GeoUtils.calculateDerivedPosition(currentLocation,GeoUtils.RANGE_IN_METERS,90);
         p3 = GeoUtils.calculateDerivedPosition(currentLocation,GeoUtils.RANGE_IN_METERS,180);
         p4 = GeoUtils.calculateDerivedPosition(currentLocation,GeoUtils.RANGE_IN_METERS,270);
-        List<BusStops> allBusesNearMe = this.getNearestBusStop(p1,p2,p3,p4);
-        List<BusRoute> allRoutesNearMe = this.listOfAllBusRoutes(allBusesNearMe);
+        ArrayList<BusStops> allBusesNearMe = this.getNearestBusStop(p1,p2,p3,p4);
+        ArrayList<BusRoute> allRoutesNearMe = this.listOfAllBusRoutes(allBusesNearMe);
 
         if(allRoutesNearMe.size() > allRoutesInThatSuburb.size()) {
            for(BusRoute route:allRoutesInThatSuburb) {
@@ -232,7 +232,7 @@ public class BusStopDataSource {
                 }
             }
         }
-        Set<BusRoute> set = new HashSet<BusRoute>();
+        HashSet<BusRoute> set = new HashSet<BusRoute>();
         set.addAll(list);
         list.clear();
         list.addAll(set);
@@ -241,7 +241,7 @@ public class BusStopDataSource {
     }
 
     public void setAllStopsForBusNumber(BusRoute busRoute) {
-        List<BusStops> list = new ArrayList<BusStops>();
+        ArrayList<BusStops> list = new ArrayList<BusStops>();
         String thurs1 = "stop_times_thursday_1 ";
         String thurs2 = "stop_times_thursday2 ";
         String thurs3 = "stop_times_thursday_3 ";
@@ -266,17 +266,17 @@ public class BusStopDataSource {
         busRoute.locations = list;
     }
 
-    private void performCursorDisplayAllStopsFunction(Cursor cursor,List<BusStops>list) {
+    private void performCursorDisplayAllStopsFunction(Cursor cursor,ArrayList<BusStops>list) {
         cursor.moveToNext();
         if(cursor.getCount() != 0) {
             while(!cursor.isAfterLast()) {
                 BusStops stops = new BusStops();
-                stops.setLatitude(cursor.getDouble(1));
-                stops.setLongtitude(cursor.getDouble(2));
-                stops.setId(cursor.getString(0));
-                stops.setName(cursor.getString(3));
-                stops.setUrl(cursor.getString(4));
-                stops.setZone(cursor.getString(5));
+                stops.latitude = cursor.getDouble(1);
+                stops.longtitude = cursor.getDouble(2);
+                stops.id = cursor.getString(0);
+                stops.name = cursor.getString(3);
+                stops.url = cursor.getString(4);
+                stops.zone = cursor.getString(5);
                 //runs too slow
                 //stops.setBusRoutes(fetchBusRoutesForEachStop(cursor.getString(0)));
                 list.add(stops);
@@ -288,10 +288,10 @@ public class BusStopDataSource {
 
 
 
-    List<BusRoute> listOfAllBusRoutes(List<BusStops> busStops) {
-        List<BusRoute> routes = new ArrayList<BusRoute>();
+    ArrayList<BusRoute> listOfAllBusRoutes(ArrayList<BusStops> busStops) {
+        ArrayList<BusRoute> routes = new ArrayList<BusRoute>();
         for(BusStops stop:busStops) {
-            List<BusRoute> busRoute = stop.getBusRoutes();
+            ArrayList<BusRoute> busRoute = stop.busRoutes;
             routes.addAll(busRoute);
         }
         return routes;
@@ -299,8 +299,8 @@ public class BusStopDataSource {
 
 
 
-    private List<BusRoute> performCursorFunctionOnStopTimesTables(Cursor cursor) {
-        List<BusRoute> list =new ArrayList<BusRoute>();
+    private ArrayList<BusRoute> performCursorFunctionOnStopTimesTables(Cursor cursor) {
+        ArrayList<BusRoute> list =new ArrayList<BusRoute>();
         cursor.moveToNext();
         if(cursor.getCount() != 0) {
             while(!cursor.isAfterLast()) {

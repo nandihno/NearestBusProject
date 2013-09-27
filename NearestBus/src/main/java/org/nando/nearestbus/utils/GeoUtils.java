@@ -1,5 +1,10 @@
 package org.nando.nearestbus.utils;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+
 import org.nando.nearestbus.pojo.LocationPojo;
 
 /**
@@ -8,6 +13,7 @@ import org.nando.nearestbus.pojo.LocationPojo;
 public class GeoUtils {
 
     public static double RANGE_IN_METERS = 500.0;
+    public static final LatLng BRISBANE_LT_LNG = new LatLng(-27.4710107,153.0234489);
 
     /**
      * Calculates the end-point from a given source at a given range (meters)
@@ -70,5 +76,17 @@ public class GeoUtils {
         double d = R * c;
 
         return d;
+    }
+
+    public static void loadBrisbaneArea(GoogleMap map) {
+
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(BRISBANE_LT_LNG)
+                .zoom(8)
+                .bearing(0)
+                .tilt(30)
+                .build();
+        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
     }
 }

@@ -21,10 +21,10 @@ public class RouteListAdapter extends ArrayAdapter<BusStops> {
 
     HashMap<BusStops,Integer> map = new HashMap<BusStops, Integer>();
     private static LayoutInflater inflater = null;
-    private List<BusStops> data = new ArrayList<BusStops>();
+    private ArrayList<BusStops> data = new ArrayList<BusStops>();
 
 
-    public RouteListAdapter(Context context,int textViewResourceId, List<BusStops> list) {
+    public RouteListAdapter(Context context,int textViewResourceId, ArrayList<BusStops> list) {
         super(context,textViewResourceId,list);
         data = list;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -55,8 +55,8 @@ public class RouteListAdapter extends ArrayAdapter<BusStops> {
         TextView zone = (TextView) vi.findViewById(R.id.zoneStop);
         TextView distance = (TextView) vi.findViewById(R.id.distanceStop);
         BusStops stops = data.get(position);
-        name.setText(stops.getName());
-        zone.setText("Zone: "+stops.getZone());
+        name.setText(stops.name);
+        zone.setText("Zone: "+stops.zone);
         if(stops.getDistanceFromCurrentPoint() > 0) {
           distance.setText("Distance: "+stops.getDistanceFromCurrentPoint());
         }

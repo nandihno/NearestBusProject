@@ -1,5 +1,6 @@
 package org.nando.nearestbus.pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,71 +8,18 @@ import java.util.List;
  */
 public class BusStops implements Comparable<BusStops> {
 
-    private String id;
-    private String name;
-    private double longtitude;
-    private double latitude;
-    private String url;
-    private String zone;
-    private Double distanceFromCurrentPoint = new Double(0);
+    public String id;
+    public String name;
+    public double longtitude;
+    public double latitude;
+    public String url;
+    public String zone;
+    public Double distanceFromCurrentPoint = new Double(0);
 
-    private List<BusRoute> busRoutes;
+    public ArrayList<BusRoute> busRoutes;
 
-    public List<BusRoute> getBusRoutes() {
-        return busRoutes;
-    }
 
-    public void setBusRoutes(List<BusRoute> busRoutes) {
-        this.busRoutes = busRoutes;
-    }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getLongtitude() {
-        return longtitude;
-    }
-
-    public void setLongtitude(double longtitude) {
-        this.longtitude = longtitude;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getZone() {
-        return zone;
-    }
-
-    public void setZone(String zone) {
-        this.zone = zone;
-    }
 
     public Double getDistanceFromCurrentPoint() {
         if(distanceFromCurrentPoint != null || distanceFromCurrentPoint.equals(0.0)) {

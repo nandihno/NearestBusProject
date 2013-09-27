@@ -35,6 +35,7 @@ import org.nando.nearestbus.task.DisplayAllBusRouteTask;
 import org.nando.nearestbus.utils.CheckConnectivityUtils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +51,7 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
     private LocationClient locationClient;
 
     private GoogleMap map;
-    private Map<Marker,BusStops> markerPojoMap = new HashMap<Marker, BusStops>();
+    private HashMap<Marker,BusStops> markerPojoMap = new HashMap<Marker, BusStops>();
     private TextView busRouteText;
 
     private static final LocationRequest REQUEST = LocationRequest.create()
@@ -121,9 +122,9 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
     public void displayBusStops(BusRoute route) {
         if(route != null ) {
             if(route.locations != null) {
-                List<BusStops> locations = route.locations;
+                ArrayList<BusStops> locations = route.locations;
                 for(BusStops location:locations) {
-                    LatLng latLng = new LatLng(location.getLatitude(),location.getLongtitude());
+                    LatLng latLng = new LatLng(location.latitude,location.longtitude);
                     Marker marker = map.addMarker(createMarkerOptions(latLng,route.busRoute,"",BitmapDescriptorFactory.HUE_ORANGE));
                     markerPojoMap.put(marker,location);
 
@@ -175,6 +176,7 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
 
     @Override
     public void onDisconnected() {
+        locationClient.disconnect();
 
     }
 
@@ -195,8 +197,8 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
         BusStops stops = markerPojoMap.get(marker);
         if(stops != null) {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            if(stops.getUrl() != null || stops.getUrl().isEmpty()) {
-                intent.setData(Uri.parse(stops.getUrl()));
+            if(stops.url != null || stops.url.isEmpty()) {
+                intent.setData(Uri.parse(stops.url));
                 startActivity(intent);
             }
         }
