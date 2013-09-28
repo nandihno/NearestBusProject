@@ -135,7 +135,7 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
                     dialog.show();
                 }
                 else {
-                    AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please click on any map marker information tag to register your destination",false);
+                    AlertDialog dialog = dialogHelper.createAlertDialog("Warning","Please click on any map marker then on its information tag to register your destination",false);
                     dialog.show();
                 }
             }

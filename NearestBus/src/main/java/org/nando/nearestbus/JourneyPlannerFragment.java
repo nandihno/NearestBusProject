@@ -96,6 +96,9 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
         fromToJpTxt.setText("");
 
         dialogHelper = new AlertDialogHelper(getActivity());
+        String html="<html><head></head><body background='#004B88'></body></html>";
+        webView.loadData(html,"text/html",null);
+        webView.setVisibility(View.INVISIBLE);
 
 
 
@@ -173,6 +176,7 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                         }
                     });
                     webView.setBackgroundColor(0x00000000);
+                    webView.setVisibility(View.VISIBLE);
                     webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
                     webView.postUrl(url, EncodingUtils.getBytes(sbuff.toString(), "BASE64"));
 
