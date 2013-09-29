@@ -137,6 +137,9 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                 else {
                   //task.execute(url,location,hour,minute,am_pm,destination,webView);
                     final ProgressDialog pd = new ProgressDialog(getActivity());
+                    webView.clearFormData();
+                    webView.clearHistory();
+                    webView.clearCache(true);
 
                     pd.setTitle("Finding options...");
                     pd.setMessage("Please wait.");
@@ -177,7 +180,7 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                     });
                     webView.setBackgroundColor(0x00000000);
                     webView.setVisibility(View.VISIBLE);
-                    webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+                   // webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
                     webView.postUrl(url, EncodingUtils.getBytes(sbuff.toString(), "BASE64"));
 
                 }

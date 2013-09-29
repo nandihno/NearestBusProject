@@ -167,15 +167,7 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
                 Marker marker = map.addMarker(createMarkerOptions(new LatLng(pojo.latitude,pojo.longtitude),pojo.addressName,""));
                 locMap.put(marker,pojo.addressName);
             }
-            LatLng latLng = new LatLng(list.get(0).latitude,list.get(0).longtitude);
-            location = locationClient.getLastLocation();
-            CameraPosition cameraPosition = new CameraPosition.Builder()
-                    .target(latLng)
-                    .zoom(11)
-                    .bearing(0)
-                    .tilt(30)
-                    .build();
-            map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            GeoUtils.loadBrisbaneArea(map);
         }
     }
 

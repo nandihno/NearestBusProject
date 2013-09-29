@@ -30,7 +30,8 @@ public class GeoCodingTask extends AsyncTask<Object,Void,Object> {
     Fragment myFragment = null;
     ProgressDialog pd = null;
     boolean passLatLng = false;
-    private String url = "http://maps.googleapis.com/maps/api/geocode/json?sensor=true";
+    private  String url = "http://maps.googleapis.com/maps/api/geocode/json?sensor=true";
+    private String url2 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-27.4710107,153.0234489&radius=50000&sensor=true&key=AIzaSyBcEM-R-c7hnN6LSnLB5t-N3OcjtSFJtQA";
 
      public GeoCodingTask(Fragment fragment,boolean isPassLatLng) {
          myFragment = fragment;
@@ -82,7 +83,10 @@ public class GeoCodingTask extends AsyncTask<Object,Void,Object> {
             return doLatLngSearch(objects);
         }
         else {
-            return doAddressSearch(objects);
+            ArrayList<LocationPojo> list = doAddressSearch(objects);
+            ArrayList<LocationPojo> list2 = doPOISearch(objects);
+            list.addAll(list2);
+            return list;
         }
 
 
@@ -109,6 +113,52 @@ public class GeoCodingTask extends AsyncTask<Object,Void,Object> {
                 for(int i =0; i < jArray.length(); i++) {
                     JSONObject jObject = jArray.getJSONObject(i);
                     String address = jObject.getString("formatted_address");
+                    JSONObject jObject2 = jObject.getJSONObject("geometry").getJSONObject("location");
+
+                    double lat = jObject2.getDouble("lat");
+                    double lng = jObject2.getDouble("lng");
+                    LocationPojo latLng = new LocationPojo(lng,lat,address);
+                    list.add(latLng);
+                }
+            }
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+
+    }
+
+    private ArrayList<LocationPojo> doPOISearch(Object... objects) {
+        ArrayList<LocationPojo> list = new ArrayList<LocationPojo>();
+
+        try {
+            String encoded = URLEncoder.encode((String)objects[0],"UTF-8");
+
+
+            HttpClient client = new DefaultHttpClient();
+
+            System.out.println("url is:"+url2+"&name="+encoded);
+            HttpGet get = new HttpGet(url2+"&name="+encoded);
+            HttpResponse response = client.execute(get);
+            if(response.getStatusLine().getStatusCode() == 200) {
+                HttpEntity entity = response.getEntity();
+                String jsonResponse = EntityUtils.toString(entity);
+                JSONObject json = new JSONObject(jsonResponse);
+                JSONArray jArray = json.getJSONArray("results");
+                for(int i =0; i < jArray.length(); i++) {
+                    JSONObject jObject = jArray.getJSONObject(i);
+                    String address = jObject.getString("name");
+                    if(jObject.has("opening_hours")) {
+                        String open_now = jObject.getJSONObject("opening_hours").getString("open_now");
+                        if(open_now.equals("false")) {
+                            open_now = "no";
+                        }
+                        else {
+                            open_now = "yes";
+                        }
+                        address += " - Are they open:"+open_now;
+                    }
                     JSONObject jObject2 = jObject.getJSONObject("geometry").getJSONObject("location");
                     double lat = jObject2.getDouble("lat");
                     double lng = jObject2.getDouble("lng");
