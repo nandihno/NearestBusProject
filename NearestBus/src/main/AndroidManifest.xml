@@ -75,21 +75,21 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 
        <!-- TEST -->
-<!--
+
 
         <meta-data
                 android:name="com.google.android.maps.v2.API_KEY"
                 android:value="AIzaSyC1HuZ_7Cc2PAOMu5UMMdn88owhAAyfWxc"/>
--->
 
 
 
         <!-- PROD -->
-
+<!--
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDyT40UZB4iR_ipC8vR82KL7BIenx17lQM"/>
+            -->
 
 
 

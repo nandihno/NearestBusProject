@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -135,8 +136,11 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                     Toast.makeText(getActivity(),"Choose destination",Toast.LENGTH_LONG).show();
                 }
                 else {
-                  //task.execute(url,location,hour,minute,am_pm,destination,webView);
-                    final ProgressDialog pd = new ProgressDialog(getActivity());
+                    webView.loadData("","text/html",null);
+                    JourneyPlannerWebScrapeTask task = new JourneyPlannerWebScrapeTask(this);
+                    //task.execute(url,location,hour,minute,am_pm,destination);
+                    task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,url,location,hour,minute,am_pm,destination);
+                    /*final ProgressDialog pd = new ProgressDialog(getActivity());
                     webView.clearFormData();
                     webView.clearHistory();
                     webView.clearCache(true);
@@ -182,6 +186,7 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                     webView.setVisibility(View.VISIBLE);
                    // webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
                     webView.postUrl(url, EncodingUtils.getBytes(sbuff.toString(), "BASE64"));
+                    */
 
                 }
             }
@@ -197,6 +202,11 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
             activityCallBack.openJPMap();
         }
 
+    }
+
+    public void displayWebResults(String resultsHtml) {
+        webView.setVisibility(View.VISIBLE);
+        webView.loadData(resultsHtml,"text/html","UTF-8");
     }
 
     public void displayOptionList(ArrayList<JourneyPlannerBusInfo> list) {

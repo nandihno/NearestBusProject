@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -25,6 +26,7 @@ import org.nando.nearestbus.JourneyPlannerFragment;
 import org.nando.nearestbus.pojo.BusRoute;
 import org.nando.nearestbus.pojo.JourneyPlannerBusInfo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -32,7 +34,7 @@ import java.util.List;
 /**
  * Created by fernandoMac on 20/09/13.
  */
-public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,WebView> {
+public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> {
 
     private Fragment mainFragment;
     ProgressDialog pd = null;
@@ -52,12 +54,9 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,WebView>
     }
 
     @Override
-    protected WebView doInBackground(Object... objects) {
-
-
-
-        WebView webView = (WebView) objects[6];
-        StringBuffer htmlBuff = new StringBuffer();
+    protected String doInBackground(Object... objects) {
+        String html = "";
+        String results = "";
         try {
             HttpClient client = new DefaultHttpClient();
             String url = (String) objects[0];
@@ -74,24 +73,6 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,WebView>
             String month  = todayCal.get(Calendar.MONTH)+1+"";
             String year = todayCal.get(Calendar.YEAR)+"";
 
-            StringBuffer sbuff = new StringBuffer();
-            sbuff.append("Start="+longLat+"&");
-            sbuff.append("End="+destination.latitude+","+destination.longitude+"&");
-            sbuff.append("SearchDate="+date+"-"+month+"-"+year+" 12:00 AM&");
-            sbuff.append("TimeSearchMode=ArriveBefore&");
-            sbuff.append("SearchHour="+hour+"&");
-            sbuff.append("SearchMinute="+minute+"&");
-            sbuff.append("TimeMeridiem="+am_pm+"&");
-            sbuff.append("TransportModes=BUS&");
-            sbuff.append("ServiceTypes=Regular&");
-            sbuff.append("ServiceTypes=Express&");
-            sbuff.append("FareTypes=Prepaid&");
-            sbuff.append("FareTypes=Standard&");
-            sbuff.append("MaximumWalkingDistance=1500");
-            webView.getSettings().setJavaScriptEnabled(true);
-            webView.postUrl(url, EncodingUtils.getBytes(sbuff.toString(),"BASE64"));
-
-            /*
             HttpPost post = new HttpPost(url);
             List<BasicNameValuePair> data = new ArrayList<BasicNameValuePair>();
             data.add(new BasicNameValuePair("Start",longLat));
@@ -101,7 +82,9 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,WebView>
             data.add(new BasicNameValuePair("SearchHour",hour));
             data.add(new BasicNameValuePair("SearchMinute",minute));
             data.add(new BasicNameValuePair("TimeMeridiem",am_pm));
-            data.add(new BasicNameValuePair("TransportModes","BUS"));
+            data.add(new BasicNameValuePair("TransportModes","Bus"));
+            data.add(new BasicNameValuePair("TransportModes","Train"));
+            data.add(new BasicNameValuePair("TransportModes","Ferry"));
             data.add(new BasicNameValuePair("ServiceTypes","Regular"));
             data.add(new BasicNameValuePair("ServiceTypes","Express"));
 
@@ -111,66 +94,109 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,WebView>
             UrlEncodedFormEntity entity = new UrlEncodedFormEntity(data,"UTF-8");
             post.setEntity(entity);
             HttpResponse response = client.execute(post);
-
+            System.out.println(response.getStatusLine().getStatusCode()+ " <----------- status code!");
             if(response.getStatusLine().getStatusCode() == 200) {
-                HttpEntity entityResponse = response.getEntity();
-                html = EntityUtils.toString(entityResponse);
-                Document doc = Jsoup.parse(html);
-                Elements travelOptionClass = doc.select(".travel-option");
-                Elements busClass2 = travelOptionClass.select("ul.itinerary");
-                for(int a=0; a < busClass2.size(); a++) {
-                    Element busClassElem = busClass2.get(a);
-                    Elements itineryBusClass = busClassElem.select("li.bus");
-                    htmlBuff.append("<p style='color:green'>Option "+(a+1)+"</p>");
-
-
-                    for(int b=0; b < itineryBusClass.size(); b++) {
-                        Element busRouteCodesElem = itineryBusClass.get(b);
-                        Element optionDetailsElem = itineryBusClass.get(b);
-                        Elements busRouteCodes = busRouteCodesElem.select(".translink-route-code");
-                        Elements optionDetails = optionDetailsElem.select("ul.option-detail");
-                        for(int k = 0; k < optionDetails.size(); k++) {
-                            Element busRoute = busRouteCodes.get(k);
-                            Element optionDetail = optionDetails.get(k);
-
-                            Element depart = optionDetail.child(1);
-                            Element arrive = optionDetail.child(2);
-                            Element travelTime = optionDetail.child(3);
-
-                            JourneyPlannerBusInfo pojo = new JourneyPlannerBusInfo();
-                            BusRoute busRoute1 = new BusRoute();
-                            busRoute1.busRoute = busRoute.text();
-                            pojo.setBusRoute(busRoute1);
-                            pojo.setDepart(depart.text());
-                            pojo.setArrive(arrive.text());
-                            pojo.setTravelTime(travelTime.text());
-                            pojo.setIndex(k);
-                            htmlBuff.append( "<ul><ol>"+pojo.getBusRoute()+"</ol><ol>"+pojo.getDepart()+"</ol><ol>"+pojo.getArrive()+"</ol><ol>"+pojo.getTravelTime()+"</ol></ul>");
-                            pojo.setHtml(htmlBuff.toString());
-
-                            list.add(pojo);
-                        }
-                    }
-
-                }
-
+                results = populateResultsToHtml(response);
             }
-            */
-
+            else {
+                results = "<p style='color:red'>Please try again got error "+response.getStatusLine().getStatusCode()+"</p>";
+            }
         } catch(Exception e) {
             e.printStackTrace();
         }
-        //return list;
-
-            return webView;
+        return results;
     }
 
-    protected void onPostExecute(WebView res) {
+    private String populateResultsToHtml(HttpResponse response) throws IOException {
+        String html = "";
+        String results = "";
+        HttpEntity entityResponse = response.getEntity();
+        html = EntityUtils.toString(entityResponse);
+
+        Document doc = Jsoup.parse(html);
+        Elements travelOptionClass = doc.select(".travel-option");
+        //System.out.println("travelOptionClass-->"+travelOptionClass.html());
+        Elements busClass2 = travelOptionClass.select("ul.itinerary");
+        results ="<html><head><meta name='viewport' content='width=device-width' /><style>p {color:#F79429;font-weight:bold;} ol {color:white;} ol.bolder{font-weight:bold;color:white;font-size:15pt;}</style></head><body style='background-color:#004B88'>";
+        //results = "<body style='bgcolor"
+        System.out.println("busClass2 size is:"+busClass2.size());
+        for(int a=0; a < busClass2.size(); a++) {
+            Element busClassElem = busClass2.get(a);
+            Elements itineryBusClass = busClassElem.select("li");
+
+            // System.out.println("itineraryBysClass size ------>"+itineryBusClass.size() +"html: "+itineryBusClass.html());
+            results += "<p>OPTION "+(a+1)+"</p>";
+            for(int b=0; b < itineryBusClass.size(); b++) {
+                boolean hasBusClass = false;
+                boolean hasTrainClass = false;
+                boolean hasFerryClass = false;
+                boolean hasWalkClass = false;
+                Element busRouteCodesElem = itineryBusClass.get(b);
+                if(busRouteCodesElem.hasClass("bus")) {
+                    hasBusClass = true;
+                }
+                if(busRouteCodesElem.hasClass("train")) {
+                    hasTrainClass = true;
+                }
+                if(busClassElem.hasClass("ferry")) {
+                    hasFerryClass = true;
+                }
+                if(busClassElem.hasClass("walk")) {
+                    hasWalkClass = true;
+                }
+                Element optionDetailsElem = itineryBusClass.get(b);
+                Elements busRouteCodes = busRouteCodesElem.select(".translink-route-code");
+                Elements optionDetails = optionDetailsElem.select("ul.option-detail");
+                for(int k = 0; k < optionDetails.size(); k++) {
+                    Element busRoute = busRouteCodes.get(k);
+                    Element optionDetail = optionDetails.get(k);
+
+                    Element depart = optionDetail.child(1);
+                    Element arrive = optionDetail.child(2);
+                    Element travelTime = optionDetail.child(3);
+
+                           /*
+                            JourneyPlannerDisplayInfo pojo = new JourneyPlannerDisplayInfo();
+                            pojo.setBusRoute(busRoute.text());
+                            pojo.setDepart(depart.text());
+                            pojo.setArrive(arrive.text());
+                            pojo.setTravelTime(travelTime.text());
+                            */
+                    results += "<ul><ol class='bolder'>"+writeTransportHtml(busRoute.text(),hasBusClass,hasTrainClass,hasFerryClass,hasWalkClass)+"</ol><ol>"+depart.text()+"</ol><ol>"+arrive.text()+"</ol><ol>"+travelTime.text()+"</ol></ul>";
+
+                }
+            }
+        }
+        results += "</body></html>";
+        System.out.println(results);
+        return results;
+
+    }
+
+    private  String writeTransportHtml(String routeNo,boolean hasBusclass,boolean hasTrainclass,boolean hasFerryClass,boolean hasWalkclass) {
+        if(hasBusclass) {
+            return "Take <b>bus</b> "+routeNo;
+        }
+        else if(hasTrainclass) {
+            return "Catch the <b>train</b>";
+        }
+        else if(hasFerryClass) {
+            return "Take the <b>Ferry</b> "+routeNo;
+        }
+        else if (hasWalkclass) {
+            return "Walk ";
+        }
+        else {
+            return routeNo;
+        }
+
+    }
+
+
+    protected void onPostExecute(String res) {
         pd.dismiss();
         pd = null;
-
-
-
+        ((JourneyPlannerFragment)mainFragment).displayWebResults(res);
     }
 
 }
