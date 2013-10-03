@@ -65,6 +65,7 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
             String minute = String.valueOf(objects[3]);
             String am_pm = (String) objects[4];
             LatLng destination = (LatLng) objects[5];
+            Boolean isLeaveAfter = (Boolean) objects[6];
 
 
             String longLat = location.getLatitude()+","+location.getLongitude();
@@ -78,7 +79,13 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
             data.add(new BasicNameValuePair("Start",longLat));
             data.add(new BasicNameValuePair("End",destination.latitude+","+destination.longitude));
             data.add(new BasicNameValuePair("SearchDate",date+"-"+month+"-"+year+" 12:00 AM"));
-            data.add(new BasicNameValuePair("TimeSearchMode","ArriveBefore"));
+            if(isLeaveAfter) {
+                data.add(new BasicNameValuePair("TimeSearchMode","LeaveAfter"));
+            }
+            else {
+                data.add(new BasicNameValuePair("TimeSearchMode","ArriveBefore"));
+            }
+
             data.add(new BasicNameValuePair("SearchHour",hour));
             data.add(new BasicNameValuePair("SearchMinute",minute));
             data.add(new BasicNameValuePair("TimeMeridiem",am_pm));

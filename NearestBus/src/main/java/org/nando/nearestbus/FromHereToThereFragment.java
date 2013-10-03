@@ -112,6 +112,10 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
     @Override
     public void onConnected(Bundle bundle) {
         locationClient.requestLocationUpdates(REQUEST,this);
+        location = locationClient.getLastLocation();
+        if(location == null) {
+            CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
+        }
     }
 
     @Override
@@ -127,7 +131,7 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
     private void searchForBusToThere() {
         listView.setAdapter(null);
         BusStopDataSource dsource = new BusStopDataSource(getActivity());
-        location = locationClient.getLastLocation();
+        
         if(location == null) {
             CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
         }

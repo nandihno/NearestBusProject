@@ -18,16 +18,15 @@
         android:id="@+id/scrapeButton"
         style="@style/ButtonAppTheme"
 
-        android:layout_below="@+id/jpTimePicker"
-        android:layout_alignLeft="@+id/jpTimePicker"
-        android:layout_marginTop="17dp"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"/>
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/jpTimePicker"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Need to be there by"
+        android:text="Leave after"
         android:id="@+id/beThereTxt"
         android:layout_below="@+id/fromToJPTxt"
         android:layout_alignLeft="@+id/fromToJPTxt"
@@ -40,14 +39,14 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Be there by"
+        android:text="Leave after"
         android:id="@+id/jpTimePicker"
         style="@style/ButtonAppTheme"
-        android:layout_below="@+id/beThereTxt"
-        android:layout_alignLeft="@+id/beThereTxt"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="10dp" />
+        android:layout_alignTop="@+id/chooseDestinationJp"
+        android:layout_toLeftOf="@+id/chooseDestinationJp"
+        android:layout_toRightOf="@+id/toggleButtonJp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,12 +66,12 @@
         android:text="5:20pm"
         android:id="@+id/jpTextView"
         style="@style/TextFieldAppTheme"
-        android:layout_above="@+id/jpTimePicker"
         android:layout_toRightOf="@+id/beThereTxt"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:layout_marginLeft="19dp"
-        android:textSize="15dp"/>
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:layout_alignBottom="@+id/beThereTxt" />
 
     <Button
         android:layout_width="wrap_content"
@@ -80,10 +79,10 @@
         android:text="Choose destination"
         android:id="@+id/chooseDestinationJp"
         style="@style/ButtonAppTheme"
-        android:layout_alignTop="@+id/jpTimePicker"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:layout_toRightOf="@+id/beThereTxt" />
+        android:layout_below="@+id/jpTextView"
+        android:layout_alignRight="@+id/webViewJp" />
 
     <WebView
         android:layout_width="fill_parent"
@@ -97,13 +96,23 @@
         android:paddingRight="0dp"
         />
 
-   <!-- <ListView
+    <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listViewJp"
-        android:layout_below="@+id/scrapeButton"
-        android:layout_alignLeft="@+id/scrapeButton"
-        android:layout_marginTop="15dp" /> -->
+        android:text="Switch"
+        android:id="@+id/toggleButtonJp"
+        android:checked="true"
+        style="@style/ButtonAppTheme"
+        android:layout_below="@+id/beThereTxt"
+        android:layout_alignParentLeft="true" />
+
+    <!-- <ListView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/listViewJp"
+         android:layout_below="@+id/scrapeButton"
+         android:layout_alignLeft="@+id/scrapeButton"
+         android:layout_marginTop="15dp" /> -->
 
 
 </RelativeLayout>

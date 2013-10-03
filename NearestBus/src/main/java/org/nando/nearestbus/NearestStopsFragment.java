@@ -127,7 +127,7 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
 
     public void nearestStop(View view) {
         listView.setAdapter(null);
-        location = locationClient.getLastLocation();
+
         if(location == null) {
             CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
         }
@@ -182,6 +182,10 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
     @Override
     public void onConnected(Bundle bundle) {
         locationClient.requestLocationUpdates(REQUEST,this);
+        location = locationClient.getLastLocation();
+        if(location == null) {
+            CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
+        }
 
     }
 

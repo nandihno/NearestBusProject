@@ -124,7 +124,7 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
 
     public void nearestStop(View view) {
         listView.setAdapter(null);
-        location = locationClient.getLastLocation();
+
         if(location == null) {
             CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
         }
@@ -187,6 +187,10 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
     @Override
     public void onConnected(Bundle bundle) {
         locationClient.requestLocationUpdates(REQUEST,this);
+        location = locationClient.getLastLocation();
+        if(location == null) {
+            CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
+        }
 
     }
 

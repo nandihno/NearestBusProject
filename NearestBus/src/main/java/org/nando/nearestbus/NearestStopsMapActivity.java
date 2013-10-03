@@ -122,15 +122,18 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
 
             }
             map.setInfoWindowAdapter(new MapStopsInfoWindowAdapter(this,markerPojoMap));
-            location = locationClient.getLastLocation();
             if(location == null) {
                 CheckConnectivityUtils.showGPSSettingsAlert(this);
             }
-            LatLng current = new LatLng(location.getLatitude(),location.getLongitude());
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 14));
+            else {
+                LatLng current = new LatLng(location.getLatitude(),location.getLongitude());
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 14));
+            }
         }
 
     }
+
+
 
     public void onResume() {
         super.onResume();
@@ -141,6 +144,29 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
     public void onPause() {
         super.onPause();
         locationClient.disconnect();
+    }
+
+    public void onStart() {
+        super.onStart();
+        setupLocationClientIfNeeded();
+        locationClient.connect();
+    }
+
+    public void onRestart() {
+        super.onRestart();
+        setupLocationClientIfNeeded();
+        locationClient.connect();
+
+    }
+
+    @Override
+    protected void onStop() {
+
+        if (locationClient.isConnected()) {
+            locationClient.removeLocationUpdates(this);
+        }
+        locationClient.disconnect();
+        super.onStop();
     }
 
     public void onDestroy() {
@@ -158,8 +184,10 @@ public class NearestStopsMapActivity extends Activity implements GooglePlayServi
     @Override
     public void onConnected(Bundle bundle) {
         locationClient.requestLocationUpdates(REQUEST,this);
-
-
+        location = locationClient.getLastLocation();
+        if(location == null) {
+            CheckConnectivityUtils.showGPSSettingsAlert(this);
+        }
     }
 
     @Override

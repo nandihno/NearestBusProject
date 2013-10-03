@@ -34,6 +34,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import org.nando.nearestbus.pojo.LocationPojo;
 import org.nando.nearestbus.task.GeoCodingTask;
 import org.nando.nearestbus.utils.AlertDialogHelper;
+import org.nando.nearestbus.utils.CheckConnectivityUtils;
 import org.nando.nearestbus.utils.GeoUtils;
 
 import java.util.ArrayList;
@@ -107,6 +108,10 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
     @Override
     public void onConnected(Bundle bundle) {
         locationClient.requestLocationUpdates(REQUEST,this);
+        location = locationClient.getLastLocation();
+        if(location == null) {
+            CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
+        }
 
     }
 
@@ -176,6 +181,8 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
 
     }
 
+
+
     public void onResume() {
         super.onResume();
         setupLocationClientIfNeeded();
@@ -192,6 +199,25 @@ public class JourneyPlannerMapFragment extends Fragment implements GooglePlaySer
     public void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+    }
+
+    public void onStart() {
+        super.onStart();
+        setupLocationClientIfNeeded();
+        locationClient.connect();
+
+    }
+
+
+
+    @Override
+    public void onStop() {
+
+        if (locationClient.isConnected()) {
+            locationClient.removeLocationUpdates(this);
+        }
+        locationClient.disconnect();
+        super.onStop();
     }
 
     public void onLowMemory() {

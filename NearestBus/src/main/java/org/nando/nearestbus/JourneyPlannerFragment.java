@@ -19,6 +19,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
@@ -64,6 +65,11 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
 
     private AlertDialogHelper dialogHelper;
 
+    private boolean isLeaveAfterTimeSearchMode = true;
+    private ToggleButton toggleBtn;
+    private Button jpPicker;
+    private TextView beThereTxt;
+
     int hour = 0;
     int minute = 0;
     String am_pm = "";
@@ -83,10 +89,12 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
 
         Button button = (Button) rootView.findViewById(R.id.scrapeButton);
         button.setOnClickListener(this);
-        Button jpPicker = (Button) rootView.findViewById(R.id.jpTimePicker);
+        jpPicker = (Button) rootView.findViewById(R.id.jpTimePicker);
         jpPicker.setOnClickListener(this);
         Button chooseDestinationJp = (Button) rootView.findViewById(R.id.chooseDestinationJp);
         chooseDestinationJp.setOnClickListener(this);
+        toggleBtn = (ToggleButton) rootView.findViewById(R.id.toggleButtonJp);
+        toggleBtn.setOnClickListener(this);
 
         //listViewJp = (ListView) rootView.findViewById(R.id.listViewJp);
         webView = (WebView) rootView.findViewById(R.id.webViewJp);
@@ -94,7 +102,8 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
         jpTextView = (TextView) rootView.findViewById(R.id.jpTextView);
         jpTextView.setText("");
         fromToJpTxt = (TextView) rootView.findViewById(R.id.fromToJPTxt);
-        fromToJpTxt.setText("");
+        fromToJpTxt.setText("From current location to ?");
+        beThereTxt = (TextView) rootView.findViewById(R.id.beThereTxt);
 
         dialogHelper = new AlertDialogHelper(getActivity());
         String html="<html><head></head><body background='#004B88'></body></html>";
@@ -136,11 +145,14 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                     Toast.makeText(getActivity(),"Choose destination",Toast.LENGTH_LONG).show();
                 }
                 else {
+                    /**
+                     * Uncomment when ready
+
                     webView.loadData("","text/html",null);
                     JourneyPlannerWebScrapeTask task = new JourneyPlannerWebScrapeTask(this);
-                    //task.execute(url,location,hour,minute,am_pm,destination);
-                    task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,url,location,hour,minute,am_pm,destination);
-                    /*final ProgressDialog pd = new ProgressDialog(getActivity());
+                    task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,url,location,hour,minute,am_pm,destination,isLeaveAfterTimeSearchMode);
+                     */
+                    final ProgressDialog pd = new ProgressDialog(getActivity());
                     webView.clearFormData();
                     webView.clearHistory();
                     webView.clearCache(true);
@@ -160,7 +172,12 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                     sbuff.append("Start="+longLat+"&");
                     sbuff.append("End="+destination.latitude+","+destination.longitude+"&");
                     sbuff.append("SearchDate="+date+"-"+month+"-"+year+" 12:00 AM&");
-                    sbuff.append("TimeSearchMode=ArriveBefore&");
+                    if(isLeaveAfterTimeSearchMode) {
+                        sbuff.append("TimeSearchMode=LeaveAfter&");
+                    }
+                    else {
+                        sbuff.append("TimeSearchMode=ArriveBefore&");
+                    }
                     sbuff.append("SearchHour="+hour+"&");
                     sbuff.append("SearchMinute="+minute+"&");
                     sbuff.append("TimeMeridiem="+am_pm+"&");
@@ -184,9 +201,8 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                     });
                     webView.setBackgroundColor(0x00000000);
                     webView.setVisibility(View.VISIBLE);
-                   // webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
                     webView.postUrl(url, EncodingUtils.getBytes(sbuff.toString(), "BASE64"));
-                    */
+
 
                 }
             }
@@ -200,6 +216,19 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
         }
         if(view.getId() == R.id.chooseDestinationJp) {
             activityCallBack.openJPMap();
+        }
+        if(view.getId() == R.id.toggleButtonJp) {
+            if(toggleBtn.isChecked()) {
+                this.isLeaveAfterTimeSearchMode = true;
+                jpPicker.setText("Leave after");
+                beThereTxt.setText("Need to leave after");
+
+            }
+            else {
+                this.isLeaveAfterTimeSearchMode = false;
+                jpPicker.setText("Arrive before");
+                beThereTxt.setText("Need to arrive before");
+            }
         }
 
     }
@@ -262,6 +291,22 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
         locationClient.disconnect();
     }
 
+    public void onStart() {
+        super.onStart();
+        setupLocationClientIfNeeded();
+        locationClient.connect();
+    }
+
+    @Override
+    public void onStop() {
+
+        if (locationClient.isConnected()) {
+            locationClient.removeLocationUpdates(this);
+        }
+        locationClient.disconnect();
+        super.onStop();
+    }
+
     private void setupLocationClientIfNeeded() {
         if(locationClient == null) {
             locationClient = new LocationClient(getActivity(),this,this);
@@ -271,6 +316,10 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
     @Override
     public void onConnected(Bundle bundle) {
         locationClient.requestLocationUpdates(REQUEST,this);
+        location = locationClient.getLastLocation();
+        if(location == null) {
+            CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
+        }
 
     }
 

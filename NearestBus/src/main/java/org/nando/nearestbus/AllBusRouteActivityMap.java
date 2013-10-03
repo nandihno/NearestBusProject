@@ -131,13 +131,15 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
                 }
             }
         }
-        location = locationClient.getLastLocation();
+        
         if(location == null) {
             CheckConnectivityUtils.showGPSSettingsAlert(this);
         }
-        LatLng current = new LatLng(location.getLatitude(),location.getLongitude());
-        map.setInfoWindowAdapter(new MapStopsInfoWindowAdapter(this,markerPojoMap));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 13));
+        else {
+            LatLng current = new LatLng(location.getLatitude(),location.getLongitude());
+            map.setInfoWindowAdapter(new MapStopsInfoWindowAdapter(this,markerPojoMap));
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 13));
+        }
 
     }
 
@@ -161,6 +163,29 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
         map.clear();
     }
 
+    public void onStart() {
+        super.onStart();
+        setupLocationClientIfNeeded();
+        locationClient.connect();
+    }
+
+    public void onRestart() {
+        super.onRestart();
+        setupLocationClientIfNeeded();
+        locationClient.connect();
+
+    }
+
+    @Override
+    protected void onStop() {
+
+        if (locationClient.isConnected()) {
+            locationClient.removeLocationUpdates(this);
+        }
+        locationClient.disconnect();
+        super.onStop();
+    }
+
 
     private void setupLocationClientIfNeeded() {
         if(locationClient == null) {
@@ -171,6 +196,10 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
     @Override
     public void onConnected(Bundle bundle) {
         locationClient.requestLocationUpdates(REQUEST,this);
+        location = locationClient.getLastLocation();
+        if(location == null) {
+            CheckConnectivityUtils.showGPSSettingsAlert(this);
+        }
 
     }
 

@@ -166,7 +166,6 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
 
 
             }
-           location = locationClient.getLastLocation();
            LatLng current = new LatLng(location.getLatitude(),location.getLongitude());
            map.moveCamera(CameraUpdateFactory.newLatLngZoom(current,14));
         }
@@ -189,6 +188,29 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
         map.clear();
     }
 
+    public void onRestart() {
+        super.onRestart();
+        setupLocationClientIfNeeded();
+        locationClient.connect();
+
+    }
+
+    public void onStart() {
+        super.onStart();
+        setupLocationClientIfNeeded();
+        locationClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+
+        if (locationClient.isConnected()) {
+            locationClient.removeLocationUpdates(this);
+        }
+        locationClient.disconnect();
+        super.onStop();
+    }
+
 
 
     private void setupLocationClientIfNeeded() {
@@ -200,6 +222,10 @@ public class NearestBusRouteMapActivity extends Activity implements GooglePlaySe
     @Override
     public void onConnected(Bundle bundle) {
         locationClient.requestLocationUpdates(REQUEST,this);
+        location = locationClient.getLastLocation();
+        if(location == null) {
+            CheckConnectivityUtils.showGPSSettingsAlert(this);
+        }
 
     }
 
