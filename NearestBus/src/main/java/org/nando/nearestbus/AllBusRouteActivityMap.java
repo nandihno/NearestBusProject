@@ -131,7 +131,7 @@ public class AllBusRouteActivityMap extends Activity implements GooglePlayServic
                 }
             }
         }
-        
+
         if(location == null) {
             CheckConnectivityUtils.showGPSSettingsAlert(this);
         }

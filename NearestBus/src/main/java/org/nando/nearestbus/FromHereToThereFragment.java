@@ -131,7 +131,7 @@ public class FromHereToThereFragment extends Fragment implements GooglePlayServi
     private void searchForBusToThere() {
         listView.setAdapter(null);
         BusStopDataSource dsource = new BusStopDataSource(getActivity());
-        
+
         if(location == null) {
             CheckConnectivityUtils.showGPSSettingsAlert(getActivity());
         }

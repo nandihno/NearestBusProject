@@ -2,6 +2,7 @@ package org.nando.nearestbus.task;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.res.AssetManager;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.webkit.WebView;
@@ -27,6 +28,7 @@ import org.nando.nearestbus.pojo.BusRoute;
 import org.nando.nearestbus.pojo.JourneyPlannerBusInfo;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -53,9 +55,17 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
         pd.show();
     }
 
+    private String readHtmlAsset(String assetName,AssetManager assetManager) throws IOException {
+        InputStream input = assetManager.open(assetName);
+        int size = input.available();
+        byte[] buffer = new byte[size];
+        input.read(buffer);
+        input.close();
+        return new String(buffer);
+    }
+
     @Override
     protected String doInBackground(Object... objects) {
-        String html = "";
         String results = "";
         try {
             HttpClient client = new DefaultHttpClient();
@@ -106,7 +116,7 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
                 results = populateResultsToHtml(response);
             }
             else {
-                results = "<p style='color:red'>Please try again got error "+response.getStatusLine().getStatusCode()+"</p>";
+                results = "<p style='color:red'>Please try again there has been some error at Translink's end.  Error "+response.getStatusLine().getStatusCode()+"</p>";
             }
         } catch(Exception e) {
             e.printStackTrace();
@@ -115,6 +125,8 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
     }
 
     private String populateResultsToHtml(HttpResponse response) throws IOException {
+        AssetManager assetManager = mainFragment.getActivity().getAssets();
+
         String html = "";
         String results = "";
         HttpEntity entityResponse = response.getEntity();
@@ -122,17 +134,26 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
 
         Document doc = Jsoup.parse(html);
         Elements travelOptionClass = doc.select(".travel-option");
+        Elements optionSummaryClass = travelOptionClass.select(".travel-option-summary");
         //System.out.println("travelOptionClass-->"+travelOptionClass.html());
         Elements busClass2 = travelOptionClass.select("ul.itinerary");
-        results ="<html><head><meta name='viewport' content='width=device-width' /><style>p {color:#F79429;font-weight:bold;} ol {color:white;} ol.bolder{font-weight:bold;color:white;font-size:15pt;}</style></head><body style='background-color:#004B88'>";
-        //results = "<body style='bgcolor"
+        //results ="<html><head><meta name='viewport' content='width=device-width' /><style>p {color:#F79429;font-weight:bold;} ol {color:white;} ol.bolder{font-weight:bold;color:white;font-size:15pt;}</style></head><body style='background-color:#004B88'>";
+        if(busClass2.size() > 0) {
+        results = this.readHtmlAsset("headHtml.html",assetManager);
+        results += this.readHtmlAsset("bodyHtml.html",assetManager);
+
+
         System.out.println("busClass2 size is:"+busClass2.size());
         for(int a=0; a < busClass2.size(); a++) {
             Element busClassElem = busClass2.get(a);
+
             Elements itineryBusClass = busClassElem.select("li");
 
             // System.out.println("itineraryBysClass size ------>"+itineryBusClass.size() +"html: "+itineryBusClass.html());
-            results += "<p>OPTION "+(a+1)+"</p>";
+            results += "<span class='whiteBold'>OPTION "+(a+1)+"</span> ";
+
+            //Element optionSummElem = optionSummaryClass.get(a);
+            //results += optionSummElem.html();
             for(int b=0; b < itineryBusClass.size(); b++) {
                 boolean hasBusClass = false;
                 boolean hasTrainClass = false;
@@ -174,7 +195,13 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
                 }
             }
         }
-        results += "</body></html>";
+        }
+        else  {
+            results += this.readHtmlAsset("noInformationFound.html",assetManager);
+
+        }
+        //results += "</body></html>";
+        results += this.readHtmlAsset("footerHtml.html",assetManager);
         System.out.println(results);
         return results;
 

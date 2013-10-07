@@ -41,7 +41,7 @@
 
         <activity
             android:name="org.nando.nearestbus.EntryActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -50,24 +50,24 @@
 
         <activity
             android:name="org.nando.nearestbus.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nando.nearestbus.EntryActivity"/>
         </activity>
-        <activity android:name=".NearestBusRouteMapActivity" android:label="@string/app_name">
+        <activity android:name=".NearestBusRouteMapActivity" android:label="@string/app_name" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nando.nearestbus.EntryActivity"/>
         </activity>
-        <activity android:name=".NearestStopsMapActivity" android:label="@string/app_name">
+        <activity android:name=".NearestStopsMapActivity" android:label="@string/app_name" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nando.nearestbus.EntryActivity"/>
         </activity>
-        <activity android:name=".AllBusRouteActivityMap" android:label="@string/app_name">
+        <activity android:name=".AllBusRouteActivityMap" android:label="@string/app_name" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nando.nearestbus.EntryActivity"/>
         </activity>
 
-        <activity android:name=".JourneyPlannerActivity" android:label="@string/app_name">
+        <activity android:name=".JourneyPlannerActivity" android:label="@string/app_name" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nando.nearestbus.EntryActivity"/>
         </activity>
@@ -80,7 +80,9 @@
         <meta-data
                 android:name="com.google.android.maps.v2.API_KEY"
                 android:value="AIzaSyC1HuZ_7Cc2PAOMu5UMMdn88owhAAyfWxc"/>
+
                 -->
+
 
 
 
@@ -90,6 +92,7 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDyT40UZB4iR_ipC8vR82KL7BIenx17lQM"/>
+
 
 
 
