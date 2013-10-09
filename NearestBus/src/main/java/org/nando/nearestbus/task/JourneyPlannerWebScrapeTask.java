@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -108,12 +109,14 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
             data.add(new BasicNameValuePair("FareTypes","Prepaid"));
             data.add(new BasicNameValuePair("FareTypes","Standard"));
             data.add(new BasicNameValuePair("MaximumWalkingDistance","1500"));
+            data.add(new BasicNameValuePair("randomDate",new Date().getTime()+""));
             UrlEncodedFormEntity entity = new UrlEncodedFormEntity(data,"UTF-8");
             post.setEntity(entity);
             HttpResponse response = client.execute(post);
             System.out.println(response.getStatusLine().getStatusCode()+ " <----------- status code!");
             if(response.getStatusLine().getStatusCode() == 200) {
                 results = populateResultsToHtml(response);
+                //results = populateResultsToHtml2(response);
             }
             else {
                 results = "<p style='color:red'>Please try again there has been some error at Translink's end.  Error "+response.getStatusLine().getStatusCode()+"</p>";
@@ -122,6 +125,28 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
             e.printStackTrace();
         }
         return results;
+    }
+
+    private String populateResultsToHtml2(HttpResponse response) throws IOException {
+        String html = "";
+        String results = "";
+        AssetManager assetManager = mainFragment.getActivity().getAssets();
+        HttpEntity entityResponse = response.getEntity();
+        html = EntityUtils.toString(entityResponse);
+
+        Document doc = Jsoup.parse(html);
+        //Elements travelOptionClass = doc.select(".travel-option");
+
+        //Elements optionSummaryClass = travelOptionClass.select(".travel-option-summary");
+        //System.out.println("travelOptionClass-->"+travelOptionClass.html());
+        //Elements busClass2 = travelOptionClass.select("ul.itinerary");
+        Elements contentClass = doc.select("div.content");
+        results = this.readHtmlAsset("headHtml.html",assetManager);
+        results += this.readHtmlAsset("bodyHtml.html",assetManager);
+        //results += busClass2.html();
+        results += contentClass.html();
+        return results;
+
     }
 
     private String populateResultsToHtml(HttpResponse response) throws IOException {
@@ -152,8 +177,8 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
             // System.out.println("itineraryBysClass size ------>"+itineryBusClass.size() +"html: "+itineryBusClass.html());
             results += "<span class='whiteBold'>OPTION "+(a+1)+"</span> ";
 
-            //Element optionSummElem = optionSummaryClass.get(a);
-            //results += optionSummElem.html();
+            Element optionSummElem = optionSummaryClass.get(a);
+            results += optionSummElem.html();
             for(int b=0; b < itineryBusClass.size(); b++) {
                 boolean hasBusClass = false;
                 boolean hasTrainClass = false;
@@ -191,6 +216,7 @@ public class JourneyPlannerWebScrapeTask extends AsyncTask<Object ,Void,String> 
                             pojo.setTravelTime(travelTime.text());
                             */
                     results += "<ul><ol class='bolder'>"+writeTransportHtml(busRoute.text(),hasBusClass,hasTrainClass,hasFerryClass,hasWalkClass)+"</ol><ol>"+depart.text()+"</ol><ol>"+arrive.text()+"</ol><ol>"+travelTime.text()+"</ol></ul>";
+
 
                 }
             }

@@ -39,6 +39,7 @@ import org.nando.nearestbus.utils.CheckConnectivityUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -191,7 +192,8 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                     sbuff.append("ServiceTypes=NightLink&");
                     sbuff.append("FareTypes=Prepaid&");
                     sbuff.append("FareTypes=Standard&");
-                    sbuff.append("MaximumWalkingDistance=1500");
+                    sbuff.append("MaximumWalkingDistance=1200&");
+                    sbuff.append("someRandomDate="+new Date().getTime());
                     System.out.println(url+sbuff.toString());
                     webView.getSettings().setJavaScriptEnabled(true);
                     webView.setWebViewClient(new WebViewClient(){

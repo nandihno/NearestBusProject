@@ -1,5 +1,6 @@
 package org.nando.nearestbus.task;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 import org.nando.nearestbus.FromHereToThereFragment;
@@ -17,9 +18,19 @@ import java.util.List;
 public class FromHereThereTask extends AsyncTask<Object,Void,ArrayList<BusRoute>> {
 
     FromHereToThereFragment myFragment;
+    ProgressDialog pd = null;
 
     public FromHereThereTask(FromHereToThereFragment fragment) {
         myFragment = fragment;
+    }
+
+    protected void onPreExecute() {
+        pd = new ProgressDialog(myFragment.getActivity());
+        pd.setTitle("Searching...");
+        pd.setMessage("Please wait.");
+        pd.setCancelable(false);
+        pd.setIndeterminate(true);
+        pd.show();
     }
 
 
@@ -36,6 +47,8 @@ public class FromHereThereTask extends AsyncTask<Object,Void,ArrayList<BusRoute>
     }
 
     protected void onPostExecute(ArrayList<BusRoute> list) {
+        pd.dismiss();
+        pd = null;
         myFragment.displayList(list);
 
     }

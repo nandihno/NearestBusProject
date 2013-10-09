@@ -1,5 +1,6 @@
 package org.nando.nearestbus.task;
 
+import android.app.ProgressDialog;
 import android.location.Location;
 import android.os.AsyncTask;
 
@@ -24,6 +25,8 @@ public class BusRouteInfoTask extends AsyncTask<BusStopDataSource,Void,ArrayList
     private NearestBusRouteMapActivity mainActivityMap = null;
     private LocationPojo locationPojo;
     private String busRoute;
+    ProgressDialog pd = null;
+
 
     public BusRouteInfoTask(Object anActivity, Location aLocation, LocationPojo locPojo, String aBusRoute) {
         if(anActivity instanceof NearestBusRouteFragment) {
@@ -37,6 +40,20 @@ public class BusRouteInfoTask extends AsyncTask<BusStopDataSource,Void,ArrayList
         busRoute = aBusRoute;
 
 
+    }
+
+    protected void onPreExecute() {
+        if(mainActivityMap != null) {
+            pd = new ProgressDialog(mainActivityMap);
+        }
+        else {
+            pd = new ProgressDialog(mainFragment.getActivity());
+        }
+        pd.setTitle("Searching...");
+        pd.setMessage("Please wait.");
+        pd.setCancelable(false);
+        pd.setIndeterminate(true);
+        pd.show();
     }
 
 
@@ -54,6 +71,10 @@ public class BusRouteInfoTask extends AsyncTask<BusStopDataSource,Void,ArrayList
     }
 
     protected void onPostExecute(ArrayList<BusStops> list) {
+        if(pd.isShowing()) {
+            pd.dismiss();
+            pd = null;
+        }
         if(mainFragment != null) {
            mainFragment.displayBusStops(list);
         }

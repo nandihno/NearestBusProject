@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.nando.nearestbus"
-    android:versionCode="9"
-    android:versionName="5.2" >
+    android:versionCode="10"
+    android:versionName="5.2.1" >
 
 
     <uses-sdk
@@ -76,22 +76,23 @@
 
        <!-- TEST -->
 
-<!--
+
         <meta-data
                 android:name="com.google.android.maps.v2.API_KEY"
                 android:value="AIzaSyC1HuZ_7Cc2PAOMu5UMMdn88owhAAyfWxc"/>
 
-                -->
+
 
 
 
 
         <!-- PROD -->
 
-
+<!--
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDyT40UZB4iR_ipC8vR82KL7BIenx17lQM"/>
+            -->
 
 
 
