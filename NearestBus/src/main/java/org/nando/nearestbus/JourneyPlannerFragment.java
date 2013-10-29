@@ -149,12 +149,13 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                     /**
                      * Uncomment when ready
                      */
-
+                /*
                     webView.loadData("","text/html",null);
                     JourneyPlannerWebScrapeTask task = new JourneyPlannerWebScrapeTask(this);
                     task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,url,location,hour,minute,am_pm,destination,isLeaveAfterTimeSearchMode);
+                    */
 
-                /*
+
                     final ProgressDialog pd = new ProgressDialog(getActivity());
                     webView.clearFormData();
                     webView.clearHistory();
@@ -206,7 +207,7 @@ public class JourneyPlannerFragment extends Fragment implements GooglePlayServic
                     webView.setBackgroundColor(0x00000000);
                     webView.setVisibility(View.VISIBLE);
                     webView.postUrl(url, EncodingUtils.getBytes(sbuff.toString(), "BASE64"));
-                    */
+
 
 
                 }

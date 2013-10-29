@@ -58,7 +58,7 @@ public class BusStopDataSource {
 
     public ArrayList<BusStops> getNearestBusStop(LocationPojo p1, LocationPojo p2, LocationPojo p3, LocationPojo p4) {
         ArrayList<BusStops> list = new ArrayList<BusStops>();
-        Cursor cursor = database.rawQuery("select DISTINCT * from STOPS where stop_lat > ? AND " +
+        Cursor cursor = database.rawQuery("select DISTINCT * from stops where stop_lat > ? AND " +
                                           "stop_lat < ? AND " +
                                           "stop_lon < ? AND " +
                                           "stop_lon > ?",new String[]{String.valueOf(p3.latitude),String.valueOf(p1.latitude),String.valueOf(p2.longtitude),String.valueOf(p4.longtitude)});
@@ -81,10 +81,10 @@ public class BusStopDataSource {
     }
 
     public ArrayList<BusStops> fetchBusStopsForABusRoute(String busRoute, LocationPojo p1, LocationPojo p2, LocationPojo p3, LocationPojo p4) {
-        String table1 = "stop_times_thursday_1";
-        String table2 = "stop_times_thursday2";
-        String table3 = "stop_times_thursday_3";
-        String table4 = "stop_times_thursday_4";
+        String table1 = "stop_times_1 ";
+        String table2 = "stop_times_2";
+        String table3 = "stop_times_3";
+        String table4 = "stop_times_4";
         ArrayList<BusStops> list  = new ArrayList();
         String sqlp1 = "select distinct stp.stop_id, stp.stop_name,stp.stop_lat,stp.stop_lon,stp.stop_url,stp.zone_id from ";
         String sqlp2 = " thurs, trips trp, routes rts, stops stp where thurs.trip_id = trp.trip_id "+
@@ -142,10 +142,10 @@ public class BusStopDataSource {
     }
 
     public ArrayList<BusRoute> fetchBusRoutesForEachStop(String stopId) {
-        String table1 = "stop_times_thursday_1";
-        String table2 = "stop_times_thursday2";
-        String table3 = "stop_times_thursday_3";
-        String table4 = "stop_times_thursday_4";
+        String table1 = "stop_times_1";
+        String table2 = "stop_times_2";
+        String table3 = "stop_times_3";
+        String table4 = "stop_times_4";
         ArrayList<BusRoute> list = null;
         String sqlp1 = "select distinct rts.route_short_name,rts.route_id,stp.stop_id from ";
         String sqlp2 = " thurs, trips trp, routes rts, stops stp where thurs.stop_id = ?" +
@@ -242,10 +242,10 @@ public class BusStopDataSource {
 
     public void setAllStopsForBusNumber(BusRoute busRoute) {
         ArrayList<BusStops> list = new ArrayList<BusStops>();
-        String thurs1 = "stop_times_thursday_1 ";
-        String thurs2 = "stop_times_thursday2 ";
-        String thurs3 = "stop_times_thursday_3 ";
-        String thurs4 = "stop_times_thursday_4 ";
+        String thurs1 = "stop_times_1 ";
+        String thurs2 = "stop_times_2 ";
+        String thurs3 = "stop_times_3 ";
+        String thurs4 = "stop_times_4 ";
         String sql = "select stp.stop_id, stp.stop_lat, stp.stop_lon,stp.stop_name,stp.stop_url,stp.zone_id from trips trp, Stops stp, ";
         String sql2 = " thurs where trp.trip_id = thurs.trip_id and thurs.stop_id = stp.stop_id and "+
                 "trp.route_id = ?";

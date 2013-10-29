@@ -26,7 +26,11 @@ public class JourneyPlannerActivity extends Activity implements JourneyPlannerMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.journey_planner_activity);
         ActionBar ab = getActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
+        if(ab != null) {
+            ab.setDisplayHomeAsUpEnabled(true);
+            ab.setBackgroundDrawable(getResources().getDrawable(R.drawable.orange_gradient));
+        }
+
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setCustomAnimations(android.R.animator.fade_in,android.R.animator.fade_out);
         jpFragment = (JourneyPlannerFragment) getFragmentManager().findFragmentById(R.id.jp);

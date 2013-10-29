@@ -28,9 +28,8 @@ public class SectionPagerAdapter extends FragmentPagerAdapter {
                 return new NearestStopsFragment();
             case 1:
                 return new NearestBusRouteFragment();
+
             case 2:
-                return new FromHereToThereFragment();
-            case 3:
                 return new AllBusRouteFragment();
 
         }
@@ -39,7 +38,7 @@ public class SectionPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
     public CharSequence getPageTitle(int position) {
@@ -48,9 +47,8 @@ public class SectionPagerAdapter extends FragmentPagerAdapter {
                 return "Find nearest bus stops";
             case 1:
                 return "Find nearest bus routes";
+
             case 2:
-                return "Which bus goes there";
-            case 3:
                 return "Stops for any bus";
 
 

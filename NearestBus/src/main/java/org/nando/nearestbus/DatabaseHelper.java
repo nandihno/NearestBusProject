@@ -18,7 +18,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static String DB_PATH = "/data/data/org.nando.nearestbus/databases/";
 
-    private static String DB_NAME = "BusDBForSept";
+    private static String DB_NAME = "BusDBSEQRev3";
+
+    private static String OLD_DB_NAME = "BusDBForSept";
+
 
     private SQLiteDatabase myDataBase;
 
@@ -47,6 +50,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //do nothing - database already exist
         }else{
 
+            removeOldDBIfExist();
+
             //By calling this method and empty database will be created into the default system path
             //of your application so we are gonna be able to overwrite that database with our database.
             this.getReadableDatabase();
@@ -64,16 +69,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    /**
-     * Check if the database already exist to avoid re-copying the file each time you open the application.
-     * @return true if it exists, false if it doesn't
-     */
-    public boolean checkDataBase(){
+    public void removeOldDBIfExist() throws IOException {
+        if(checkDatabase(OLD_DB_NAME)) {
+            this.myContext.getApplicationContext().deleteDatabase(OLD_DB_NAME);
+        }
+    }
 
+    private boolean checkDatabase(String dbName) {
         SQLiteDatabase checkDB = null;
 
         try{
-            String myPath = DB_PATH + DB_NAME;
+            String myPath = DB_PATH + dbName;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
         }catch(SQLiteException e){
@@ -90,6 +96,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return checkDB != null ? true : false;
+
+    }
+
+    /**
+     * Check if the database already exist to avoid re-copying the file each time you open the application.
+     * @return true if it exists, false if it doesn't
+     */
+    public boolean checkDataBase(){
+
+      return checkDatabase(DB_NAME);
     }
 
     /**

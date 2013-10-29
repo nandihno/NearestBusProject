@@ -157,7 +157,7 @@ public class NearestStopsFragment extends Fragment implements GooglePlayServices
             listView.setAdapter(adapter);
         }
         else {
-            AlertDialog dialog =  dialogHelper.createAlertDialog("Sorry","There are no bus stops within 500m radius ",false);
+            AlertDialog dialog =  dialogHelper.createAlertDialog("Sorry","There are no bus stops within 1000m radius ",false);
             dialog.show();
         }
     }

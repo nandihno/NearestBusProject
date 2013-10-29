@@ -12,7 +12,7 @@ import org.nando.nearestbus.pojo.LocationPojo;
  */
 public class GeoUtils {
 
-    public static double RANGE_IN_METERS = 500.0;
+    public static double RANGE_IN_METERS = 1050.0;
     public static final LatLng BRISBANE_LT_LNG = new LatLng(-27.4710107,153.0234489);
 
     /**

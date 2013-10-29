@@ -160,7 +160,7 @@ public class NearestBusRouteFragment extends Fragment implements GooglePlayServi
             listView.setAdapter(adapter);
         }
         else {
-            AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Bus "+editText.getText().toString()+" not found within 500m radius vicinity",false);
+            AlertDialog dialog = dialogHelper.createAlertDialog("Sorry","Bus "+editText.getText().toString()+" not found within 1000m radius vicinity",false);
             dialog.show();
         }
     }
